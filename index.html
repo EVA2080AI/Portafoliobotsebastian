@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juan Sebastián Másmela | Product Design Director</title>
-    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <style>
         /* =========================================
            DESIGN SYSTEM (SWISS / BRUTALIST)
@@ -21,12 +19,11 @@
             --border-heavy: 2px solid #000000;
             --highlight: #0000FF;
             --pad: 3rem;
-            --header-height-mobile: 70px; /* Altura de la barra móvil */
+            --header-height-mobile: 70px;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; font-size: 16px; }
-        
         body { 
             background: var(--bg); 
             color: var(--ink); 
@@ -40,13 +37,12 @@
         .mono { font-family: 'Space Mono', monospace; font-size: 0.85rem; letter-spacing: -0.02em; }
         .txt-huge { font-size: clamp(2.5rem, 7vw, 6rem); text-transform: uppercase; margin-bottom: 2rem; word-break: break-word; }
         .txt-lead { font-size: 1.2rem; font-weight: 400; color: var(--ink-light); max-width: 50ch; }
-        
         a { text-decoration: none; color: inherit; transition: 0.2s; }
-        
+
         /* LAYOUT */
         .layout { display: grid; grid-template-columns: 320px 1fr; min-height: 100vh; }
 
-        /* MOBILE BAR (Visible solo en móvil) */
+        /* MOBILE BAR */
         .mobile-bar {
             display: none;
             position: fixed; top: 0; left: 0; width: 100%; height: var(--header-height-mobile);
@@ -55,12 +51,9 @@
             align-items: center; justify-content: space-between;
         }
 
-        .hamburger {
-            font-size: 1.5rem; cursor: pointer; padding: 10px; border: 1px solid transparent;
-        }
-        .hamburger:active { border: 1px solid black; background: #eee; }
+        .hamburger { font-size: 1.5rem; cursor: pointer; padding: 10px; }
 
-        /* SIDEBAR (Navegación) */
+        /* SIDEBAR */
         .sidebar {
             position: sticky; top: 0; height: 100vh;
             border-right: var(--border-heavy);
@@ -69,7 +62,7 @@
             background: var(--bg); z-index: 50;
             transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        
+
         .nav-menu { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 3rem; }
         .nav-link { 
             font-size: 1.1rem; font-weight: 600; color: var(--ink-muted); 
@@ -120,7 +113,7 @@
         .close-modal {
             position: absolute; top: 1.5rem; right: 1.5rem;
             font-size: 1.5rem; cursor: pointer; width: 40px; height: 40px;
-            display: flex; align-items: center; justify-content: center; border: 1px solid transparent;
+            display: flex; align-items: center; justify-content: center;
         }
         .close-modal:hover { border: 1px solid black; background: #f0f0f0; }
 
@@ -149,358 +142,397 @@
         }
         .profile-img-container img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); }
 
-        /* =========================================
-           RESPONSIVE & MOBILE MENU LOGIC
-           ========================================= */
         @media (max-width: 900px) {
             .layout { grid-template-columns: 1fr; margin-top: var(--header-height-mobile); }
-            
-            /* Activar Mobile Bar */
             .mobile-bar { display: flex; }
-
-            /* Transformar Sidebar en Menú Off-Canvas */
             .sidebar {
-                position: fixed;
-                top: var(--header-height-mobile);
-                left: 0;
-                width: 100%;
-                height: calc(100vh - var(--header-height-mobile));
-                border-right: none;
-                transform: translateX(-100%); /* Oculto por defecto */
-                padding-bottom: 50px;
-                overflow-y: auto;
+                position: fixed; top: var(--header-height-mobile); left: 0;
+                width: 100%; height: calc(100vh - var(--header-height-mobile));
+                border-right: none; transform: translateX(-100%);
+                padding-bottom: 50px; overflow-y: auto;
             }
-
-            /* Clase para abrir menú */
             .sidebar.active { transform: translateX(0); }
-
-            /* Ajustes Generales */
             section { padding: 2rem 1.5rem; }
             .job-row { grid-template-columns: 1fr; gap: 0.5rem; }
             .modal-content { padding: 1.5rem; width: 95%; box-shadow: 8px 8px 0 rgba(0,0,0,1); }
             .grid-projects { grid-template-columns: 1fr; }
-            
-            /* Ocultar logo dentro del sidebar porque ya está en el header móvil */
             .sidebar-logo-area { display: none; } 
         }
-
     </style>
 </head>
 <body>
 
-    <div id="modal-overlay" class="modal-overlay" onclick="app.closeModal(event)">
-        <div class="modal-content" id="modal-content"></div>
-    </div>
+<div id="modal-overlay" class="modal-overlay" onclick="app.closeModal(event)">
+    <div class="modal-content" id="modal-content"></div>
+</div>
 
-    <div class="mobile-bar">
-        <a href="#" style="font-size:1.2rem; font-weight:900;">MÁSMELA.</a>
-        <div class="hamburger" onclick="app.toggleMenu()">
-            <i class="fas fa-bars" id="menu-icon"></i>
+<div class="mobile-bar">
+    <a href="#" style="font-size:1.2rem; font-weight:900;">MÁSMELA.</a>
+    <div class="hamburger" onclick="app.toggleMenu()">
+        <i class="fas fa-bars" id="menu-icon"></i>
+    </div>
+</div>
+
+<div class="layout">
+    <aside class="sidebar" id="main-sidebar">
+        <div>
+            <div class="sidebar-logo-area">
+                <a href="#" style="font-size:1.4rem; font-weight:900; display:block;">MÁSMELA.</a>
+                <span class="mono" style="color:var(--ink-muted)">Product Design Director</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="#intro" class="nav-link" onclick="app.closeMenu()" data-key="nav_profile">01. Perfil</a>
+                <a href="#experience" class="nav-link" onclick="app.closeMenu()" data-key="nav_exp">02. Trayectoria</a>
+                <a href="#stack" class="nav-link" onclick="app.closeMenu()" data-key="nav_stack">03. Stack</a>
+                <a href="#projects" class="nav-link" onclick="app.closeMenu()" data-key="nav_work">04. Proyectos</a>
+                <a href="#edu" class="nav-link" onclick="app.closeMenu()" data-key="nav_edu">05. Educación</a>
+            </nav>
         </div>
-    </div>
 
-    <div class="layout">
-        
-        <aside class="sidebar" id="main-sidebar">
-            <div>
-                <div class="sidebar-logo-area">
-                    <a href="#" style="font-size:1.4rem; font-weight:900; display:block;">MÁSMELA.</a>
-                    <span class="mono" style="color:var(--ink-muted)">Product Design Director</span>
-                </div>
-                
-                <nav class="nav-menu">
-                    <a href="#intro" class="nav-link" onclick="app.closeMenu()" data-key="nav_profile">01. Perfil</a>
-                    <a href="#experience" class="nav-link" onclick="app.closeMenu()" data-key="nav_exp">02. Trayectoria</a>
-                    <a href="#stack" class="nav-link" onclick="app.closeMenu()" data-key="nav_stack">03. Stack</a>
-                    <a href="#projects" class="nav-link" onclick="app.closeMenu()" data-key="nav_work">04. Proyectos</a>
-                    <a href="#edu" class="nav-link" onclick="app.closeMenu()" data-key="nav_edu">05. Educación</a>
-                </nav>
+        <div class="mono" style="font-size:0.75rem; margin-top: 2rem;">
+            <div style="margin-bottom: 1rem; border-top: 1px solid #eee; padding-top: 1rem;">
+                <span style="display:block; margin-bottom:0.5rem; color:var(--ink-muted)">Language:</span>
+                <a href="javascript:void(0)" onclick="app.setLang('es')" id="btn-es" style="font-weight:700">ES</a> 
+                <span style="color:#ccc">|</span> 
+                <a href="javascript:void(0)" onclick="app.setLang('en')" id="btn-en" style="color:#999">EN</a>
+            </div>
+            <a href="mailto:sebastian689@gmail.com" style="text-decoration:underline;">sebastian689@gmail.com</a><br>
+            +57 319 411 6820
+        </div>
+    </aside>
+
+    <main>
+        <section id="intro">
+            <div class="profile-img-container">
+                <img src="https://eva2080ai.github.io/Portafoliobotsebastian/foto.jpg" alt="Juan Masmela">
             </div>
 
-            <div class="mono" style="font-size:0.75rem; margin-top: 2rem;">
-                <div style="margin-bottom: 1rem; border-top: 1px solid #eee; padding-top: 1rem;">
-                    <span style="display:block; margin-bottom:0.5rem; color:var(--ink-muted)">Language:</span>
-                    <a href="javascript:void(0)" onclick="app.setLang('es')" id="btn-es" style="font-weight:700">ES</a> 
-                    <span style="color:#ccc">|</span> 
-                    <a href="javascript:void(0)" onclick="app.setLang('en')" id="btn-en" style="color:#999">EN</a>
+            <span class="mono">[ DESIGN DIRECTOR ]</span>
+            <h1 class="txt-huge" style="margin-top:0.5rem">
+                Product<br>Design<br><span style="color:#AAA">Portfolio.</span>
+            </h1>
+
+            <div style="margin-top: 3rem;">
+                <div class="persona-control">
+                    <button class="p-btn active" onclick="app.setPersona('recruiter')" id="p-recruiter">Recruiter</button>
+                    <button class="p-btn" onclick="app.setPersona('designer')" id="p-designer">Designer</button>
+                    <button class="p-btn" onclick="app.setPersona('vp')" id="p-vp">VP/Business</button>
                 </div>
-                
-                <a href="mailto:sebastian689@gmail.com" style="text-decoration:underline;">sebastian689@gmail.com</a><br>
-                +57 319 411 6820
+                <p class="txt-lead" id="hero-bio" style="min-height: 100px;"></p>
+
+                <div style="margin-top: 2rem; display:flex; gap:1rem; flex-wrap: wrap;">
+                    <a href="#experience" class="btn-link" data-key="btn_cv">Ver Experiencia ↓</a>
+                    <a href="https://www.linkedin.com/in/masmela" target="_blank" class="btn-link">LinkedIn ↗</a>
+                </div>
             </div>
-        </aside>
+        </section>
 
-        <main>
-            <section id="intro">
-                <div class="profile-img-container">
-                    <img src="https://eva2080ai.github.io/Portafoliobotsebastian/foto.jpg" alt="Juan Masmela">
-                </div>
+        <section id="experience">
+            <div style="display:flex; justify-content:space-between; align-items:end; margin-bottom:3rem;">
+                <h2 data-key="title_exp">Trayectoria</h2>
+                <span class="mono" style="color:var(--ink-muted); font-size:0.7rem;" data-key="hint_click">Click + Info</span>
+            </div>
+            <div id="job-list"></div>
+        </section>
 
-                <span class="mono">[ DESIGN DIRECTOR ]</span>
-                <h1 class="txt-huge" style="margin-top:0.5rem">
-                    Product<br>Design<br><span style="color:#AAA">Portfolio.</span>
-                </h1>
+        <section id="stack">
+            <h2 data-key="title_stack">Stack Tecnológico</h2>
+            <div class="stack-grid">
+                <div class="stack-item"><i class="fab fa-figma"></i> Figma / FigJam</div>
+                <div class="stack-item"><i class="fas fa-gem"></i> Adobe Suite</div>
+                <div class="stack-item"><i class="fas fa-robot"></i> MidJourney</div>
+                <div class="stack-item"><i class="fas fa-search"></i> Hotjar / Clarity</div>
+                <div class="stack-item"><i class="fas fa-tasks"></i> Jira / Notion</div>
+                <div class="stack-item"><i class="fab fa-html5"></i> HTML5 / CSS</div>
+                <div class="stack-item"><i class="fas fa-chart-line"></i> Analytics</div>
+                <div class="stack-item"><i class="fas fa-universal-access"></i> WCAG A11y</div>
+            </div>
+        </section>
 
-                <div style="margin-top: 3rem;">
-                    <div class="persona-control">
-                        <button class="p-btn active" onclick="app.setPersona('recruiter')" id="p-recruiter">Recruiter</button>
-                        <button class="p-btn" onclick="app.setPersona('designer')" id="p-designer">Designer</button>
-                        <button class="p-btn" onclick="app.setPersona('vp')" id="p-vp">VP/Business</button>
-                    </div>
-                    
-                    <p class="txt-lead" id="hero-bio" style="min-height: 100px;"></p>
+        <section id="projects">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:3rem;">
+                <h2 data-key="title_proj">Casos</h2>
+                <a href="https://behance.net/masmela" target="_blank" class="btn-link">Behance ↗</a>
+            </div>
+            <div class="grid-projects" id="projects-grid"></div>
+        </section>
 
-                    <div style="margin-top: 2rem; display:flex; gap:1rem; flex-wrap: wrap;">
-                        <a href="#experience" class="btn-link" data-key="btn_cv">Ver Experiencia ↓</a>
-                        <a href="https://www.linkedin.com/in/masmela" target="_blank" class="btn-link">LinkedIn ↗</a>
-                    </div>
-                </div>
-            </section>
+        <section id="edu">
+            <h2 style="margin-bottom:2rem;" data-key="title_edu">Educación</h2>
+            <div id="edu-list"></div>
+        </section>
 
-            <section id="experience">
-                <div style="display:flex; justify-content:space-between; align-items:end; margin-bottom:3rem;">
-                    <h2 data-key="title_exp">Trayectoria</h2>
-                    <span class="mono" style="color:var(--ink-muted); font-size:0.7rem;" data-key="hint_click">Click + Info</span>
-                </div>
-                
-                <div id="job-list"></div>
-            </section>
+        <section style="background: black; color: white; padding: 4rem 2rem;">
+            <h2 style="color:white; font-size:2.5rem; margin-bottom:1rem;" data-key="footer_cta">¿Hablamos?</h2>
+            <p style="color:#999; margin-bottom:2rem;">Available for Product Leadership roles.</p>
+            <a href="mailto:sebastian689@gmail.com" style="color:white; font-size:1.2rem; text-decoration:underline; word-break: break-all;">sebastian689@gmail.com</a>
+        </section>
+    </main>
+</div>
 
-            <section id="stack">
-                <h2 data-key="title_stack">Stack Tecnológico</h2>
-                <div class="stack-grid">
-                    <div class="stack-item"><i class="fab fa-figma"></i> Figma / FigJam</div>
-                    <div class="stack-item"><i class="fas fa-gem"></i> Adobe Suite</div>
-                    <div class="stack-item"><i class="fas fa-robot"></i> MidJourney</div>
-                    <div class="stack-item"><i class="fas fa-search"></i> Hotjar / Clarity</div>
-                    <div class="stack-item"><i class="fas fa-tasks"></i> Jira / Notion</div>
-                    <div class="stack-item"><i class="fab fa-html5"></i> HTML5 / CSS</div>
-                    <div class="stack-item"><i class="fas fa-chart-line"></i> Analytics</div>
-                    <div class="stack-item"><i class="fas fa-universal-access"></i> WCAG A11y</div>
-                </div>
-            </section>
-
-            <section id="projects">
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:3rem;">
-                    <h2 data-key="title_proj">Casos</h2>
-                    <a href="https://behance.net/masmela" target="_blank" class="btn-link">Behance ↗</a>
-                </div>
-                <div class="grid-projects" id="projects-grid"></div>
-            </section>
-
-            <section id="edu">
-                <h2 style="margin-bottom:2rem;" data-key="title_edu">Educación</h2>
-                <div id="edu-list"></div>
-            </section>
-
-            <section style="background: black; color: white; padding: 4rem 2rem;">
-                <h2 style="color:white; font-size:2.5rem; margin-bottom:1rem;" data-key="footer_cta">¿Hablamos?</h2>
-                <p style="color:#999; margin-bottom:2rem;">Available for Product Leadership roles.</p>
-                <a href="mailto:sebastian689@gmail.com" style="color:white; font-size:1.2rem; text-decoration:underline; word-break: break-all;">sebastian689@gmail.com</a>
-            </section>
-        </main>
-    </div>
-
-    <script>
-        const DATA = {
-            lang: 'es',
-            persona: 'recruiter',
-            ui: {
-                nav_profile: { es: "01. Perfil", en: "01. Profile" },
-                nav_exp: { es: "02. Trayectoria", en: "02. Experience" },
-                nav_stack: { es: "03. Stack", en: "03. Stack" },
-                nav_work: { es: "04. Proyectos", en: "04. Work" },
-                nav_edu: { es: "05. Educación", en: "05. Education" },
-                btn_cv: { es: "Ver Experiencia ↓", en: "View Experience ↓" },
-                title_exp: { es: "Trayectoria", en: "Experience" },
-                title_stack: { es: "Stack Tecnológico", en: "Tech Stack" },
-                title_proj: { es: "Casos de Estudio", en: "Case Studies" },
-                title_edu: { es: "Educación", en: "Education" },
-                hint_click: { es: "Click para detalles +", en: "Click for details +" },
-                footer_cta: { es: "¿Hablamos?", en: "Let's Talk?" }
-            },
-            personas: {
-                recruiter: {
-                    es: "Diseñador de Producto certificado con +7 años de experiencia. He liderado equipos en AB InBev y Dexio, traduciendo requerimientos de negocio en interfaces escalables.",
-                    en: "Certified Product Designer with 7+ years of experience. Led teams at AB InBev and Dexio, translating business requirements into scalable interfaces."
-                },
-                designer: {
-                    es: "Obsesionado con la grilla, los Design Systems (Tokens, Atoms) y la accesibilidad (WCAG). Mi trabajo conecta la estética suiza con la eficiencia frontend.",
-                    en: "Obsessed with grids, Design Systems (Tokens, Atoms), and accessibility (WCAG). My work connects Swiss aesthetics with frontend efficiency."
-                },
-                vp: {
-                    es: "Estratega digital enfocado en ROI. Utilizo UX para reducir costos operativos (Customer Support) y aumentar el LTV en productos B2B.",
-                    en: "Digital strategist focused on ROI. I leverage UX to reduce operating costs (Customer Support) and increase LTV in B2B products."
-                }
-            },
-            jobs: [
-                {
-                    id: 1, period: "2024 - Present",
-                    role: { es: "Lead Product Design (UX)", en: "Lead Product Design (UX)" },
-                    company: "Dexio Technologies",
-                    desc: { es: "Liderazgo en plataformas B2B y Back-Office.", en: "Leadership in B2B and Back-Office platforms." },
-                    details: { es: ["Lidero el diseño de plataformas B2B.", "Superviso interfaces KYB.", "Optimización de flujos de trabajo."], en: ["Leading B2B platform design.", "Supervising KYB interfaces.", "Workflow optimization."] }
-                },
-                {
-                    id: 2, period: "May 2024 - Aug 2024",
-                    role: { es: "Senior UX/UI Specialist", en: "Senior UX/UI Specialist" },
-                    company: "Aguayo (Colsubsidio)",
-                    desc: { es: "Optimización de activos y conversión turismo.", en: "Asset optimization and tourism conversion." },
-                    details: { es: ["Optimicé UX/UI de Hoteles Colsubsidio.", "Mejoré tasa de conversión.", "Alineación comercial."], en: ["Optimized Hotels UX/UI.", "Improved conversion rates.", "Business alignment."] }
-                },
-                {
-                    id: 3, period: "2023 - 2024",
-                    role: { es: "Product Designer UX/UI", en: "Product Designer UX/UI" },
-                    company: "ABA Tech",
-                    desc: { es: "Soluciones SaaS sector salud.", en: "SaaS solutions for healthcare." },
-                    details: { es: ["Diseño centrado en el usuario.", "Pruebas de usabilidad.", "Prototipos accesibles."], en: ["User-centered design.", "Usability testing.", "Accessible prototypes."] }
-                },
-                {
-                    id: 4, period: "2021 - 2022",
-                    role: { es: "Líder UX/UI - Growth", en: "UX/UI Lead - Growth" },
-                    company: "Bavaria (AB InBev)",
-                    desc: { es: "Gestión regional Budweiser y Corona.", en: "Regional management Budweiser & Corona." },
-                    details: { es: ["Liderazgo región MAZ.", "Ecosistemas modulares.", "Gestión de stakeholders."], en: ["MAZ region leadership.", "Modular ecosystems.", "Stakeholder management."] }
-                },
-                {
-                    id: 5, period: "2018 - 2019",
-                    role: { es: "Director de Diseño", en: "Design Director" },
-                    company: "Grupo Rta Autolagos",
-                    desc: { es: "Estrategia digital y Fintech.", en: "Digital strategy and Fintech." },
-                    details: { es: ["Estrategias digitales.", "Liderazgo creativo."], en: ["Digital strategies.", "Creative leadership."] }
-                }
-            ],
-            projects: [
-                { title: "Dexio B2B", tags: { es: "Fintech / Dashboard", en: "Fintech / Dashboard" }, img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" },
-                { title: "Vector", tags: { es: "Design Systems", en: "Design Systems" }, img: "https://images.unsplash.com/photo-1600607686527-6fb886090705?w=800&q=80" },
-                
-                { title: "Ia", tags: { es: "Banca / A11y", en: "Banking / Accessibility" }, img: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&q=80" }
-            ],
-            education: [
-                { title: { es: "Diseñador Gráfico Pro", en: "Pro Graphic Designer" }, school: "Escuela de Artes y Letras (2017)" },
-                { title: { es: "Certificación UX", en: "UX Certification" }, school: "Fundación Carlos Slim (2020)" },
-                { title: "Scrum Fundamentals", school: "Agile Methodologies" },
-                { title: "Adobe Certified Expert", school: "Adobe Creative Cloud" }
-            ]
-        };
-
-        const app = {
-            init: () => {
-                app.renderAll();
-            },
-            
-            // --- NEW: MENU TOGGLE LOGIC ---
-            toggleMenu: () => {
-                const sidebar = document.getElementById('main-sidebar');
-                const icon = document.getElementById('menu-icon');
-                sidebar.classList.toggle('active');
-                
-                // Toggle Icon logic
-                if(sidebar.classList.contains('active')) {
-                    icon.classList.remove('fa-bars');
-                    icon.classList.add('fa-times');
-                } else {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                }
-            },
-
-            closeMenu: () => {
-                // Cierra el menu cuando se hace click en un link (Solo en mobile)
-                if(window.innerWidth <= 900) {
-                    const sidebar = document.getElementById('main-sidebar');
-                    sidebar.classList.remove('active');
-                    document.getElementById('menu-icon').classList.remove('fa-times');
-                    document.getElementById('menu-icon').classList.add('fa-bars');
-                }
-            },
-            // ------------------------------
-
-            setLang: (l) => {
-                DATA.lang = l;
-                document.getElementById('btn-es').style.color = l==='es' ? 'black' : '#999';
-                document.getElementById('btn-en').style.color = l==='en' ? 'black' : '#999';
-                document.getElementById('btn-es').style.fontWeight = l==='es' ? '900' : '400';
-                document.getElementById('btn-en').style.fontWeight = l==='en' ? '900' : '400';
-                app.renderAll();
-            },
-            setPersona: (p) => {
-                DATA.persona = p;
-                document.querySelectorAll('.p-btn').forEach(btn => btn.classList.remove('active'));
-                document.getElementById(`p-${p}`).classList.add('active');
-                app.renderBio();
-            },
-            renderUI: () => {
-                document.querySelectorAll('[data-key]').forEach(el => {
-                    const key = el.dataset.key;
-                    if(DATA.ui[key]) el.innerText = DATA.ui[key][DATA.lang];
-                });
-            },
-            renderBio: () => {
-                document.getElementById('hero-bio').innerHTML = DATA.personas[DATA.persona][DATA.lang];
-            },
-            renderExperience: () => {
-                document.getElementById('job-list').innerHTML = DATA.jobs.map(job => `
-                    <div class="job-row" onclick="app.openModal(${job.id})">
-                        <span class="mono" style="color:#888;">${job.period}</span>
-                        <div>
-                            <h3>${job.role[DATA.lang]}</h3>
-                            <span style="font-weight:500;">${job.company}</span>
-                            <p style="font-size:0.9rem; color:#666; margin-top:0.5rem">${job.desc[DATA.lang]}</p>
-                        </div>
-                        <i class="fas fa-arrow-right arrow-icon"></i>
-                    </div>
-                `).join('');
-            },
-            renderProjects: () => {
-                document.getElementById('projects-grid').innerHTML = DATA.projects.map(p => `
-                    <a href="https://behance.net/masmela" target="_blank" class="project-card">
-                        <div class="p-img"><img src="${p.img}"></div>
-                        <h3 style="font-size:1.2rem">${p.title}</h3>
-                        <span class="mono" style="color:#888; font-size:0.8rem">${p.tags[DATA.lang]}</span>
-                    </a>
-                `).join('');
-            },
-            renderEducation: () => {
-                document.getElementById('edu-list').innerHTML = DATA.education.map(e => {
-                    const title = typeof e.title === 'object' ? e.title[DATA.lang] : e.title;
-                    return `
-                    <div style="border-left:2px solid black; padding-left:1rem; margin-bottom:1.5rem;">
-                        <h4 style="font-size:1.1rem">${title}</h4>
-                        <span class="mono" style="color:#666">${e.school}</span>
-                    </div>`;
-                }).join('');
-            },
-            renderAll: () => {
-                app.renderUI(); app.renderBio(); app.renderExperience(); app.renderProjects(); app.renderEducation();
-            },
-            openModal: (id) => {
-                const job = DATA.jobs.find(j => j.id === id);
-                if(!job) return;
-                const modal = document.getElementById('modal-overlay');
-                const content = document.getElementById('modal-content');
-                const lang = DATA.lang;
-                content.innerHTML = `
-                    <div class="close-modal" onclick="app.closeModal(event)">&times;</div>
-                    <span class="mono" style="background:black; color:white; padding:2px 8px;">${job.period}</span>
-                    <h2 style="font-size:2rem; margin-top:1rem; margin-bottom:0.5rem; line-height:1.1;">${job.role[lang]}</h2>
-                    <h3 style="color:#666; font-weight:400; margin-bottom:2rem; border-bottom:1px solid #eee; padding-bottom:1rem;">${job.company}</h3>
-                    <ul style="list-style:none;">
-                        ${job.details[lang].map(d => `<li style="margin-bottom:1rem; display:flex; gap:1rem; align-items:start;"><i class="fas fa-check" style="margin-top:6px; font-size:0.8rem; color:black"></i><span style="font-size:1.05rem; color:#333;">${d}</span></li>`).join('')}
-                    </ul>
-                `;
-                modal.classList.add('open');
-                document.body.style.overflow = 'hidden'; 
-            },
-            closeModal: (e) => {
-                if (e.target.id === 'modal-overlay' || e.target.classList.contains('close-modal')) {
-                    document.getElementById('modal-overlay').classList.remove('open');
-                    document.body.style.overflow = 'auto';
-                }
+<script>
+const DATA = {
+    lang: 'es',
+    persona: 'recruiter',
+    ui: {
+        nav_profile: { es: "01. Perfil", en: "01. Profile" },
+        nav_exp: { es: "02. Trayectoria", en: "02. Experience" },
+        nav_stack: { es: "03. Stack", en: "03. Stack" },
+        nav_work: { es: "04. Proyectos", en: "04. Work" },
+        nav_edu: { es: "05. Educación", en: "05. Education" },
+        btn_cv: { es: "Ver Experiencia ↓", en: "View Experience ↓" },
+        title_exp: { es: "Trayectoria", en: "Experience" },
+        title_stack: { es: "Stack Tecnológico", en: "Tech Stack" },
+        title_proj: { es: "Casos de Estudio", en: "Case Studies" },
+        title_edu: { es: "Educación", en: "Education" },
+        hint_click: { es: "Click para detalles +", en: "Click for details +" },
+        footer_cta: { es: "¿Hablamos?", en: "Let's Talk?" }
+    },
+    personas: {
+        recruiter: {
+            es: "Diseñador de Producto certificado con +7 años de experiencia. He liderado equipos en AB InBev y Dexio, traduciendo requerimientos de negocio en interfaces escalables.",
+            en: "Certified Product Designer with 7+ years of experience. Led teams at AB InBev and Dexio, translating business requirements into scalable interfaces."
+        },
+        designer: {
+            es: "Obsesionado con la grilla, los Design Systems (Tokens, Atoms) y la accesibilidad (WCAG). Mi trabajo conecta la estética suiza con la eficiencia frontend.",
+            en: "Obsessed with grids, Design Systems (Tokens, Atoms), and accessibility (WCAG). My work connects Swiss aesthetics with frontend efficiency."
+        },
+        vp: {
+            es: "Estratega digital enfocado en ROI. Utilizo UX para reducir costos operativos y aumentar el LTV en productos B2B.",
+            en: "Digital strategist focused on ROI. I leverage UX to reduce operating costs and increase LTV in B2B products."
+        }
+    },
+    jobs: [
+        {
+            id: 1, period: "May 2024 - Present",
+            role: { "es": "Lead Diseño de Producto (UX)", "en": "Lead Product Design (UX)" },
+            company: "Dexio Technologies",
+            "desc": { "es": "Liderazgo en plataformas B2B y flujos transaccionales.", "en": "Leadership in B2B platforms and transactional flows." },
+            "details": { 
+                "es": ["Lidero el diseño de plataformas B2B con enfoque en cuentas corporativas.", "Superviso interfaces KYB y transacciones de back-office.", "Optimización de flujos de trabajo y cumplimiento normativo."], 
+                "en": ["Leading B2B platform design focusing on corporate accounts.", "Supervising KYB interfaces and back-office transactions.", "Workflow and regulatory compliance optimization."] 
             }
-        };
+        },
+        {
+            id: 2, period: "May 2024 - Aug 2024",
+            role: { "es": "Senior UX/UI Specialist", "en": "Senior UX/UI Specialist" },
+            company: "Aguayo (Colsubsidio)",
+            "desc": { "es": "Optimización de activos digitales y conversión.", "en": "Digital asset optimization and conversion." },
+            "details": { 
+                "es": ["Optimicé UX/UI de colsubsidio.com, Teatro y Hoteles Colsubsidio.", "Mejoré la tasa de engagement y conversión de usuarios.", "Alineación de estrategias digitales con objetivos comerciales."], 
+                "en": ["Optimized UX/UI for colsubsidio.com, Theater, and Hotels.", "Improved engagement rate and user conversion.", "Alignment of digital strategies with business goals."] 
+            }
+        },
+        {
+            id: 3, period: "May 2023 - Mar 2024",
+            role: { "es": "Product Designer UX/UI", "en": "Product Designer UX/UI" },
+            company: "ABA Tech",
+            "desc": { "es": "Soluciones SaaS para salud y ABA.", "en": "SaaS solutions for healthcare and ABA." },
+            "details": { 
+                "es": ["Diseño de soluciones centradas en el usuario para productos de salud.", "Investigación de usuarios y pruebas de usabilidad para iteraciones de diseño.", "Creación de wireframes y prototipos bajo estándares de accesibilidad."], 
+                "en": ["Design of user-centered solutions for healthcare products.", "User research and usability testing for design iterations.", "Creation of wireframes and prototypes under accessibility standards."] 
+            }
+        },
+        {
+            id: 4, period: "Nov 2021 - Dec 2022",
+            role: { "es": "Líder UX/UI - Growth", "en": "UX/UI Lead - Growth" },
+            company: "Bavaria (AB InBev)",
+            "desc": { "es": "Gestión regional de ecosistemas digitales MAZ.", "en": "Regional management of MAZ digital ecosystems." },
+            "details": { 
+                "es": ["Liderazgo UX/UI para marcas como Budweiser, Corona y Stella Artois.", "Diseño de ecosistemas modulares para optimizar costos de implementación.", "Gestión de relaciones con stakeholders."], 
+                "en": ["UX/UI leadership for brands like Budweiser, Corona, and Stella Artois.", "Modular ecosystem design to optimize implementation costs.", "Stakeholder relationship management."] 
+            }
+        },
+        {
+            id: 5, period: "Mar 2020 - Feb 2022",
+            role: { "es": "Diseñador UX Senior", "en": "Senior UX Designer" },
+            company: "Bavaria (AB InBev)",
+            "desc": { "es": "Productos digitales para Marketing.", "en": "Digital products for Marketing." },
+            "details": { 
+                "es": ["Creación de ecosistemas para más de 18 marcas internacionales de cerveza.", "Optimización de recorridos de usuario y estándares de experiencia."], 
+                "en": ["Creation of ecosystems for over 18 international beer brands.", "User journey optimization and experience standards."] 
+            }
+        },
+        {
+            id: 6, period: "Aug 2019 - Feb 2021",
+            role: { "es": "Diseñador UX/UI Ágil", "en": "Agile UX/UI Designer" },
+            company: "Bavaria (AB InBev)",
+            "desc": { "es": "Proyecto de investigación SIXPACK y software de proveedores.", "en": "SIXPACK research project and supplier software." },
+            "details": { 
+                "es": ["Implementación de herramientas para continuidad del negocio en 8 países.", "Investigación y prototipado con impacto en Colombia, Perú y Ecuador."], 
+                "en": ["Implementation of tools for business continuity in 8 countries.", "Research and prototyping impacting Colombia, Peru, and Ecuador."] 
+            }
+        },
+        {
+            id: 7, period: "Nov 2018 - Aug 2019",
+            role: { "es": "Director de Diseño", "en": "Design Director" },
+            company: "Grupo Rta Autolagos",
+            "desc": { "es": "Estrategia digital y activos para diversos sectores.", "en": "Digital strategy and assets for various sectors." },
+            "details": { 
+                "es": ["Estrategias digitales para Crédiprosperar y Rtaxi.", "Liderazgo en la creación de portafolios virtuales y sistemas de pago online."], 
+                "en": ["Digital strategies for Crédiprosperar and Rtaxi.", "Leadership in creating virtual portfolios and online payment systems."] 
+            }
+        },
+        {
+            id: 8, period: "Dec 2017 - Aug 2018",
+            role: { "es": "Analista de Diseño Digital", "en": "Digital Design Analyst" },
+            company: "Medimás EPS",
+            "desc": { "es": "Diseño estratégico de comunicaciones digitales.", "en": "Strategic digital communications design." },
+            "details": { 
+                "es": ["Diseño de contenido para redes sociales y estrategias multimedia."], 
+                "en": ["Social media content design and multimedia strategies."] 
+            }
+        },
+        {
+            id: 9, period: "Jun 2017 - Oct 2017",
+            role: { "es": "Coordinador de Diseño y Desarrollo", "en": "Design and Development Coordinator" },
+            company: "Proyecto Golden Kis",
+            "desc": { "es": "Estrategia de diseño e imagen para comunicación legal.", "en": "Design and image strategy for legal communication." },
+            "details": { 
+                "es": ["Dirigí la estrategia de diseño y de imagen para la comunicación legal.", "Publicidad y simuladores de software."], 
+                "en": ["Directed the design and image strategy for legal communication.", "Advertising and software simulators."] 
+            }
+        },
+        {
+            id: 10, period: "Jul 2010 - Jun 2012",
+            role: { "es": "Especialista en Publicidad y Marketing", "en": "Advertising and Marketing Specialist" },
+            company: "Bancamía S.A.",
+            "desc": { "es": "Estrategias de marketing para microemprendimiento.", "en": "Marketing strategies for micro-entrepreneurship." },
+            "details": { 
+                "es": ["Desarrollé estrategias de marketing para microemprendimiento y educación financiera.", "Lideré la producción y postproducción de videos para contenido digital."], 
+                "en": ["Developed marketing strategies for micro-entrepreneurship and financial education.", "Led video production and post-production for digital content."] 
+            }
+        },
+        {
+            id: 11, period: "Jul 2009 - Jun 2010",
+            role: { "es": "Diseñador Gráfico", "en": "Graphic Designer" },
+            company: "Federación Nacional de Cafeteros de Colombia",
+            "desc": { "es": "Diseño de branding para ferias internacionales de café.", "en": "Branding design for international coffee fairs." },
+            "details": { 
+                "es": ["Diseño de materiales de comunicación para ferias como ExpoEspeciales y SCAA."], 
+                "en": ["Communication materials design for fairs such as ExpoEspeciales and SCAA."] 
+            }
+        }
+    ],
+    projects: [
+        { "title": "Dexio B2B", "tags": { "es": "Fintech / Dashboard", "en": "Fintech / Dashboard" }, "img": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" },
+        { "title": "Project SIXPACK", "tags": { "es": "Investigación / Multinacional", "en": "Research / Multinational" }, "img": "https://images.unsplash.com/photo-1600607686527-6fb886090705?w=800&q=80" },
+        { "title": "AB InBev MAZ", "tags": { "es": "Ecosistemas / Marketing", "en": "Ecosystems / Marketing" }, "img": "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&q=80" }
+    ],
+    education: [
+        { "title": { "es": "Diseñador Gráfico Profesional", "en": "Professional Graphic Designer" }, "school": "Corporación Escuela de Artes y Letras (2017)" },
+        { "title": { "es": "Certificación en UX", "en": "UX Certification" }, "school": "Fundación Carlos Slim (2020)" },
+        { "title": "Scrum Fundamentals Certified (SFC)", "school": "SCRUMstudy" },
+        { "title": "Adobe Certified Expert", "school": "Adobe Creative Suite" }
+    ]
+};
 
-        document.addEventListener('DOMContentLoaded', app.init);
-    </script>
+const app = {
+    init: () => {
+        app.renderAll();
+    },
+    toggleMenu: () => {
+        const sidebar = document.getElementById('main-sidebar');
+        const icon = document.getElementById('menu-icon');
+        sidebar.classList.toggle('active');
+        if(sidebar.classList.contains('active')) {
+            icon.classList.replace('fa-bars', 'fa-times');
+        } else {
+            icon.classList.replace('fa-times', 'fa-bars');
+        }
+    },
+    closeMenu: () => {
+        if(window.innerWidth <= 900) {
+            document.getElementById('main-sidebar').classList.remove('active');
+            document.getElementById('menu-icon').classList.replace('fa-times', 'fa-bars');
+        }
+    },
+    setLang: (l) => {
+        DATA.lang = l;
+        document.getElementById('btn-es').style.color = l==='es' ? 'black' : '#999';
+        document.getElementById('btn-en').style.color = l==='en' ? 'black' : '#999';
+        document.getElementById('btn-es').style.fontWeight = l==='es' ? '900' : '400';
+        document.getElementById('btn-en').style.fontWeight = l==='en' ? '900' : '400';
+        app.renderAll();
+    },
+    setPersona: (p) => {
+        DATA.persona = p;
+        document.querySelectorAll('.p-btn').forEach(btn => btn.classList.remove('active'));
+        document.getElementById(`p-${p}`).classList.add('active');
+        app.renderBio();
+    },
+    renderUI: () => {
+        document.querySelectorAll('[data-key]').forEach(el => {
+            const key = el.dataset.key;
+            if(DATA.ui[key]) el.innerText = DATA.ui[key][DATA.lang];
+        });
+    },
+    renderBio: () => {
+        document.getElementById('hero-bio').innerHTML = DATA.personas[DATA.persona][DATA.lang];
+    },
+    renderExperience: () => {
+        document.getElementById('job-list').innerHTML = DATA.jobs.map(job => `
+            <div class="job-row" onclick="app.openModal(${job.id})">
+                <span class="mono" style="color:#888;">${job.period}</span>
+                <div>
+                    <h3>${job.role[DATA.lang]}</h3>
+                    <span style="font-weight:500;">${job.company}</span>
+                    <p style="font-size:0.9rem; color:#666; margin-top:0.5rem">${job.desc[DATA.lang]}</p>
+                </div>
+                <i class="fas fa-arrow-right arrow-icon"></i>
+            </div>
+        `).join('');
+    },
+    renderProjects: () => {
+        document.getElementById('projects-grid').innerHTML = DATA.projects.map(p => `
+            <a href="https://behance.net/masmela" target="_blank" class="project-card">
+                <div class="p-img"><img src="${p.img}"></div>
+                <h3 style="font-size:1.2rem">${p.title}</h3>
+                <span class="mono" style="color:#888; font-size:0.8rem">${p.tags[DATA.lang]}</span>
+            </a>
+        `).join('');
+    },
+    renderEducation: () => {
+        document.getElementById('edu-list').innerHTML = DATA.education.map(e => {
+            const title = typeof e.title === 'object' ? e.title[DATA.lang] : e.title;
+            return `
+                <div style="border-left:2px solid black; padding-left:1rem; margin-bottom:1.5rem;">
+                    <h4 style="font-size:1.1rem">${title}</h4>
+                    <span class="mono" style="color:#666">${e.school}</span>
+                </div>`;
+        }).join('');
+    },
+    renderAll: () => {
+        app.renderUI(); app.renderBio(); app.renderExperience(); app.renderProjects(); app.renderEducation();
+    },
+    openModal: (id) => {
+        const job = DATA.jobs.find(j => j.id === id);
+        if(!job) return;
+        const modal = document.getElementById('modal-overlay');
+        const content = document.getElementById('modal-content');
+        const lang = DATA.lang;
+        content.innerHTML = `
+            <div class="close-modal" onclick="app.closeModal(event)">&times;</div>
+            <span class="mono" style="background:black; color:white; padding:2px 8px;">${job.period}</span>
+            <h2 style="font-size:2rem; margin-top:1rem; margin-bottom:0.5rem; line-height:1.1;">${job.role[lang]}</h2>
+            <h3 style="color:#666; font-weight:400; margin-bottom:2rem; border-bottom:1px solid #eee; padding-bottom:1rem;">${job.company}</h3>
+            <ul style="list-style:none;">
+                ${job.details[lang].map(d => `<li style="margin-bottom:1rem; display:flex; gap:1rem; align-items:start;"><i class="fas fa-check" style="margin-top:6px; font-size:0.8rem; color:black"></i><span style="font-size:1.05rem; color:#333;">${d}</span></li>`).join('')}
+            </ul>
+        `;
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden'; 
+    },
+    closeModal: (e) => {
+        if (e.target.id === 'modal-overlay' || e.target.classList.contains('close-modal')) {
+            document.getElementById('modal-overlay').classList.remove('open');
+            document.body.style.overflow = 'auto';
+        }
+    }
+};
+
+document.addEventListener('DOMContentLoaded', app.init);
+</script>
+
 </body>
 </html>
