@@ -269,21 +269,23 @@
             <h2 data-key="title_stack">Stack Tecnológico</h2>
             <div class="stack-grid">
                 <div class="stack-item"><i class="fab fa-figma"></i> Figma / FigJam</div>
+                <div class="stack-item"><i class="fas fa-robot"></i> AI / Research / UX</div>
+                <div class="stack-item"><i class="fas fa-code-branch"></i> n8n / No-Code</div>
                 <div class="stack-item"><i class="fas fa-gem"></i> Adobe Suite</div>
-                <div class="stack-item"><i class="fas fa-robot"></i> MidJourney / AI</div>
                 <div class="stack-item"><i class="fas fa-search"></i> Hotjar / Clarity</div>
                 <div class="stack-item"><i class="fas fa-tasks"></i> Jira / Agile</div>
                 <div class="stack-item"><i class="fab fa-html5"></i> HTML5 / CSS</div>
-                <div class="stack-item"><i class="fas fa-chart-line"></i> Analytics</div>
+                <div class="stack-item"><i class="fas fa-chart-line"></i> GA4 Analytics</div>
                 <div class="stack-item"><i class="fas fa-universal-access"></i> WCAG A11y</div>
             </div>
         </section>
 
         <section id="projects">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:3rem;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
                 <h2 data-key="title_proj">Casos de Estudio</h2>
                 <a href="https://behance.net/masmela" target="_blank" class="btn-link">Behance ↗</a>
             </div>
+            <p class="txt-lead" style="margin-bottom: 3rem; font-size: 1rem;" data-key="desc_proj"></p>
             <div class="grid-projects" id="projects-grid"></div>
         </section>
 
@@ -313,171 +315,127 @@ const DATA = {
         nav_edu: { es: "06. Educación", en: "06. Education" },
         btn_cv: { es: "Ver Trayectoria ↓", en: "View Experience ↓" },
         title_method: { es: "Mi Proceso", en: "My Process" },
-        desc_method: { es: "No sigo metodologías por moda. Aplico lo que funciona para resolver problemas reales.", en: "I don't follow trends. I apply what works to solve real problems." },
+        desc_method: { es: "Enfoque data-driven orientado a resultados, integrando IA y automatización sin perder altos estándares estéticos y de accesibilidad.", en: "Data-driven and results-oriented approach, integrating AI and automation while maintaining high aesthetic and accessibility standards." },
         dor_desc: { es: "Lo que exijo antes de diseñar:", en: "What I need before designing:" },
         dod_desc: { es: "Lo que entrego a desarrollo:", en: "What I deliver to dev:" },
         title_exp: { es: "Trayectoria", en: "Experience" },
         title_stack: { es: "Stack Tecnológico", en: "Tech Stack" },
         title_proj: { es: "Casos de Estudio", en: "Case Studies" },
+        desc_proj: { 
+            es: "Mi enfoque se centra en entender profundamente el comportamiento del usuario a través de la data para construir soluciones modulares y escalables. Cada proyecto busca resolver pain points reales alineando la estética con los objetivos de negocio.",
+            en: "My approach focuses on deeply understanding user behavior through data to build modular and scalable solutions. Each project aims to solve real pain points by aligning aesthetics with business goals."
+        },
         title_edu: { es: "Educación & Certificaciones", en: "Education & Certs" }
     },
     personas: {
         recruiter: {
-            es: "Juan Sebastián Másmela. Diseñador de Producto con +7 años de experiencia. He liderado equipos en AB InBev y Dexio, traduciendo objetivos de negocio en interfaces escalables.",
-            en: "Juan Sebastián Másmela. Product Designer with 7+ years of experience. Led teams at AB InBev and Dexio, translating business goals into scalable interfaces."
+            es: "Juan Sebastián Másmela. Product Design Director con +7 años de experiencia. Especialista en Crecimiento Digital e IA, liderando equipos en AB InBev y Dexio para crear interfaces escalables y de alto impacto.",
+            en: "Juan Sebastián Másmela. Product Design Director with 7+ years of experience. Specialist in Digital Growth and AI, leading teams at AB InBev and Dexio to create scalable and high-impact interfaces."
         },
         designer: {
-            es: "Obsesionado con los Design Systems y el orden. Mi enfoque: 'El diseño sin datos es solo arte'. Uso Figma avanzado, Tokens y documentación técnica.",
-            en: "Obsessed with Design Systems and order. My approach: 'Design without data is just art'. I use advanced Figma, Tokens, and technical documentation."
+            es: "Obsesionado con los Design Systems, la accesibilidad (WCAG) y la automatización con n8n. Mi enfoque une investigación de datos con IA para optimizar procesos creativos y técnicos.",
+            en: "Obsessed with Design Systems, accessibility (WCAG), and automation with n8n. My approach bridges data research with AI to optimize creative and technical workflows."
         },
         vp: {
-            es: "Diseño para mover KPIs. Utilizo UX/UI para reducir costos de soporte, mejorar la retención (LTV) y acelerar la transformación digital.",
-            en: "Designing to move KPIs. I leverage UX/UI to reduce support costs, improve retention (LTV), and accelerate digital transformation."
+            es: "Estratega digital enfocado en ROI y eficiencia operativa. Utilizo UX/UI y automatización para reducir costos, mejorar el LTV y acelerar la transformación digital en mercados B2C y B2B.",
+            en: "Digital strategist focused on ROI and operational efficiency. I leverage UX/UI and automation to reduce costs, improve LTV, and accelerate digital transformation in B2C and B2B markets."
         }
     },
     methods: [
         {
-            title: "Lean UX & Agile",
-            icon: "fas fa-rocket",
-            text: { es: "Menos documentación pesada, más prototipos rápidos. Trabajo en Sprints cortos: Construyo, Mido y Aprendo.", en: "Less heavy documentation, more rapid prototyping. I work in short Sprints: Build, Measure, Learn." }
-        },
-        {
-            title: "Growth Driven Design",
+            title: "Data-Driven & Growth",
             icon: "fas fa-chart-line",
-            text: { es: "El lanzamiento es solo el día 1. Uso datos para iterar continuamente y mover la aguja del negocio.", en: "Launch is just Day 1. I use data to iterate continuously and move the business needle." }
+            text: { es: "Uso de datos e IA aplicada (UX, research y contenidos) para optimizar journeys, conversión y engagement del negocio.", en: "Using data and applied AI (UX, research, and content) to optimize journeys, conversion, and business engagement." }
         },
         {
-            title: "Design Thinking",
-            icon: "fas fa-brain",
-            text: { es: "Investigo, no asumo. Empatizo con el usuario real y co-creo soluciones. Diverger para explorar, converger para definir.", en: "I research, I don't assume. I empathize with the real user and co-create solutions." }
+            title: "Automation & No-Code",
+            icon: "fas fa-robot",
+            text: { es: "Diseño de flujos automatizados con n8n para mejorar la eficiencia operativa y optimizar procesos digitales complejos.", en: "Design of automated workflows with n8n to improve operational efficiency and optimize complex digital processes." }
+        },
+        {
+            title: "Transformación Digital",
+            icon: "fas fa-sync-alt",
+            text: { es: "Estrategia visual para adopción tecnológica y diseño de experiencias educativas que facilitan la capacitación en entornos digitales.", en: "Visual strategy for technology adoption and design of educational experiences that facilitate training in digital environments." }
         }
     ],
     designOps: {
         dor: {
-            es: ["Data real (Hotjar, GA4).", "User Stories claras y priorizadas.", "Requerimientos técnicos (Limitantes de API)."],
-            en: ["Real data (Hotjar, GA4).", "Clear and prioritized User Stories.", "Technical requirements (API constraints)."]
+            es: ["Data real (Hotjar, GA4).", "User Stories claras y priorizadas.", "Requerimientos técnicos y limitantes de API."],
+            en: ["Real data (Hotjar, GA4).", "Clear and prioritized User Stories.", "Technical requirements and API constraints."]
         },
         dod: {
-            es: ["Prototipos Hi-Fi con Auto-Layout.", "Design Tokens y sistema de componentes.", "Casos de borde y QA Visual documentado."],
-            en: ["Hi-Fi prototypes with Auto-Layout.", "Design Tokens and component system.", "Edge cases and documented Visual QA."]
+            es: ["Prototipos Hi-Fi validados con IA.", "Design Tokens y componentes escalables.", "QA Visual documentado y casos de borde."],
+            en: ["AI-validated Hi-Fi prototypes.", "Design Tokens and scalable components.", "Documented Visual QA and edge cases."]
         }
     },
     jobs: [
         {
-            id: 1, period: "May 2024 - Present",
-            role: { es: "Lead Diseño de Producto (UX)", en: "Lead Product Design (UX)" },
+            id: 1, period: "May 2024 - Actualidad",
+            role: { es: "Product Design Director", en: "Product Design Director" },
             company: "Dexio Technologies",
-            desc: { es: "Liderazgo en plataformas B2B y flujos transaccionales.", en: "Leadership in B2B platforms and transactional flows." },
+            desc: { es: "Liderazgo en plataformas B2B, automatización e IA aplicada al diseño.", en: "Leadership in B2B platforms, automation, and AI applied to design." },
             details: { 
-                es: ["Lidero el diseño de plataformas B2B con enfoque en cuentas corporativas.", "Superviso interfaces KYB y transacciones de back-office.", "Optimización de flujos de trabajo y cumplimiento normativo."], 
-                en: ["Leading B2B platform design focusing on corporate accounts.", "Supervising KYB interfaces and back-office transactions.", "Workflow and regulatory compliance optimization."] 
+                es: ["Lidero el diseño de plataformas B2B con enfoque en cuentas corporativas y flujos transaccionales.", "Dirección del diseño de interfaces KYB y back-office, mejorando eficiencia operativa.", "Integración de automatización e IA en procesos de diseño y validación de productos."], 
+                en: ["Leading B2B platform design focusing on corporate accounts and transactional flows.", "Direction of KYB and back-office interface design, improving operational efficiency.", "Integration of automation and AI into design processes and product validation."] 
             }
         },
         {
-            id: 2, period: "May 2024 - Aug 2024",
-            role: { es: "Senior UX/UI Specialist", en: "Senior UX/UI Specialist" },
+            id: 2, period: "May 2024 - Ago 2024",
+            role: { es: "Senior Growth UX/UI Specialist", en: "Senior Growth UX/UI Specialist" },
             company: "Aguayo (Colsubsidio)",
-            desc: { es: "Optimización de activos digitales y conversión.", en: "Digital asset optimization and conversion." },
+            desc: { es: "Optimización de activos digitales clave mediante datos y experimentación.", en: "Optimization of key digital assets through data and experimentation." },
             details: { 
-                es: ["Optimicé UX/UI de colsubsidio.com, Teatro y Hoteles Colsubsidio.", "Mejoré la tasa de engagement y conversión de usuarios.", "Alineación de estrategias digitales con objetivos comerciales."], 
-                en: ["Optimized UX/UI for colsubsidio.com, Theater, and Hotels.", "Improved engagement rate and user conversion.", "Alignment of digital strategies with business goals."] 
+                es: ["Optimicé UX/UI de colsubsidio.com, Teatro y Hoteles Colsubsidio.", "Mejoré el engagement y las tasas de conversión mediante análisis de datos.", "Alineación de estrategias digitales con objetivos comerciales estratégicos."], 
+                en: ["Optimized UX/UI for colsubsidio.com, Theater, and Hotels.", "Improved engagement and conversion rates through data analysis.", "Alignment of digital strategies with strategic business goals."] 
             }
         },
         {
             id: 3, period: "May 2023 - Mar 2024",
-            role: { es: "Product Designer UX/UI", en: "Product Designer UX/UI" },
+            role: { es: "Software Product Designer UX/UI", en: "Software Product Designer UX/UI" },
             company: "ABA Tech",
-            desc: { es: "Soluciones SaaS para salud y ABA.", en: "SaaS solutions for healthcare and ABA." },
+            desc: { es: "Diseño de soluciones digitales para salud y estándares de accesibilidad.", en: "Design of digital solutions for healthcare and accessibility standards." },
             details: { 
-                es: ["Diseño de soluciones centradas en el usuario para productos de salud.", "Investigación de usuarios y pruebas de usabilidad para iteraciones de diseño.", "Creación de wireframes y prototipos bajo estándares de accesibilidad."], 
-                en: ["Design of user-centered solutions for healthcare products.", "User research and usability testing for design iterations.", "Creation of wireframes and prototypes under accessibility standards."] 
+                es: ["Diseño de soluciones centradas en el usuario para productos de salud y ABA.", "Investigación con usuarios y pruebas de usabilidad para iteraciones constantes.", "Creación de wireframes y prototipos alineados con accesibilidad y branding."], 
+                en: ["User-centered solution design for healthcare and ABA products.", "User research and usability testing for constant iterations.", "Creation of wireframes and prototypes aligned with accessibility and branding."] 
             }
         },
         {
-            id: 4, period: "Nov 2021 - Dec 2022",
-            role: { es: "Líder UX/UI - Growth", en: "UX/UI Lead - Growth" },
+            id: 4, period: "Nov 2021 - Dic 2022",
+            role: { es: "UX/UI Lead - Digital Growth & Loyalty", en: "UX/UI Lead - Digital Growth & Loyalty" },
             company: "Bavaria (AB InBev)",
-            desc: { es: "Gestión regional de ecosistemas digitales MAZ.", en: "Regional management of MAZ digital ecosystems." },
+            desc: { es: "Gestión regional de ecosistemas digitales y automatización.", en: "Regional management of digital ecosystems and automation." },
             details: { 
-                es: ["Liderazgo UX/UI para marcas como Budweiser, Corona y Stella Artois.", "Diseño de ecosistemas modulares para optimizar costos de implementación.", "Gestión de relaciones con stakeholders."], 
-                en: ["UX/UI leadership for brands like Budweiser, Corona, and Stella Artois.", "Modular ecosystem design to optimize implementation costs.", "Stakeholder relationship management."] 
+                es: ["Liderazgo UX/UI para marcas globales como Budweiser, Corona y Stella Artois.", "Creación de ecosistemas modulares para optimizar costos de implementación.", "Aplicación de data y automatización para el crecimiento digital regional."], 
+                en: ["UX/UI leadership for global brands like Budweiser, Corona, and Stella Artois.", "Modular ecosystem design to optimize implementation costs.", "Application of data and automation for regional digital growth."] 
             }
         },
         {
             id: 5, period: "Mar 2020 - Feb 2022",
-            role: { es: "Diseñador UX Senior", en: "Senior UX Designer" },
+            role: { es: "Senior UX Designer", en: "Senior UX Designer" },
             company: "Bavaria (AB InBev)",
-            desc: { es: "Productos digitales para Marketing.", en: "Digital products for Marketing." },
+            desc: { es: "Diseño de ecosistemas omnicanal para marcas multinacionales.", en: "Omnichannel ecosystem design for multinational brands." },
             details: { 
-                es: ["Creación de ecosistemas para más de 18 marcas internacionales de cerveza.", "Optimización de recorridos de usuario y estándares de experiencia."], 
-                en: ["Creation of ecosystems for over 18 international beer brands.", "User journey optimization and experience standards."] 
+                es: ["Diseño de ecosistemas digitales end-to-end para más de 18 marcas internacionales.", "Optimización de journeys y experiencias omnicanal de alto estándar."], 
+                en: ["End-to-end digital ecosystem design for 18+ international beer brands.", "Optimization of journeys and high-standard omnichannel experiences."] 
             }
-        },
-        {
-            id: 6, period: "Aug 2019 - Feb 2021",
-            role: { es: "Diseñador UX/UI Ágil", en: "Agile UX/UI Designer" },
-            company: "Bavaria (AB InBev)",
-            desc: { es: "Proyecto de investigación SIXPACK y software de proveedores.", en: "SIXPACK research project and supplier software." },
-            details: { 
-                es: ["Implementación de herramientas para continuidad del negocio en 8 países.", "Investigación y prototipado con impacto en Colombia, Perú y Ecuador."], 
-                en: ["Implementation of tools for business continuity in 8 countries.", "Research and prototyping impacting Colombia, Peru, and Ecuador."] 
-            }
-        },
-        {
-            id: 7, period: "Nov 2018 - Aug 2019",
-            role: { es: "Director de Diseño", en: "Design Director" },
-            company: "Grupo Rta Autolagos",
-            desc: { es: "Estrategia digital y activos para diversos sectores.", en: "Digital strategy and assets for various sectors." },
-            details: { 
-                es: ["Estrategias digitales para Crédiprosperar y Rtaxi.", "Liderazgo en la creación de portafolios virtuales y sistemas de pago online."], 
-                en: ["Digital strategies for Crédiprosperar and Rtaxi.", "Leadership in creating virtual portfolios and online payment systems."] 
-            }
-        },
-        {
-            id: 8, period: "Dec 2017 - Aug 2018",
-            role: { es: "Analista de Diseño Digital", en: "Digital Design Analyst" },
-            company: "Medimás EPS",
-            desc: { es: "Diseño estratégico de comunicaciones digitales.", en: "Strategic digital communications design." },
-            details: { 
-                es: ["Diseño de contenido para redes sociales y estrategias multimedia."], 
-                en: ["Social media content design and multimedia strategies."] 
-            }
-        },
-        {
-            id: 9, period: "Jun 2017 - Oct 2017",
-            role: { es: "Coordinador de Diseño y Desarrollo", en: "Design and Development Coordinator" },
-            company: "Proyecto Golden Kis",
-            desc: { es: "Estrategia de diseño e imagen para comunicación legal.", en: "Design and image strategy for legal communication." },
-            details: { 
-                es: ["Dirigí la estrategia de diseño y de imagen para la comunicación legal.", "Publicidad y simuladores de software."], 
-                en: ["Directed the design and image strategy for legal communication.", "Advertising and software simulators."] 
-            }
-        },
-        {
-            id: 10, period: "Jul 2010 - Jun 2012",
-            role: { es: "Especialista en Publicidad", en: "Advertising Specialist" },
-            company: "Bancamía S.A.",
-            desc: { es: "Marketing para microemprendimiento.", en: "Marketing for micro-entrepreneurship." },
-            details: { es: ["Estrategias para banca rural."], en: ["Rural banking strategies."] }
-        },
-        {
-            id: 11, period: "Jul 2009 - Jun 2010",
-            role: { es: "Diseñador Gráfico", en: "Graphic Designer" },
-            company: "Fedecafé",
-            desc: { es: "Branding internacional café.", en: "International coffee branding." },
-            details: { es: ["Diseño para ferias ExpoEspeciales."], en: ["ExpoEspeciales fair design."] }
         }
     ],
     projects: [
-        { title: "Dexio B2B", tags: "Fintech / Dashboard", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" },
-        { title: "AB InBev Growth", tags: "Design Systems", img: "https://images.unsplash.com/photo-1600607686527-6fb886090705?w=800&q=80" },
-        { title: "Colsubsidio", tags: "CRO / UX Research", img: "https://images.unsplash.com/photo-1540339832862-437954c39382?w=800&q=80" }
+        { title: "UX Growth Research", tags: "Data & Social Painpoints", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" },
+        { title: "Modular Framework", tags: "Research Bill System", img: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800&q=80" },
+        { title: "Exito.com Shopping", tags: "Experience Enhancement", img: "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=800&q=80" },
+        { title: "Skol Global Website", tags: "UX / UI Design", img: "https://images.unsplash.com/photo-1563906267088-b029e7101114?w=800&q=80" },
+        { title: "Budweiser Apuestas Chile", tags: "Growth / Engagement", img: "https://images.unsplash.com/photo-1518133835878-5a93cc3f89e5?w=800&q=80" },
+        { title: "Seguros Bolívar", tags: "UX Optimization", img: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80" },
+        { title: "Retorna Cryptocurrency", tags: "App Optimization", img: "https://images.unsplash.com/photo-1621416848440-d369283f2f03?w=800&q=80" },
+        { title: "AB InBev Global", tags: "Modular Design Systems", img: "https://images.unsplash.com/photo-1558655146-d09347e92766?w=800&q=80" },
+        { title: "Dexio B2B Fintech", tags: "Financial Ecosystem", img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" }
     ],
     education: [
         { title: { es: "Diseñador Gráfico Profesional", en: "Professional Graphic Designer" }, school: "Corporación Escuela de Artes y Letras (2017)" },
         { title: { es: "Certificación en UX", en: "UX Certification" }, school: "Fundación Carlos Slim (2020)" },
         { title: "Scrum Fundamentals Certified (SFC)", school: "SCRUMstudy" },
-        { title: "Adobe Certified Expert", school: "Adobe Creative Suite" }
+        { title: "Adobe Certified Expert (Adobe CC Suite)", school: "Adobe" }
     ]
 };
 
@@ -537,7 +495,7 @@ const app = {
     renderProjects: () => {
         document.getElementById('projects-grid').innerHTML = DATA.projects.map(p => `
             <a href="https://behance.net/masmela" target="_blank" class="project-card">
-                <div class="p-img"><img src="${p.img}"></div>
+                <div class="p-img"><img src="${p.img}" alt="${p.title}"></div>
                 <h3>${p.title}</h3>
                 <span class="mono" style="color:#888; font-size:0.8rem">${p.tags}</span>
             </a>
