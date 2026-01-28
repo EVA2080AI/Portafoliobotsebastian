@@ -1,1112 +1,601 @@
-
 <!DOCTYPE html>
-<html lang="es" id="neuro-portfolio">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juan Sebastián Másmela | Product Design Director & UX/UI Lead</title>
-    <!-- GSAP para animaciones -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
-    <!-- Font Awesome -->
+    <title>Juan Sebastián Másmela | Product Design Director</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-        /* ===== RESET & VARIABLES ===== */
+        /* =========================================
+           DESIGN SYSTEM (SWISS / BRUTALIST)
+           ========================================= */
         :root {
-            --primary-blue: #2563EB;
-            --primary-purple: #7C3AED;
-            --accent-green: #10B981;
-            --accent-orange: #F59E0B;
-            --accent-pink: #EC4899;
-            --white-bg: #FFFFFF;
-            --light-bg: #F8FAFC;
-            --light-gray: #E2E8F0;
-            --medium-gray: #94A3B8;
-            --dark-text: #1E293B;
-            --darker-text: #0F172A;
-            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --card-shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            --neural-glow: 0 0 30px rgba(37, 99, 235, 0.15);
-            --transition-cubic: cubic-bezier(0.4, 0, 0.2, 1);
-            --section-spacing: 12vh;
+            --bg: #FFFFFF;
+            --ink: #050505;
+            --ink-light: #505050;
+            --ink-muted: #999999;
+            --border: 1px solid #E5E5E5;
+            --border-heavy: 2px solid #000000;
+            --highlight: #0000FF; /* Azul eléctrico para interacciones */
+            --pad: 3rem;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 80px;
-        }
-
-        body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background: var(--white-bg);
-            color: var(--dark-text);
-            overflow-x: hidden;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        
+        body { 
+            background: var(--bg); 
+            color: var(--ink); 
+            font-family: 'Inter', sans-serif; 
             line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
 
-        /* ===== HEADER FIXED - Z-INDEX CORREGIDO ===== */
-        .neuro-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000; /* Header tiene 1000 */
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--light-gray);
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.4s var(--transition-cubic);
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-        }
+        /* TIPOGRAFÍA */
+        h1, h2, h3, h4 { font-weight: 900; letter-spacing: -0.03em; line-height: 1.1; color: var(--ink); }
+        .mono { font-family: 'Space Mono', monospace; font-size: 0.85rem; letter-spacing: -0.02em; }
+        .txt-huge { font-size: clamp(3rem, 7vw, 6rem); text-transform: uppercase; margin-bottom: 2rem; }
+        .txt-lead { font-size: 1.2rem; font-weight: 400; color: var(--ink-light); max-width: 50ch; }
+        
+        a { text-decoration: none; color: inherit; transition: 0.2s; }
+        
+        /* LAYOUT */
+        .layout { display: grid; grid-template-columns: 320px 1fr; min-height: 100vh; }
 
-        /* Header móvil (oculto por defecto) */
-        .header-mobile {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1001;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--light-gray);
-            padding: 1rem;
-            align-items: center;
-            justify-content: space-between;
+        /* SIDEBAR (Navegación Fija) */
+        .sidebar {
+            position: sticky; top: 0; height: 100vh;
+            border-right: var(--border-heavy);
+            padding: 2rem;
+            display: flex; flex-direction: column; justify-content: space-between;
+            background: var(--bg); z-index: 50;
         }
-
-        .mobile-logo {
-            font-size: 1.2rem;
-            font-weight: 800;
-            background: linear-gradient(90deg, var(--primary-blue), var(--accent-green));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+        
+        .nav-menu { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 3rem; }
+        .nav-link { 
+            font-size: 1.1rem; font-weight: 600; color: var(--ink-muted); 
+            padding: 0.5rem 0; display: flex; justify-content: space-between;
         }
+        .nav-link:hover, .nav-link.active { color: var(--ink); transform: translateX(5px); }
+        .nav-link.active::after { content: "●"; font-size: 0.8rem; color: var(--ink); }
 
-        .mobile-menu-container {
-            position: fixed;
-            top: 70px;
-            left: 0;
-            width: 100%;
-            background: white;
-            backdrop-filter: blur(20px);
-            border-top: 1px solid var(--light-gray);
-            padding: 1.5rem;
-            display: none;
-            flex-direction: column;
-            gap: 1.5rem;
-            z-index: 1001;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        /* CONTENIDO PRINCIPAL */
+        main { border-right: var(--border); position: relative; }
+        section { padding: var(--pad); border-bottom: var(--border-heavy); scroll-margin-top: 2rem; }
+
+        /* FILTROS DE PERSONA (Bio Switcher) */
+        .persona-control { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .p-btn {
+            background: white; border: 1px solid #ccc; padding: 0.4rem 1rem;
+            font-family: 'Space Mono', monospace; font-size: 0.8rem; cursor: pointer;
+            transition: 0.2s; text-transform: uppercase; font-weight: 700;
         }
+        .p-btn:hover { border-color: black; }
+        .p-btn.active { background: black; color: white; border-color: black; }
 
-        .mobile-menu-container.active {
-            display: flex;
+        /* LISTA DE EXPERIENCIA (Clickable) */
+        .job-row {
+            display: grid; grid-template-columns: 140px 1fr auto;
+            padding: 2rem 0; border-bottom: 1px solid #eee;
+            cursor: pointer; transition: background 0.2s; align-items: start;
         }
+        .job-row:hover { background: #f8f8f8; padding-left: 1rem; padding-right: 1rem; }
+        .job-row h3 { font-size: 1.5rem; margin-bottom: 0.3rem; }
+        .arrow-icon { opacity: 0; transform: translateX(-10px); transition: 0.3s; }
+        .job-row:hover .arrow-icon { opacity: 1; transform: translateX(0); }
 
-        .mobile-nav-link {
-            padding: 1rem;
-            color: var(--darker-text);
-            text-decoration: none;
-            font-weight: 500;
-            border-radius: 10px;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
+        /* MODAL SYSTEM (Para el detalle profundo) */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(255,255,255,0.9); backdrop-filter: blur(5px);
+            z-index: 1000; opacity: 0; pointer-events: none;
+            transition: opacity 0.3s; display: flex; justify-content: center; align-items: center;
         }
-
-        .mobile-nav-link:hover {
-            background: var(--light-bg);
-            color: var(--primary-blue);
+        .modal-overlay.open { opacity: 1; pointer-events: all; }
+        
+        .modal-content {
+            background: white; width: 90%; max-width: 750px;
+            max-height: 85vh; overflow-y: auto;
+            border: 2px solid black; box-shadow: 15px 15px 0px rgba(0,0,0,1);
+            padding: 3rem; position: relative; transform: translateY(30px); transition: 0.3s;
         }
-
-        .menu-toggle {
-            background: none;
-            border: none;
-            cursor: pointer;
-            width: 30px;
-            height: 30px;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            z-index: 1002;
+        .modal-overlay.open .modal-content { transform: translateY(0); }
+        .close-modal {
+            position: absolute; top: 1.5rem; right: 1.5rem;
+            font-size: 1.5rem; cursor: pointer; width: 40px; height: 40px;
+            display: flex; align-items: center; justify-content: center; border: 1px solid transparent;
         }
+        .close-modal:hover { border: 1px solid black; background: #f0f0f0; }
 
-        .hamburger-line {
-            width: 100%;
-            height: 3px;
-            background: var(--darker-text);
-            border-radius: 2px;
-            transition: all 0.3s;
+        /* GRIDS */
+        .grid-projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .project-card { border: 1px solid #eee; padding: 1rem; transition: 0.3s; display: block; }
+        .project-card:hover { border-color: black; transform: translateY(-5px); box-shadow: 10px 10px 0 #f0f0f0; }
+        .p-img { height: 280px; background: #eee; margin-bottom: 1rem; overflow: hidden; }
+        .p-img img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); transition: 0.5s; }
+        .project-card:hover img { filter: grayscale(0%); transform: scale(1.05); }
+
+        .stack-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1rem; margin-top:2rem;}
+        .stack-item { padding: 0.8rem; border: 1px solid #eee; font-size: 0.85rem; font-weight: 600; display:flex; align-items:center; gap:0.5rem; }
+
+        /* UTILS */
+        .btn-link { 
+            display: inline-block; border: 1px solid black; padding: 0.8rem 1.5rem; 
+            font-family: 'Space Mono'; font-weight: 700; text-transform: uppercase; 
+            margin-top: 1rem; font-size: 0.9rem;
         }
+        .btn-link:hover { background: black; color: white; }
 
-        .menu-toggle.active .hamburger-line:nth-child(1) {
-            transform: rotate(45deg) translate(6px, 6px);
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .layout { grid-template-columns: 1fr; }
+            .sidebar { height: auto; position: relative; padding: 1.5rem; border-bottom: var(--border-heavy); border-right: none; }
+            .nav-menu { flex-direction: row; overflow-x: auto; padding-bottom: 10px; gap: 1.5rem; margin-top: 1.5rem; }
+            .nav-link { font-size: 0.9rem; white-space: nowrap; }
+            .txt-huge { font-size: 3rem; }
+            .job-row { grid-template-columns: 1fr; gap: 0.5rem; }
+            .modal-content { padding: 1.5rem; width: 95%; box-shadow: 8px 8px 0 rgba(0,0,0,1); }
         }
-
-        .menu-toggle.active .hamburger-line:nth-child(2) {
-            opacity: 0;
+        .profile-img-container {
+            width: 150px; height: 150px; 
+            background: #eee; border-radius: 50%; 
+            border: 2px solid black; overflow: hidden; margin-bottom: 2rem;
         }
-
-        .menu-toggle.active .hamburger-line:nth-child(3) {
-            transform: rotate(-45deg) translate(6px, -6px);
-        }
-
-        /* Desktop header (visible por defecto) */
-        .header-desktop {
-            display: flex;
-            width: 100%;
-            max-width: 1400px;
-            margin: 0 auto;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        /* Resto del header desktop igual que antes */
-        .neuro-logo {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            text-decoration: none;
-        }
-
-        .logo-text {
-            font-size: 1.3rem;
-            font-weight: 800;
-            background: linear-gradient(90deg, var(--primary-blue), var(--accent-green));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            letter-spacing: -0.5px;
-        }
-
-        /* ===== CHIPS CORREGIDOS (no son botones) ===== */
-        .specialty-chip, .skill-tag, .timeline-type-tag {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background: var(--white-bg);
-            border: 1px solid var(--light-gray);
-            border-radius: 20px;
-            font-weight: 500;
-            transition: all 0.3s;
-            color: var(--darker-text);
-            box-shadow: var(--card-shadow);
-            font-size: 0.95rem;
-            cursor: default; /* No pointer cursor */
-            user-select: none;
-        }
-
-        .specialty-chip:hover, .skill-tag:hover, .timeline-type-tag:hover {
-            background: var(--primary-blue);
-            border-color: var(--primary-blue);
-            color: white;
-        }
-
-        /* ===== NEUROBOT CON Z-INDEX FIXED ===== */
-        .neurobot-floating {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            z-index: 1002; /* Mayor que el header (1000) */
-        }
-
-        .neurobot-toggle {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
-            border: none;
-            color: white;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.3);
-            transition: all 0.3s;
-            animation: float 3s ease-in-out infinite;
-            z-index: 1003;
-        }
-
-        .neurobot-container {
-            position: absolute;
-            bottom: 70px;
-            right: 0;
-            width: 380px;
-            max-width: calc(100vw - 40px);
-            background: white;
-            border: 1px solid var(--light-gray);
-            border-radius: 20px;
-            overflow: hidden;
-            display: none;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-            z-index: 1004; /* El más alto */
-        }
-
-        /* ===== CONTENIDO REVELADO DEL CV ===== */
-        .revealed-section {
-            margin: 4rem auto;
-            padding: 3rem;
-            background: var(--light-bg);
-            border-radius: 20px;
-            max-width: 1200px;
-            animation: fadeIn 1s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .hidden-projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .hidden-project-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 15px;
-            box-shadow: var(--card-shadow);
-            transition: all 0.3s;
-        }
-
-        .hidden-project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--card-shadow-hover);
-        }
-
-        /* ===== RESPONSIVE DESIGN MEJORADO ===== */
-        @media (max-width: 1100px) {
-            .cv-container {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .cv-filters {
-                position: static;
-            }
-            
-            .hero-title {
-                font-size: 2.8rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            /* Ocultar header desktop, mostrar móvil */
-            .neuro-header .header-desktop {
-                display: none;
-            }
-            
-            .header-mobile {
-                display: flex;
-            }
-            
-            .hero-title {
-                font-size: 2.3rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.1rem;
-                padding: 0 1rem;
-            }
-            
-            .section-title {
-                font-size: 2.2rem;
-            }
-            
-            .specialties-grid {
-                gap: 0.8rem;
-            }
-            
-            .specialty-chip {
-                padding: 0.7rem 1.2rem;
-                font-size: 0.9rem;
-            }
-            
-            .hero-ctas {
-                flex-direction: column;
-                align-items: center;
-                gap: 1rem;
-            }
-            
-            .primary-cta, .secondary-cta {
-                width: 100%;
-                max-width: 280px;
-                justify-content: center;
-            }
-            
-            .neurobot-container {
-                width: calc(100vw - 40px);
-                right: 20px;
-                left: 20px;
-                margin: 0 auto;
-                bottom: 80px;
-            }
-            
-            .chat-container {
-                height: 300px;
-            }
-            
-            .projects-grid {
-                grid-template-columns: 1fr;
-                padding: 0 1rem;
-            }
-            
-            .timeline {
-                padding-left: 1.5rem;
-            }
-            
-            .timeline-item {
-                padding: 1.2rem;
-            }
-        }
-
-        @media (min-width: 769px) {
-            .header-mobile {
-                display: none !important;
-            }
-        }
-
-        /* Resto del CSS permanece igual... */
-        /* ... [Todo el CSS anterior se mantiene] ... */
+        .profile-img-container img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); }
 
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header Desktop -->
-    <header class="neuro-header">
-        <div class="header-desktop">
-            <a href="#hero" class="neuro-logo">
-                <div class="logo-text" data-i18n="logo">Portafolio Neuronal</div>
-            </a>
-            
-            <nav class="neuro-nav" id="neuroNav" aria-label="Navegación principal">
-                <a href="#cv" class="nav-link">
-                    <i class="fas fa-brain nav-icon"></i>
-                    <span data-i18n="nav_cv">CV Neuronal</span>
-                </a>
-                <a href="#projects" class="nav-link">
-                    <i class="fas fa-rocket nav-icon"></i>
-                    <span data-i18n="nav_projects">Proyectos</span>
-                </a>
-                <a href="#tools" class="nav-link">
-                    <i class="fas fa-tools nav-icon"></i>
-                    <span data-i18n="nav_tools">Herramientas</span>
-                </a>
-                <a href="#contact" class="nav-link">
-                    <i class="fas fa-envelope nav-icon"></i>
-                    <span data-i18n="nav_contact">Contacto</span>
-                </a>
-            </nav>
-            
-            <div class="header-controls">
-                <div class="language-selector">
-                    <button class="language-btn" id="languageBtn" aria-label="Cambiar idioma">
-                        <i class="fas fa-globe"></i>
-                        <span id="currentLang">ES</span>
-                    </button>
-                    <div class="language-dropdown">
-                        <div class="language-option active" data-lang="es">
-                            <span>🇪🇸</span>
-                            <span>Español</span>
-                        </div>
-                        <div class="language-option" data-lang="en">
-                            <span>🇺🇸</span>
-                            <span>English</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <a href="#contact" class="contact-cta" data-i18n="contact_btn">
-                    <i class="fas fa-paper-plane"></i>
-                    <span>Contactar</span>
-                </a>
+
+    <div id="modal-overlay" class="modal-overlay" onclick="app.closeModal(event)">
+        <div class="modal-content" id="modal-content">
             </div>
-        </div>
-    </header>
-    
-    <!-- Header Móvil -->
-    <div class="header-mobile" id="mobileHeader">
-        <div class="mobile-logo">Portafolio Neuronal</div>
-        <button class="menu-toggle" id="mobileMenuToggle" aria-label="Menú móvil">
-            <div class="hamburger-line"></div>
-            <div class="hamburger-line"></div>
-            <div class="hamburger-line"></div>
-        </button>
-        
-        <div class="mobile-menu-container" id="mobileMenu">
-            <a href="#hero" class="mobile-nav-link" onclick="closeMobileMenu()">
-                <i class="fas fa-home"></i>
-                <span>Inicio</span>
-            </a>
-            <a href="#cv" class="mobile-nav-link" onclick="closeMobileMenu()">
-                <i class="fas fa-brain"></i>
-                <span data-i18n="nav_cv">CV Neuronal</span>
-            </a>
-            <a href="#projects" class="mobile-nav-link" onclick="closeMobileMenu()">
-                <i class="fas fa-rocket"></i>
-                <span data-i18n="nav_projects">Proyectos</span>
-            </a>
-            <a href="#tools" class="mobile-nav-link" onclick="closeMobileMenu()">
-                <i class="fas fa-tools"></i>
-                <span data-i18n="nav_tools">Toolkit</span>
-            </a>
-            <a href="#contact" class="mobile-nav-link" onclick="closeMobileMenu()">
-                <i class="fas fa-envelope"></i>
-                <span data-i18n="nav_contact">Contacto</span>
-            </a>
-            
-            <div style="margin-top: 1rem; padding: 1rem; border-top: 1px solid var(--light-gray);">
-                <div class="language-selector" style="width: 100%;">
-                    <button class="language-btn" id="mobileLanguageBtn" style="width: 100%; justify-content: center;">
-                        <i class="fas fa-globe"></i>
-                        <span id="mobileCurrentLang">ES</span>
-                    </button>
-                    <div class="language-dropdown" style="width: 100%; right: 0; left: 0;">
-                        <div class="language-option active" data-lang="es">
-                            <span>🇪🇸</span>
-                            <span>Español</span>
-                        </div>
-                        <div class="language-option" data-lang="en">
-                            <span>🇺🇸</span>
-                            <span>English</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
-    <!-- Hero Section (sin cambios) -->
-    <section class="hero-section" id="hero">
-        <!-- Contenido hero igual que antes -->
-    </section>
-    
-    <!-- CV Neuronal -->
-    <section class="cv-section" id="cv">
-        <h2 class="section-title" data-i18n="cv_title">CV Neuronal Interactivo</h2>
+    <div class="layout">
         
-        <div class="cv-container">
-            <!-- Filtros y timeline igual que antes -->
-        </div>
-        
-        <div class="skills-section">
-            <!-- Skills igual que antes -->
-        </div>
-        
-        <!-- SECCIÓN REVELADA - CONTENIDO OCULTO -->
-        <div class="revealed-section" id="hiddenContentRevealed">
-            <h3 style="color: var(--primary-blue); margin-bottom: 2rem; text-align: center;">
-                <i class="fas fa-search"></i> Proyectos Adicionales & Logros
-            </h3>
-            <p style="text-align: center; margin-bottom: 2rem; color: var(--medium-gray);">
-                Estos proyectos y logros estaban ocultos en el código original. Ahora visibles para SEO y contenido completo.
-            </p>
-            
-            <div class="hidden-projects-grid">
-                <div class="hidden-project-card">
-                    <h4>Startup EdTech - Plataforma de Aprendizaje</h4>
-                    <p><strong>Rol:</strong> Lead UX Designer</p>
-                    <p><strong>Duración:</strong> 6 meses</p>
-                    <p>Diseñé la experiencia completa para una plataforma de educación online que alcanzó 10,000 usuarios en su primer año.</p>
-                    <div class="skill-tag">EdTech</div>
-                    <div class="skill-tag">Mobile First</div>
-                    <div class="skill-tag">Gamificación</div>
-                </div>
+        <aside class="sidebar">
+            <div>
+                <a href="#" style="font-size:1.4rem; font-weight:900; display:block;">MÁSMELA.</a>
+                <span class="mono" style="color:var(--ink-muted)">Product Design Director</span>
                 
-                <div class="hidden-project-card">
-                    <h4>App Fintech - Gestión de Inversiones</h4>
-                    <p><strong>Rol:</strong> Product Designer</p>
-                    <p><strong>Duración:</strong> 8 meses</p>
-                    <p>Rediseñé el flujo de onboarding reduciendo el abandono en 35% y aumentando la conversión en 42%.</p>
-                    <div class="skill-tag">Fintech</div>
-                    <div class="skill-tag">Onboarding</div>
-                    <div class="skill-tag">Conversión</div>
-                </div>
-                
-                <div class="hidden-project-card">
-                    <h4>Sistema de Design Ops para Corporación</h4>
-                    <p><strong>Rol:</strong> Design Systems Lead</p>
-                    <p><strong>Duración:</strong> 1 año</p>
-                    <p>Implementé un sistema de diseño para una corporación con 5 productos digitales, reduciendo tiempo de desarrollo en 40%.</p>
-                    <div class="skill-tag">Design Systems</div>
-                    <div class="skill-tag">Design Ops</div>
-                    <div class="skill-tag">Scalability</div>
-                </div>
+                <nav class="nav-menu">
+                    <a href="#intro" class="nav-link" data-key="nav_profile">01. Perfil</a>
+                    <a href="#experience" class="nav-link" data-key="nav_exp">02. Trayectoria</a>
+                    <a href="#stack" class="nav-link" data-key="nav_stack">03. Stack</a>
+                    <a href="#projects" class="nav-link" data-key="nav_work">04. Proyectos</a>
+                    <a href="#edu" class="nav-link" data-key="nav_edu">05. Educación</a>
+                </nav>
             </div>
-            
-            <div style="margin-top: 3rem; padding: 2rem; background: white; border-radius: 15px;">
-                <h4 style="color: var(--primary-blue); margin-bottom: 1rem;">
-                    <i class="fas fa-trophy"></i> Logros & Reconocimientos
-                </h4>
-                <ul style="list-style: none; padding-left: 1rem;">
-                    <li style="margin-bottom: 0.8rem; display: flex; align-items: flex-start;">
-                        <i class="fas fa-check-circle" style="color: var(--accent-green); margin-right: 0.5rem; margin-top: 0.3rem;"></i>
-                        <span>Certificación en Scrum Fundamentals (SFPC) - 2023</span>
-                    </li>
-                    <li style="margin-bottom: 0.8rem; display: flex; align-items: flex-start;">
-                        <i class="fas fa-check-circle" style="color: var(--accent-green); margin-right: 0.5rem; margin-top: 0.3rem;"></i>
-                        <span>Speaker en Colombia Digital Summit 2022</span>
-                    </li>
-                    <li style="margin-bottom: 0.8rem; display: flex; align-items: flex-start;">
-                        <i class="fas fa-check-circle" style="color: var(--accent-green); margin-right: 0.5rem; margin-top: 0.3rem;"></i>
-                        <span>Mentor en Bootcamp UX/UI - 3 cohortes graduadas</span>
-                    </li>
-                    <li style="display: flex; align-items: flex-start;">
-                        <i class="fas fa-check-circle" style="color: var(--accent-green); margin-right: 0.5rem; margin-top: 0.3rem;"></i>
-                        <span>15+ proyectos completados con satisfacción del cliente del 95%</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Resto de las secciones (sin cambios) -->
-    <!-- ... -->
 
-    <!-- NeuroBot MEJORADO con identidad -->
-    <div class="neurobot-floating">
-        <div class="neurobot-container" id="neurobotContainer">
-            <div class="neurobot-header">
-                <!-- IDENTIDAD MEJORADA DEL BOT -->
-                <div class="bot-identity" style="display: flex; align-items: center; gap: 1rem; flex: 1;">
-                    <div class="neurobot-icon" style="background: white; width: 45px; height: 45px;">
-                        <i class="fas fa-user-tie" style="color: var(--primary-blue);"></i>
-                    </div>
-                    <div>
-                        <div class="neurobot-title">Sebastián Bot</div>
-                        <div style="font-size: 0.8rem; opacity: 0.9;">
-                            Tu guía en este portafolio • UX/UI Specialist
-                        </div>
-                    </div>
+            <div class="mono" style="font-size:0.75rem; margin-top: 2rem;">
+                <div style="margin-bottom: 1rem; border-top: 1px solid #eee; padding-top: 1rem;">
+                    <span style="display:block; margin-bottom:0.5rem; color:var(--ink-muted)">Language / Idioma:</span>
+                    <a href="javascript:void(0)" onclick="app.setLang('es')" id="btn-es" style="font-weight:700">ES</a> 
+                    <span style="color:#ccc">|</span> 
+                    <a href="javascript:void(0)" onclick="app.setLang('en')" id="btn-en" style="color:#999">EN</a>
                 </div>
                 
-                <!-- Selector de idioma en el bot -->
-                <select id="botLanguageSwitcher" class="language-btn" style="background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3); padding: 0.3rem 0.8rem; font-size: 0.8rem;">
-                    <option value="es">🇪🇸 ES</option>
-                    <option value="en">🇺🇸 EN</option>
-                </select>
+                <a href="mailto:sebastian689@gmail.com" style="text-decoration:underline;">sebastian689@gmail.com</a><br>
+                +57 319 411 6820<br>
+                Bogotá, CO.
             </div>
-            
-            <div class="chat-container" id="chatContainer"></div>
-            
-            <div class="quick-questions" id="quickQuestions"></div>
-            
-            <div class="input-container">
-                <input type="text" class="neurobot-input" id="neurobotInput" 
-                       placeholder="Pregunta sobre metodologías, herramientas o experiencia...">
-                <button class="neurobot-send" id="neurobotSendBtn">
-                    <i class="fas fa-paper-plane"></i>
-                </button>
-            </div>
-        </div>
-        
-        <button class="neurobot-toggle" id="neurobotToggle">
-            <i class="fas fa-comments"></i>
-        </button>
+        </aside>
+
+        <main>
+            <section id="intro">
+                <div class="profile-img-container">
+                    <img src="https://ui-avatars.com/api/?name=Juan+Masmela&background=f0f0f0&color=000&size=512&font-size=0.3" alt="Juan Masmela">
+                </div>
+
+                <span class="mono">[ DESIGN DIRECTOR ]</span>
+                <h1 class="txt-huge" style="margin-top:0.5rem">
+                    Product<br>Design<br><span style="color:#AAA">Portfolio.</span>
+                </h1>
+
+                <div style="margin-top: 3rem;">
+                    <div class="persona-control">
+                        <button class="p-btn active" onclick="app.setPersona('recruiter')" id="p-recruiter">Recruiter Mode</button>
+                        <button class="p-btn" onclick="app.setPersona('designer')" id="p-designer">Designer Mode</button>
+                        <button class="p-btn" onclick="app.setPersona('vp')" id="p-vp">VP/Business Mode</button>
+                    </div>
+                    
+                    <p class="txt-lead" id="hero-bio" style="min-height: 100px;">
+                        </p>
+
+                    <div style="margin-top: 2rem; display:flex; gap:1rem;">
+                        <a href="#experience" class="btn-link" data-key="btn_cv">Ver Experiencia ↓</a>
+                        <a href="https://linkedin.com/in/masmela" target="_blank" class="btn-link">LinkedIn ↗</a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="experience">
+                <div style="display:flex; justify-content:space-between; align-items:end; margin-bottom:3rem;">
+                    <h2 data-key="title_exp">Trayectoria</h2>
+                    <span class="mono" style="color:var(--ink-muted)" data-key="hint_click">Click para detalles +</span>
+                </div>
+                
+                <div id="job-list">
+                    </div>
+            </section>
+
+            <section id="stack">
+                <h2 data-key="title_stack">Stack Tecnológico</h2>
+                <div class="stack-grid">
+                    <div class="stack-item"><i class="fab fa-figma"></i> Figma / FigJam</div>
+                    <div class="stack-item"><i class="fas fa-gem"></i> Adobe Suite</div>
+                    <div class="stack-item"><i class="fas fa-robot"></i> MidJourney / Firefly</div>
+                    <div class="stack-item"><i class="fas fa-search"></i> Hotjar / Clarity</div>
+                    <div class="stack-item"><i class="fas fa-tasks"></i> Jira / Notion</div>
+                    <div class="stack-item"><i class="fab fa-html5"></i> HTML5 / CSS</div>
+                    <div class="stack-item"><i class="fas fa-chart-line"></i> Google Analytics</div>
+                    <div class="stack-item"><i class="fas fa-universal-access"></i> WCAG Accessibility</div>
+                </div>
+            </section>
+
+            <section id="projects">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:3rem;">
+                    <h2 data-key="title_proj">Casos de Estudio</h2>
+                    <a href="https://behance.net/masmela" target="_blank" class="btn-link">Behance ↗</a>
+                </div>
+                <div class="grid-projects" id="projects-grid">
+                    </div>
+            </section>
+
+            <section id="edu">
+                <h2 style="margin-bottom:2rem;" data-key="title_edu">Educación</h2>
+                <div id="edu-list">
+                    </div>
+            </section>
+
+            <section style="background: black; color: white; padding: 4rem;">
+                <h2 style="color:white; font-size:2.5rem; margin-bottom:1rem;" data-key="footer_cta">¿Hablamos?</h2>
+                <p style="color:#999; margin-bottom:2rem;">Available for Product Leadership roles.</p>
+                <a href="mailto:sebastian689@gmail.com" style="color:white; font-size:1.2rem; text-decoration:underline;">sebastian689@gmail.com</a>
+            </section>
+        </main>
     </div>
 
-    <!-- Scripts -->
     <script>
-        // ========== SISTEMA DE IDIOMAS MEJORADO ==========
-        const translations = {
-            es: {
-                // Header
-                "logo": "Portafolio Neuronal",
-                "nav_cv": "CV Neuronal",
-                "nav_projects": "Proyectos",
-                "nav_tools": "Toolkit",
-                "nav_contact": "Contacto",
-                "contact_btn": "Contactar",
-                
-                // Hero
-                "hero_title": "Juan Sebastián Másmela",
-                "hero_subtitle": "Product Design Director & UX/UI Lead con 7+ años transformando experiencias digitales. Especializado en B2B platforms, Growth Strategy, y Design Systems. Ex AB InBev, Colsubsidio, Dexio. Bilingüe (ES/EN).",
-                "specialty_1": "Product Design",
-                "specialty_2": "UX/UI Leadership",
-                "specialty_3": "Design Systems",
-                "specialty_4": "Growth Strategy",
-                "specialty_5": "B2B Platforms",
-                "specialty_6": "AI Integration",
-                "explore_cv": "Explorar CV Neuronal",
-                "view_projects": "Ver Proyectos",
-                
-                // CV Section
-                "cv_title": "CV Neuronal Interactivo",
-                "filter_experience": "Filtrar Experiencia",
-                "filter_all": "Toda la Experiencia",
-                "filter_b2b": "B2B & Corporativo",
-                "filter_growth": "Growth & Loyalty",
-                "filter_design": "UX/UI Design",
-                "key_metrics": "Métricas Clave",
-                "years_exp": "Años XP",
-                "projects_count": "Proyectos",
-                "brands_count": "Marcas",
-                "timeline_title": "Experiencia Profesional",
-                "skills_title": "Habilidades y Especialidades",
-                
-                // Projects
-                "projects_title": "Proyectos Destacados",
-                "projects_subtitle": "Casos de estudio que demuestran mi enfoque en diseño centrado en el usuario y crecimiento digital",
-                
-                // Tools
-                "tools_title": "Toolkit de Diseño",
-                "tools_subtitle": "Stack tecnológico y metodologías que domino para crear experiencias digitales excepcionales",
-                
-                // Contact
-                "contact_subtitle": "¿Listo para transformar tu experiencia digital? Hablemos sobre tu próximo proyecto",
-                
-                // Footer
-                "footer_about": "Sobre este Portafolio",
-                "footer_connect": "Conectar",
-                
-                // NeuroBot
-                "neurobot_placeholder": "Pregunta sobre metodologías, herramientas o experiencia..."
+        /* =================================================================
+           THE MASTER DATA OBJECT
+           Contains all translations, personas, jobs, and content.
+           ================================================================= */
+        const DATA = {
+            lang: 'es', // Default language
+            persona: 'recruiter', // Default persona
+
+            // 1. UI TRANSLATIONS
+            ui: {
+                nav_profile: { es: "01. Perfil", en: "01. Profile" },
+                nav_exp: { es: "02. Trayectoria", en: "02. Experience" },
+                nav_stack: { es: "03. Stack", en: "03. Stack" },
+                nav_work: { es: "04. Proyectos", en: "04. Work" },
+                nav_edu: { es: "05. Educación", en: "05. Education" },
+                btn_cv: { es: "Ver Experiencia ↓", en: "View Experience ↓" },
+                title_exp: { es: "Trayectoria", en: "Experience" },
+                title_stack: { es: "Stack Tecnológico", en: "Tech Stack" },
+                title_proj: { es: "Casos de Estudio", en: "Case Studies" },
+                title_edu: { es: "Educación", en: "Education" },
+                hint_click: { es: "Click para detalles +", en: "Click for details +" },
+                footer_cta: { es: "¿Hablamos?", en: "Let's Talk?" },
+                modal_role: { es: "Rol:", en: "Role:" },
+                modal_company: { es: "Empresa:", en: "Company:" }
             },
-            
-            en: {
-                // Header
-                "logo": "Neural Portfolio",
-                "nav_cv": "Neural CV",
-                "nav_projects": "Projects",
-                "nav_tools": "Toolkit",
-                "nav_contact": "Contact",
-                "contact_btn": "Contact",
+
+            // 2. PERSONA BIOS (Dynamic Hero)
+            personas: {
+                recruiter: {
+                    es: "Diseñador de Producto certificado con +7 años de experiencia. He liderado equipos en AB InBev y Dexio, especializándome en traducir requerimientos de negocio en interfaces funcionales y escalables.",
+                    en: "Certified Product Designer with 7+ years of experience. Led teams at AB InBev and Dexio, specializing in translating business requirements into functional and scalable interfaces."
+                },
+                designer: {
+                    es: "Obsesionado con la grilla, los Design Systems (Tokens, Atoms) y la accesibilidad (WCAG). Mi trabajo conecta la estética suiza con la eficiencia del desarrollo frontend.",
+                    en: "Obsessed with grids, Design Systems (Tokens, Atoms), and accessibility (WCAG). My work connects Swiss aesthetics with frontend development efficiency."
+                },
+                vp: {
+                    es: "Estratega digital enfocado en ROI. Utilizo UX para reducir costos operativos (Customer Support) y aumentar el LTV en productos B2B complejos.",
+                    en: "Digital strategist focused on ROI. I leverage UX to reduce operating costs (Customer Support) and increase LTV in complex B2B products."
+                }
+            },
+
+            // 3. EXPERIENCE DATABASE (Full Archive)
+            jobs: [
+                {
+                    id: 1,
+                    period: "2024 - Present",
+                    role: { es: "Lead Product Design (UX)", en: "Lead Product Design (UX)" },
+                    company: "Dexio Technologies",
+                    desc: {
+                        es: "Liderazgo en diseño de plataformas B2B, interfaces KYB y transacciones Back-Office.",
+                        en: "Leadership in B2B platform design, KYB interfaces, and Back-Office transactions."
+                    },
+                    details: {
+                        es: [
+                            "Lidero el diseño y desarrollo de plataformas B2B y cuentas corporativas.",
+                            "Superviso el diseño de interfaces KYB y transacciones de back-office.",
+                            "Optimización de flujos de trabajo y cumplimiento normativo."
+                        ],
+                        en: [
+                            "Leading design and development of B2B platforms and corporate accounts.",
+                            "Supervising KYB interface design and back-office transactions.",
+                            "Workflow optimization and regulatory compliance."
+                        ]
+                    }
+                },
+                {
+                    id: 2,
+                    period: "May 2024 - Aug 2024",
+                    role: { es: "Senior UX/UI Specialist", en: "Senior UX/UI Specialist" },
+                    company: "Aguayo (Colsubsidio)",
+                    desc: {
+                        es: "Optimización de activos digitales y mejora de conversión para turismo.",
+                        en: "Digital asset optimization and conversion improvement for tourism."
+                    },
+                    details: {
+                        es: [
+                            "Optimicé UX/UI de activos clave: Hoteles y Teatro Colsubsidio.",
+                            "Mejoré tasa de engagement y conversión de usuarios.",
+                            "Alineación de estrategias digitales con objetivos comerciales."
+                        ],
+                        en: [
+                            "Optimized UX/UI for key assets: Colsubsidio Hotels and Theater.",
+                            "Improved user engagement rates and conversion.",
+                            "Aligned digital strategies with commercial business goals."
+                        ]
+                    }
+                },
+                {
+                    id: 3,
+                    period: "2023 - 2024",
+                    role: { es: "Product Designer UX/UI", en: "Product Designer UX/UI" },
+                    company: "ABA Tech",
+                    desc: {
+                        es: "Diseño de soluciones SaaS para el sector salud.",
+                        en: "SaaS solution design for the healthcare sector."
+                    },
+                    details: {
+                        es: [
+                            "Diseño centrado en el usuario para productos de salud.",
+                            "Investigación de usuarios y pruebas de usabilidad.",
+                            "Creación de wireframes y prototipos accesibles."
+                        ],
+                        en: [
+                            "User-centered design for healthcare products.",
+                            "User research and usability testing.",
+                            "Creation of accessible wireframes and prototypes."
+                        ]
+                    }
+                },
+                {
+                    id: 4,
+                    period: "2021 - 2022",
+                    role: { es: "Líder UX/UI - Growth", en: "UX/UI Lead - Growth" },
+                    company: "Bavaria (AB InBev)",
+                    desc: {
+                        es: "Gestión regional de ecosistemas para Budweiser, Corona y Stella Artois.",
+                        en: "Regional ecosystem management for Budweiser, Corona, and Stella Artois."
+                    },
+                    details: {
+                        es: [
+                            "Liderazgo de diseño en la región MAZ (Colombia, Perú, Ecuador).",
+                            "Diseño de ecosistemas modulares para optimizar costos.",
+                            "Gestión de stakeholders y estrategias de fidelización."
+                        ],
+                        en: [
+                            "Design leadership in the MAZ region (Colombia, Peru, Ecuador).",
+                            "Modular ecosystem design to optimize implementation costs.",
+                            "Stakeholder management and loyalty strategies."
+                        ]
+                    }
+                },
+                {
+                    id: 5,
+                    period: "2018 - 2019",
+                    role: { es: "Director de Diseño", en: "Design Director" },
+                    company: "Grupo Rta Autolagos",
+                    desc: { es: "Estrategia digital y sistemas de pago.", en: "Digital strategy and payment systems." },
+                    details: {
+                        es: ["Diseño de estrategias digitales para Fintech y Transporte.", "Liderazgo de equipo creativo."],
+                        en: ["Digital strategy design for Fintech and Transport sectors.", "Creative team leadership."]
+                    }
+                },
+                {
+                    id: 6,
+                    period: "2010 - 2012",
+                    role: { es: "Especialista Marketing", en: "Marketing Specialist" },
+                    company: "Bancamía S.A.",
+                    desc: { es: "Marketing para banca rural.", en: "Marketing for rural banking." },
+                    details: {
+                        es: ["Campañas de educación financiera.", "Producción de contenido digital."],
+                        en: ["Financial education campaigns.", "Digital content production."]
+                    }
+                }
+            ],
+
+            // 4. PROJECTS
+            projects: [
+                {
+                    title: "Dexio B2B Platform",
+                    tags: { es: "Fintech / Dashboard", en: "Fintech / Dashboard" },
+                    img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80"
+                },
+                {
+                    title: "AB InBev Ecosystem",
+                    tags: { es: "Sistemas de Diseño", en: "Design Systems" },
+                    img: "https://images.unsplash.com/photo-1600607686527-6fb886090705?w=800&q=80"
+                },
+                {
+                    title: "Colsubsidio Viajes",
+                    tags: { es: "Conversión / UX", en: "CRO / UX Research" },
+                    img: "https://images.unsplash.com/photo-1540339832862-437954c39382?w=800&q=80"
+                },
+                {
+                    title: "Bancamía App",
+                    tags: { es: "Banca / Accesibilidad", en: "Banking / Accessibility" },
+                    img: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&q=80"
+                }
+            ],
+
+
+            // 5. EDUCATION
+            education: [
+                {
+                    title: { es: "Diseñador Gráfico Profesional", en: "Professional Graphic Designer" },
+                    school: "Escuela de Artes y Letras (2017)"
+                },
+                {
+                    title: { es: "Certificación UX", en: "UX Certification" },
+                    school: "Fundación Carlos Slim (2020)"
+                },
+                {
+                    title: "Scrum Fundamentals (SFC)",
+                    school: "Agile Methodologies"
+                },
+                {
+                    title: "Adobe Certified Expert",
+                    school: "Adobe Creative Cloud"
+                }
+            ]
+        };
+
+        /* =================================================================
+           APPLICATION LOGIC
+           ================================================================= */
+        const app = {
+            init: () => {
+                app.renderAll();
+            },
+
+            // CHANGE LANGUAGE
+            setLang: (l) => {
+                DATA.lang = l;
+                // Update Lang Switcher UI
+                document.getElementById('btn-es').style.color = l==='es' ? 'black' : '#999';
+                document.getElementById('btn-en').style.color = l==='en' ? 'black' : '#999';
+                document.getElementById('btn-es').style.fontWeight = l==='es' ? '900' : '400';
+                document.getElementById('btn-en').style.fontWeight = l==='en' ? '900' : '400';
                 
-                // Hero
-                "hero_title": "Juan Sebastián Másmela",
-                "hero_subtitle": "Product Design Director & UX/UI Lead with 7+ years transforming digital experiences. Specialized in B2B platforms, Growth Strategy, and Design Systems. Former AB InBev, Colsubsidio, Dexio. Bilingual (ES/EN).",
-                "specialty_1": "Product Design",
-                "specialty_2": "UX/UI Leadership",
-                "specialty_3": "Design Systems",
-                "specialty_4": "Growth Strategy",
-                "specialty_5": "B2B Platforms",
-                "specialty_6": "AI Integration",
-                "explore_cv": "Explore Neural CV",
-                "view_projects": "View Projects",
+                app.renderAll();
+            },
+
+            // CHANGE PERSONA
+            setPersona: (p) => {
+                DATA.persona = p;
+                document.querySelectorAll('.p-btn').forEach(btn => btn.classList.remove('active'));
+                document.getElementById(`p-${p}`).classList.add('active');
+                app.renderBio();
+            },
+
+            // RENDER UI TEXTS
+            renderUI: () => {
+                document.querySelectorAll('[data-key]').forEach(el => {
+                    const key = el.dataset.key;
+                    if(DATA.ui[key]) el.innerText = DATA.ui[key][DATA.lang];
+                });
+            },
+
+            // RENDER BIO
+            renderBio: () => {
+                const bioText = DATA.personas[DATA.persona][DATA.lang];
+                document.getElementById('hero-bio').innerHTML = bioText;
+            },
+
+            // RENDER EXPERIENCE LIST
+            renderExperience: () => {
+                const container = document.getElementById('job-list');
+                container.innerHTML = DATA.jobs.map(job => `
+                    <div class="job-row" onclick="app.openModal(${job.id})">
+                        <span class="mono" style="color:#888;">${job.period}</span>
+                        <div>
+                            <h3>${job.role[DATA.lang]}</h3>
+                            <span style="font-weight:500;">${job.company}</span>
+                            <p style="font-size:0.9rem; color:#666; margin-top:0.5rem">${job.desc[DATA.lang]}</p>
+                        </div>
+                        <i class="fas fa-arrow-right arrow-icon"></i>
+                    </div>
+                `).join('');
+            },
+
+            // RENDER PROJECTS
+            renderProjects: () => {
+                const container = document.getElementById('projects-grid');
+                container.innerHTML = DATA.projects.map(p => `
+                    <a href="https://behance.net/masmela" target="_blank" class="project-card">
+                        <div class="p-img"><img src="${p.img}"></div>
+                        <h3 style="font-size:1.2rem">${p.title}</h3>
+                        <span class="mono" style="color:#888; font-size:0.8rem">${p.tags[DATA.lang]}</span>
+                    </a>
+                `).join('');
+            },
+
+            // RENDER EDUCATION
+            renderEducation: () => {
+                const container = document.getElementById('edu-list');
+                container.innerHTML = DATA.education.map(e => {
+                    const title = typeof e.title === 'object' ? e.title[DATA.lang] : e.title;
+                    return `
+                    <div style="border-left:2px solid black; padding-left:1rem; margin-bottom:1.5rem;">
+                        <h4 style="font-size:1.1rem">${title}</h4>
+                        <span class="mono" style="color:#666">${e.school}</span>
+                    </div>`;
+                }).join('');
+            },
+
+            // MAIN RENDER FUNCTION
+            renderAll: () => {
+                app.renderUI();
+                app.renderBio();
+                app.renderExperience();
+                app.renderProjects();
+                app.renderEducation();
+            },
+
+            // MODAL LOGIC
+            openModal: (id) => {
+                const job = DATA.jobs.find(j => j.id === id);
+                if(!job) return;
+
+                const modal = document.getElementById('modal-overlay');
+                const content = document.getElementById('modal-content');
+                const lang = DATA.lang;
+
+                content.innerHTML = `
+                    <div class="close-modal" onclick="app.closeModal(event)">&times;</div>
+                    <span class="mono" style="background:black; color:white; padding:2px 8px;">${job.period}</span>
+                    <h2 style="font-size:2rem; margin-top:1rem; margin-bottom:0.5rem; line-height:1.1;">${job.role[lang]}</h2>
+                    <h3 style="color:#666; font-weight:400; margin-bottom:2rem; border-bottom:1px solid #eee; padding-bottom:1rem;">
+                        ${job.company}
+                    </h3>
+                    
+                    <ul style="list-style:none;">
+                        ${job.details[lang].map(d => `
+                            <li style="margin-bottom:1rem; display:flex; gap:1rem; align-items:start;">
+                                <i class="fas fa-check" style="margin-top:6px; font-size:0.8rem; color:black"></i>
+                                <span style="font-size:1.05rem; color:#333;">${d}</span>
+                            </li>
+                        `).join('')}
+                    </ul>
+                `;
                 
-                // CV Section
-                "cv_title": "Interactive Neural CV",
-                "filter_experience": "Filter Experience",
-                "filter_all": "All Experience",
-                "filter_b2b": "B2B & Corporate",
-                "filter_growth": "Growth & Loyalty",
-                "filter_design": "UX/UI Design",
-                "key_metrics": "Key Metrics",
-                "years_exp": "Years XP",
-                "projects_count": "Projects",
-                "brands_count": "Brands",
-                "timeline_title": "Professional Experience",
-                "skills_title": "Skills & Specialties",
-                
-                // Projects
-                "projects_title": "Featured Projects",
-                "projects_subtitle": "Case studies demonstrating my user-centered design and digital growth approach",
-                
-                // Tools
-                "tools_title": "Design Toolkit",
-                "tools_subtitle": "Tech stack and methodologies I master to create exceptional digital experiences",
-                
-                // Contact
-                "contact_subtitle": "Ready to transform your digital experience? Let's talk about your next project",
-                
-                // Footer
-                "footer_about": "About this Portfolio",
-                "footer_connect": "Connect",
-                
-                // NeuroBot
-                "neurobot_placeholder": "Ask about methodologies, tools or experience..."
+                modal.classList.add('open');
+                document.body.style.overflow = 'hidden'; 
+            },
+
+            closeModal: (e) => {
+                if (e.target.id === 'modal-overlay' || e.target.classList.contains('close-modal')) {
+                    document.getElementById('modal-overlay').classList.remove('open');
+                    document.body.style.overflow = 'auto';
+                }
             }
         };
 
-        // ========== VARIABLES GLOBALES ==========
-        let currentLanguage = localStorage.getItem('neuroPortfolioLang') || 'es';
-        let isMobileMenuOpen = false;
-
-        // ========== INICIALIZACIÓN ==========
-        document.addEventListener('DOMContentLoaded', function() {
-            loadCVData();
-            loadProjects();
-            loadTools();
-            setupEventListeners();
-            initNeuroBot();
-            
-            // Cargar idioma guardado
-            changeLanguage(currentLanguage);
-            
-            // Animaciones con GSAP
-            if (typeof gsap !== 'undefined') {
-                initAnimations();
-            }
-            
-            // Asegurar que el contenido oculto se revele
-            revealHiddenContent();
-        });
-
-        // ========== FUNCIONES MOBILE MENU ==========
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobileMenu');
-            const toggle = document.getElementById('mobileMenuToggle');
-            
-            isMobileMenuOpen = !isMobileMenuOpen;
-            
-            if (menu) {
-                menu.classList.toggle('active', isMobileMenuOpen);
-            }
-            
-            if (toggle) {
-                toggle.classList.toggle('active', isMobileMenuOpen);
-            }
-            
-            // Bloquear scroll cuando el menú está abierto
-            document.body.style.overflow = isMobileMenuOpen ? 'hidden' : '';
-        }
-
-        function closeMobileMenu() {
-            isMobileMenuOpen = false;
-            const menu = document.getElementById('mobileMenu');
-            const toggle = document.getElementById('mobileMenuToggle');
-            
-            if (menu) menu.classList.remove('active');
-            if (toggle) toggle.classList.remove('active');
-            
-            document.body.style.overflow = '';
-        }
-
-        // ========== SISTEMA DE IDIOMAS ==========
-        function changeLanguage(lang) {
-            if (lang === currentLanguage) return;
-            
-            document.body.classList.add('language-changing');
-            
-            // Actualizar botones de idioma
-            document.querySelectorAll('.language-option').forEach(opt => {
-                opt.classList.toggle('active', opt.getAttribute('data-lang') === lang);
-            });
-            
-            // Actualizar selectores
-            document.querySelectorAll('#currentLang, #mobileCurrentLang').forEach(el => {
-                el.textContent = lang.toUpperCase();
-            });
-            
-            document.querySelectorAll('#botLanguageSwitcher').forEach(select => {
-                select.value = lang;
-            });
-            
-            updateTexts(lang);
-            localStorage.setItem('neuroPortfolioLang', lang);
-            currentLanguage = lang;
-            
-            setTimeout(() => {
-                document.body.classList.remove('language-changing');
-            }, 600);
-        }
-        
-        function updateTexts(lang) {
-            const translation = translations[lang];
-            
-            document.querySelectorAll('[data-i18n]').forEach(element => {
-                const key = element.getAttribute('data-i18n');
-                if (translation[key]) {
-                    element.textContent = translation[key];
-                }
-            });
-            
-            document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
-                const key = element.getAttribute('data-i18n-placeholder');
-                if (translation[key]) {
-                    element.placeholder = translation[key];
-                }
-            });
-            
-            // Actualizar NeuroBot
-            updateNeuroBotLanguage(lang);
-        }
-
-        // ========== REVELAR CONTENIDO OCULTO ==========
-        function revealHiddenContent() {
-            // Esta función ahora es simbólica ya que el contenido ya está visible
-            // En un caso real, buscaría elementos con display:none en el DOM
-            console.log('Contenido oculto revelado automáticamente en el HTML');
-        }
-
-        // ========== NEUROBOT MEJORADO ==========
-        function initNeuroBot() {
-            showQuickQuestions();
-            
-            const toggle = document.getElementById('neurobotToggle');
-            const container = document.getElementById('neurobotContainer');
-            const botLangSelect = document.getElementById('botLanguageSwitcher');
-            
-            if (toggle && container) {
-                toggle.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    container.classList.toggle('active');
-                    if (container.classList.contains('active')) {
-                        setTimeout(() => {
-                            addBotMessage(getWelcomeMessage());
-                        }, 300);
-                    }
-                });
-            }
-            
-            if (botLangSelect) {
-                botLangSelect.value = currentLanguage;
-                botLangSelect.addEventListener('change', (e) => {
-                    changeLanguage(e.target.value);
-                });
-            }
-            
-            // Mensaje inicial después de 2 segundos
-            setTimeout(() => {
-                if (!document.getElementById('neurobotContainer').classList.contains('active')) {
-                    addBotMessage(getWelcomeMessage());
-                }
-            }, 2000);
-        }
-        
-        function getWelcomeMessage() {
-            return currentLanguage === 'es' 
-                ? "¡Hola! Soy Sebastián Bot, tu asistente personal para explorar este portafolio. Conozco todos los proyectos, herramientas y metodologías de Juan Sebastián. ¿En qué puedo ayudarte hoy?"
-                : "Hello! I'm Sebastián Bot, your personal assistant to explore this portfolio. I know all about Juan Sebastián's projects, tools and methodologies. How can I help you today?";
-        }
-        
-        function updateNeuroBotLanguage(lang) {
-            const container = document.getElementById('quickQuestions');
-            if (container) {
-                container.innerHTML = '';
-                showQuickQuestions();
-            }
-            
-            // Actualizar placeholder
-            const input = document.getElementById('neurobotInput');
-            if (input) {
-                input.placeholder = translations[lang].neurobot_placeholder || "Ask me anything...";
-            }
-        }
-        
-        function showQuickQuestions() {
-            const container = document.getElementById('quickQuestions');
-            if (!container) return;
-            
-            const questions = currentLanguage === 'es' ? [
-                "¿Cuál es tu stack de herramientas?",
-                "Experiencia en Design Systems",
-                "Proyectos B2B destacados",
-                "Metodologías Agile/Scrum",
-                "Cómo manejas el UX Research",
-                "Casos de éxito recientes"
-            ] : [
-                "What is your tool stack?",
-                "Design Systems experience",
-                "Notable B2B projects",
-                "Agile/Scrum methodologies",
-                "How do you handle UX Research",
-                "Recent success cases"
-            ];
-            
-            questions.forEach(q => {
-                const btn = document.createElement('button');
-                btn.className = 'quick-question';
-                btn.textContent = q;
-                btn.addEventListener('click', () => {
-                    document.getElementById('neurobotInput').value = q;
-                    sendNeuroBotMessage();
-                });
-                container.appendChild(btn);
-            });
-        }
-        
-        function sendNeuroBotMessage() {
-            const input = document.getElementById('neurobotInput');
-            const message = input.value.trim();
-            
-            if (!message) return;
-            
-            addUserMessage(message);
-            input.value = '';
-            
-            setTimeout(() => {
-                const response = getNeuroBotResponse(message);
-                addBotMessage(response);
-            }, 500);
-        }
-        
-        function getNeuroBotResponse(query) {
-            const lowerQuery = query.toLowerCase();
-            
-            const knowledge = currentLanguage === 'es' ? {
-                'herramientas|stack|tools': 'Stack principal: Figma (Experto), Adobe Creative Suite, Maze para testing, Hotjar, Google Analytics, Jira, Notion, Miro. También uso MidJourney para ideación y ChatGPT para UX writing.',
-                'design systems|sistema de diseño': 'Experto en Design Systems. He creado sistemas escalables en Figma con tokens de diseño, componentes reutilizables, documentación en Notion y procesos de governance.',
-                'b2b|corporativo': '3+ años en plataformas B2B: Dexio Technologies (banca corporativa), ABA Tech (software médico), Bavaria (sistemas internos). Especializado en flujos complejos y compliance.',
-                'agile|scrum|metodologías': 'Certificación Scrum Fundamentals. 5+ años con Agile: sprints de 2 semanas, daily standups, planning poker, retrospectivas. Colaboración estrecha con Product Owners.',
-                'research|investigación': 'UX Research: Entrevistas con usuarios, usability testing, card sorting, A/B testing. Herramientas: Maze, Hotjar, Google Analytics, UserInterviews.',
-                'éxito|casos|proyectos': 'Casos destacados: 1) Dexio: reducción onboarding 40%, 2) Colsubsidio: +25% conversión, 3) EdTech startup: 10K usuarios en primer año.',
-                'default': 'Puedo ayudarte con información sobre: herramientas de diseño, metodologías (Agile/Scrum/Lean), proyectos B2B/B2C, Design Systems, UX Research, o casos específicos. ¿Qué te interesa conocer?'
-            } : {
-                'tools|stack': 'Main stack: Figma (Expert), Adobe Creative Suite, Maze for testing, Hotjar, Google Analytics, Jira, Notion, Miro. Also use MidJourney for ideation and ChatGPT for UX writing.',
-                'design systems': 'Expert in Design Systems. Created scalable systems in Figma with design tokens, reusable components, Notion documentation and governance processes.',
-                'b2b|corporate': '3+ years in B2B platforms: Dexio Technologies (corporate banking), ABA Tech (medical software), Bavaria (internal systems). Specialized in complex flows and compliance.',
-                'agile|scrum|methodologies': 'Scrum Fundamentals certified. 5+ years with Agile: 2-week sprints, daily standups, planning poker, retrospectives. Close collaboration with Product Owners.',
-                'research': 'UX Research: User interviews, usability testing, card sorting, A/B testing. Tools: Maze, Hotjar, Google Analytics, UserInterviews.',
-                'success|cases|projects': 'Notable cases: 1) Dexio: 40% faster onboarding, 2) Colsubsidio: +25% conversion, 3) EdTech startup: 10K users in first year.',
-                'default': 'I can help with information about: design tools, methodologies (Agile/Scrum/Lean), B2B/B2C projects, Design Systems, UX Research, or specific cases. What would you like to know?'
-            };
-            
-            for (const [key, response] of Object.entries(knowledge)) {
-                const keywords = key.split('|');
-                if (keywords.some(kw => lowerQuery.includes(kw))) {
-                    return response;
-                }
-            }
-            
-            return knowledge['default'];
-        }
-        
-        function addUserMessage(text) {
-            const container = document.getElementById('chatContainer');
-            const messageDiv = document.createElement('div');
-            messageDiv.className = 'message user-message';
-            messageDiv.innerHTML = `
-                <div class="message-content">${text}</div>
-                <div class="message-time">${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</div>
-            `;
-            container.appendChild(messageDiv);
-            container.scrollTop = container.scrollHeight;
-        }
-        
-        function addBotMessage(text) {
-            const container = document.getElementById('chatContainer');
-            const messageDiv = document.createElement('div');
-            messageDiv.className = 'message bot-message';
-            messageDiv.innerHTML = `
-                <div class="message-content">${text}</div>
-                <div class="message-time">${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</div>
-            `;
-            container.appendChild(messageDiv);
-            container.scrollTop = container.scrollHeight;
-        }
-
-        // ========== EVENT LISTENERS ==========
-        function setupEventListeners() {
-            // Menú móvil
-            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-            if (mobileMenuToggle) {
-                mobileMenuToggle.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    toggleMobileMenu();
-                });
-            }
-            
-            // Cerrar menú al hacer clic fuera
-            document.addEventListener('click', (e) => {
-                if (isMobileMenuOpen && 
-                    !document.getElementById('mobileHeader').contains(e.target)) {
-                    closeMobileMenu();
-                }
-                
-                // Cerrar NeuroBot al hacer clic fuera
-                const neurobotContainer = document.getElementById('neurobotContainer');
-                const neurobotToggle = document.getElementById('neurobotToggle');
-                
-                if (neurobotContainer && neurobotContainer.classList.contains('active') && 
-                    !neurobotContainer.contains(e.target) && 
-                    !neurobotToggle.contains(e.target)) {
-                    neurobotContainer.classList.remove('active');
-                }
-            });
-            
-            // Selector de idioma desktop
-            document.querySelectorAll('.language-option').forEach(option => {
-                option.addEventListener('click', function() {
-                    const lang = this.getAttribute('data-lang');
-                    changeLanguage(lang);
-                });
-            });
-            
-            // Selector de idioma móvil
-            document.querySelectorAll('#mobileLanguageBtn').forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                });
-            });
-            
-            // NeuroBot
-            const neurobotInput = document.getElementById('neurobotInput');
-            const neurobotSendBtn = document.getElementById('neurobotSendBtn');
-            
-            if (neurobotInput && neurobotSendBtn) {
-                neurobotInput.addEventListener('keypress', (e) => {
-                    if (e.key === 'Enter') {
-                        sendNeuroBotMessage();
-                    }
-                });
-                
-                neurobotSendBtn.addEventListener('click', sendNeuroBotMessage);
-            }
-            
-            // Evitar que clics dentro del bot cierren cosas
-            document.querySelectorAll('.neurobot-container, .neurobot-toggle').forEach(el => {
-                el.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                });
-            });
-        }
-
-        // ========== ANIMACIONES GSAP ==========
-        function initAnimations() {
-            if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
-            
-            gsap.registerPlugin(ScrollTrigger);
-            
-            // Animación de entrada para secciones
-            gsap.utils.toArray('section').forEach((section, i) => {
-                gsap.from(section, {
-                    scrollTrigger: {
-                        trigger: section,
-                        start: 'top 80%',
-                        toggleActions: 'play none none reverse'
-                    },
-                    y: 50,
-                    opacity: 0,
-                    duration: 0.8,
-                    delay: i * 0.1
-                });
-            });
-            
-            // Animación para la sección revelada
-            const revealedSection = document.getElementById('hiddenContentRevealed');
-            if (revealedSection) {
-                gsap.from(revealedSection, {
-                    scrollTrigger: {
-                        trigger: revealedSection,
-                        start: 'top 85%'
-                    },
-                    y: 30,
-                    opacity: 0,
-                    duration: 0.8
-                });
-            }
-        }
-
-        // ========== FUNCIONES DE CARGA DE DATOS (sin cambios) ==========
-        // ... [Funciones loadCVData, filterCV, loadProjects, loadTools permanecen iguales] ...
+        // INIT
+        document.addEventListener('DOMContentLoaded', app.init);
     </script>
 </body>
 </html>
