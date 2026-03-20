@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyectos | Juan Sebastián Másmela</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="mobile-bar">
+    <a href="index.html" style="font-size:1.2rem; font-weight:900; color:var(--ink);">MÁSMELA.</a>
+    <div class="hamburger" onclick="app.toggleMenu()" style="color:var(--ink);"><i class="fas fa-bars" id="menu-icon"></i></div>
+</div>
+
+<div class="layout">
+    <aside class="sidebar" id="main-sidebar">
+        <div>
+            <div class="sidebar-logo-area">
+                <a href="index.html" style="font-size:1.4rem; font-weight:900; color:var(--ink); display:block;">JUAN SEBASTIÁN<br>MÁSMELA.</a>
+                <span class="mono" style="color:var(--highlight); margin-top:0.5rem; display:block; font-size:0.75rem;">Product Design Director</span>
+            </div>
+            <nav class="nav-menu" aria-label="Navegación principal">
+                <a href="index.html" class="nav-link" data-key="nav_profile">01. Perfil</a>
+                <a href="methodology.html" class="nav-link" data-key="nav_method">02. Método AI-DLC</a>
+                <a href="experience.html" class="nav-link" data-key="nav_exp">03. Trayectoria</a>
+                <a href="projects.html" class="nav-link active" data-key="nav_work">04. Proyectos</a>
+                <a href="index.html#contact" class="nav-link" data-key="nav_contact">05. Contacto</a>
+            </nav>
+        </div>
+
+        <div>
+            <button id="theme-toggle-btn" class="theme-toggle" onclick="app.toggleTheme()" aria-label="Cambiar tema">
+                <i class="fas fa-sun"></i> <span>Modo Claro</span>
+            </button>
+            <div class="mono" style="font-size:0.75rem; margin-top:2rem;">
+                <div style="margin-bottom: 1rem; border-top: 1px solid var(--border); padding-top: 1.5rem;">
+                    <a href="javascript:void(0)" onclick="app.setLang('es')" id="btn-es" class="lang-btn font-bold">ES</a> 
+                    <span style="color:var(--ink-muted)">|</span> 
+                    <a href="javascript:void(0)" onclick="app.setLang('en')" id="btn-en" class="lang-btn">EN</a>
+                </div>
+                <a href="mailto:sebastian689@gmail.com" style="text-decoration:underline; color:var(--ink-light);">sebastian689@gmail.com</a>
+                <div style="margin-top: 1rem; font-size: 0.75rem; color: var(--ink-muted);">
+                    <i class="fas fa-phone"></i> +57 319 411 6820<br>
+                    <a href="https://drive.google.com/file/d/1Q8ClWUE0khV4QvuISBX8_byuvyQdqs0I/view" target="_blank" style="text-decoration:underline; color:var(--ink-muted);">Portfolio PDF ↗</a>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <main>
+        <section id="projects">
+            <span class="mono" style="color:var(--highlight)">[ SHOWCASE ]</span>
+            <h1 class="txt-huge" style="margin-top:1rem;" data-key="title_proj">Proyectos</h1>
+            <p class="txt-lead" data-key="desc_proj" style="margin-bottom:5rem;"></p>
+            
+            <div id="projects-grid" class="grid-projects"></div>
+
+            <div style="margin-top: 6rem; text-align: center;">
+                <a href="https://behance.net/masmela" target="_blank" class="btn-brutalist" style="background:var(--highlight); color:white;" data-key="btn_more">Ver Behance ↗</a>
+            </div>
+        </section>
+    </main>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
