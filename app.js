@@ -1,7 +1,7 @@
 const DATA = {
     lang: 'es',
     persona: 'recruiter',
-    theme: 'dark',
+    theme: 'light',
     translations: {
         es: {
             nav_profile: "01. Perfil",
@@ -75,12 +75,12 @@ const DATA = {
     experience: {
         es: [
             {
-                period: "2026 - Present", role: "Docente de Diplomado en IA - Alta Gerencia", company: "Universidad EAN",
-                desc: "Facilitador estratégico para ejecutivos senior, guiando en la implementación práctica de IA Generativa y flujos de trabajo autónomos.",
+                period: "2026 - Present", role: "Catedrático de Diplomado en IA para Alta Gerencia", company: "Universidad EAN",
+                desc: "Facilitador estratégico para juntas directivas y ejecutivos senior, guiando en la implementación práctica de IA Generativa y workflows autónomos.",
                 details: [
-                    "Diseño curricular enfocado en adopción estratégica de herramientas de IA y Prompt Engineering de nivel experto.",
-                    "Liderazgo en la transformación de procesos corporativos mediante la integración de agentes inteligentes.",
-                    "Mentoria en toma de decisiones basada en datos y optimización de la eficiencia operativa masiva."
+                    "Diseño curricular de alto nivel enfocado en la adopción estratégica de herramientas de IA y Prompt Engineering experto.",
+                    "Liderazgo en la transformación de procesos corporativos mediante la integración de ecosistemas de agentes inteligentes.",
+                    "Mentoría senior en toma de decisiones basada en datos y optimización de eficiencia operativa a gran escala."
                 ]
             },
             {
@@ -161,12 +161,12 @@ const DATA = {
         ],
         en: [
             {
-                period: "2026 - Present", role: "AI Diploma Lecturer - Senior Management", company: "EAN University",
-                desc: "Strategic facilitator for senior executives, guiding the practical implementation of Generative AI and autonomous workflows.",
+                period: "2026 - Present", role: "Generative AI Executive Lecturer", company: "EAN University",
+                desc: "Strategic facilitator for senior executives and board members, guiding the practical implementation of Generative AI and autonomous workflows.",
                 details: [
-                    "Curriculum design focused on the strategic adoption of AI tools and expert-level Prompt Engineering.",
-                    "Leadership in transforming corporate processes by integrating intelligent agents.",
-                    "Mentorship in data-driven decision making and massive operational efficiency optimization."
+                    "Curriculum design focused on the strategic adoption of AI tools and executive-level Prompt Engineering.",
+                    "Strategic leadership in transforming corporate processes by integrating multi-agent intelligent ecosystems.",
+                    "Expert mentorship in data-driven decision making and massive operational efficiency optimization."
                 ]
             },
             {
@@ -371,7 +371,7 @@ const app = {
         app.renderThemeBtn();
     },
     loadTheme: () => {
-        const saved = localStorage.getItem('portfolio-theme') || 'dark';
+        const saved = localStorage.getItem('portfolio-theme') || 'light';
         DATA.theme = saved;
         document.documentElement.setAttribute('data-theme', saved);
     },
