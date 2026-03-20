@@ -98,14 +98,6 @@ section { padding: var(--pad); border-bottom: var(--border); min-height: 90vh; d
 .txt-huge { font-size: clamp(3rem, 10vw, 8rem); margin-bottom: 2rem; }
 .txt-lead { font-size: clamp(1.1rem, 2vw, 1.3rem); font-weight: 400; color: var(--ink-light); max-width: 45ch; margin-bottom: 2.5rem; }
 
-/* Hero Layout */
-.hero-container { display: flex; align-items: center; justify-content: space-between; gap: 4rem; width: 100%; }
-.hero-content { flex: 1.2; }
-.hero-visual { flex: 0.8; display: flex; justify-content: flex-end; }
-.pic-wrapper { position: relative; width: 320px; height: 320px; }
-.profile-pic { width: 100%; height: 100%; object-fit: cover; border-radius: 30px; border: var(--border); box-shadow: var(--shadow); position: relative; z-index: 2; }
-.pic-ring { position: absolute; top: -15px; right: -15px; width: 100%; height: 100%; border: 2px solid var(--highlight); border-radius: 30px; z-index: 1; }
-
 /* Persona Controls */
 .persona-control { display: flex; gap: 0.5rem; margin-bottom: 2rem; background: var(--card-bg); padding: 5px; border-radius: 50px; width: fit-content; border: var(--border); }
 .p-btn { 
@@ -221,9 +213,6 @@ section { padding: var(--pad); border-bottom: var(--border); min-height: 90vh; d
     .mobile-bar { display: flex; }
     .sidebar { position: fixed; transform: translateX(-100%); width: 100%; height: calc(100vh - 70px); top: 70px; border-right: none; }
     .sidebar.active { transform: translateX(0); }
-    .hero-container { flex-direction: column-reverse; align-items: flex-start; gap: 3rem; }
-    .hero-visual { flex: none; width: 100%; justify-content: flex-start; }
-    .pic-wrapper { width: 250px; height: 250px; }
     .txt-huge { font-size: 3.5rem; }
     section { padding: 3rem 1.5rem; }
     .job-row { grid-template-columns: 1fr; gap: 1rem; }
