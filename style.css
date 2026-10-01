@@ -213,7 +213,17 @@ section { padding: var(--pad); border-bottom: var(--border); position: relative;
     position: relative; overflow: hidden; border-radius: var(--radius); background: #0c0c0c;
     aspect-ratio: 4 / 3; display: block; border: var(--border); box-shadow: var(--shadow);
     transition: 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    padding: 0; width: 100%; text-align: left; font: inherit; color: inherit; cursor: pointer;
 }
+
+.chip-avail {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    font-family: 'Space Mono', monospace; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 0.5rem 1.1rem; border-radius: 50px; border: var(--border); background: var(--card-bg); color: var(--ink-light);
+    margin-bottom: 1.6rem;
+}
+.chip-avail::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: #22C55E; box-shadow: 0 0 10px #22C55E; animation: pulse 2.4s ease-in-out infinite; }
+@keyframes pulse { 50% { opacity: 0.4; } }
 .p-img { position: absolute; inset: 0; opacity: 0.75; transition: 0.8s cubic-bezier(0.16,1,0.3,1); }
 .p-img img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
 .p-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem; background: linear-gradient(to top, rgba(0,0,0,0.92) 25%, transparent); z-index: 10; display: flex; flex-direction: column; gap: 0.35rem; }

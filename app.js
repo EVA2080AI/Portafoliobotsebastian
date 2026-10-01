@@ -37,7 +37,16 @@ const DATA = {
             title_stats: "Resultados en números",
             min_read: "min de lectura",
             visit_live: "Ver en producción ↗",
-            latest_posts: "Último del blog"
+            latest_posts: "Último del blog",
+            avail: "Disponible para proyectos · Bogotá / Remoto",
+            title_services: "En qué te puedo ayudar",
+            desc_services: "Cuatro frentes, un mismo estándar: decisiones medibles y software en producción.",
+            case_role: "Mi rol",
+            case_stack: "Enfoque",
+            case_impact: "Qué se logró",
+            case_concept: "Proyecto de concepto / cliente — detalle visual en Behance.",
+            btn_behance_case: "Ver caso en Behance ↗",
+            btn_close_case: "Ver todos los proyectos"
         },
         en: {
             nav_profile: "01. Profile",
@@ -73,7 +82,16 @@ const DATA = {
             title_stats: "Results in numbers",
             min_read: "min read",
             visit_live: "View live ↗",
-            latest_posts: "Latest from the blog"
+            latest_posts: "Latest from the blog",
+            avail: "Available for projects · Bogotá / Remote",
+            title_services: "How I can help",
+            desc_services: "Four fronts, one standard: measurable decisions and software in production.",
+            case_role: "My role",
+            case_stack: "Approach",
+            case_impact: "What was achieved",
+            case_concept: "Concept / client project — visual detail on Behance.",
+            btn_behance_case: "View case on Behance ↗",
+            btn_close_case: "See all projects"
         }
     },
     personas: {
@@ -304,32 +322,200 @@ const DATA = {
     },
     projects: {
         es: [
-            { title: "Faro Emergency — Cruz Roja", tags: "Humanitarian Tech / IA", img: "p10.jpg", url: "https://faroemergency.org", live: true },
-            { title: "Portal Cruz Roja Santander", tags: "ERP / Donaciones en línea", img: "p11.jpg", url: "https://cruzrojasantander.org", live: true },
-            { title: "Simulador de Flujos IA", tags: "Agentes / 120 pilotos en 43 áreas", img: "p14.jpg", url: "https://eva2080ai.github.io/simulador-flujos-ia/", live: true },
-            { title: "Sportech — GPS Fútbol", tags: "SaaS Deportivo / E-commerce", img: "p12.jpg", url: "https://sportech-app.com", live: true },
-            { title: "Jetour Colombia", tags: "Automotriz / Catálogo digital", img: "p13.jpg", url: "https://agenciajetour.com", live: true },
-            { title: "Elecciones CO 2026", tags: "Cívico / Análisis con IA", img: "p15.jpg", url: "https://eva2080ai.github.io/elecciones-co-2026/", live: true },
-            { title: "Framework Bill Search", tags: "B2B / FinTech", img: "p9.jpg" },
-            { title: "Green City APP", tags: "UX Research / Eco", img: "p1.jpg" },
-            { title: "Éxito.com Optimization", tags: "Growth / Retail", img: "p3.jpg" },
-            { title: "Budweiser Prediction", tags: "Gamification / Sports", img: "p5.jpg" },
-            { title: "Retorna Crypto", tags: "Trust / UX Refinement", img: "p7.jpg" },
-            { title: "Mercado Libre Dark", tags: "Aesthetics / Payment", img: "p4.jpg" }
+            {
+                title: "Faro Emergency — Cruz Roja", tags: "Humanitarian Tech / IA", img: "p10.jpg", url: "https://faroemergency.org", live: true,
+                year: "2026", role: "Diseño, arquitectura y desarrollo de punta a punta", stack: "Next.js · React · PostgreSQL · Offline-first",
+                desc: "Plataforma con la que la Cruz Roja Colombiana coordina la respuesta a emergencias, construida para funcionar sin señal en terreno.",
+                impact: [
+                    "Usada en la respuesta al terremoto Chocó–Valle del Cauca 2026, operando en dos seccionales a la vez.",
+                    "Logística humanitaria completa: acopios, despachos y entregas con firma digital y trazabilidad total.",
+                    "Sala de situación con modo TV, motor de aprobaciones de cifras oficiales y canal de retroalimentación comunitaria."
+                ]
+            },
+            {
+                title: "Portal Cruz Roja Santander", tags: "ERP / Donaciones en línea", img: "p11.jpg", url: "https://cruzrojasantander.org", live: true,
+                year: "2026", role: "Diseño y desarrollo completo", stack: "Next.js · ePayco · IA con datos en vivo",
+                desc: "Sitio público de la Seccional: 22 páginas conectadas en tiempo real al ERP Faro Management.",
+                impact: [
+                    "Donaciones en línea y Tienda Humanitaria con pasarela de pagos (tarjetas, PSE, Nequi) y contabilidad automática.",
+                    "Matrículas del instituto de formación, voluntariado, vacunación y PQRS, todo autogestionado.",
+                    "Asistente de IA embebido que responde a la ciudadanía con datos vivos del sistema."
+                ]
+            },
+            {
+                title: "Simulador de Flujos IA", tags: "Agentes / Banco de pruebas", img: "p14.jpg", url: "https://eva2080ai.github.io/simulador-flujos-ia/", live: true,
+                year: "2026", role: "Concepto, diseño y desarrollo", stack: "Lienzo de nodos · Simulación · Export .md/PDF",
+                desc: "Banco de pruebas de agentes de IA: arma un proceso con bloques, simula corridas con lotes reales y mide cuánto automatizar con confianza.",
+                impact: [
+                    "120 pilotos listos en 43 áreas, 25 sectores y 113 cargos.",
+                    "Cumplimiento, glosario y blueprint de infraestructura por proceso.",
+                    "Exporta el runbook a Markdown y PDF para llevarlo a producción."
+                ]
+            },
+            {
+                title: "Sportech — GPS Fútbol", tags: "SaaS Deportivo / E-commerce", img: "p12.jpg", url: "https://sportech-app.com", live: true,
+                year: "2026", role: "Producto de punta a punta", stack: "Web + Team Hub + app móvil",
+                desc: "Ecosistema de GPS para fútbol: sitio comercial con tienda, hub del equipo para descargar y analizar grabaciones, y app móvil de tracking.",
+                impact: [
+                    "Dashboard del equipo completo: métricas por jugador, partido a partido.",
+                    "Team Hub en producción (v2.6) para análisis de grabaciones GPS.",
+                    "App móvil iOS/Android (Onyx Track) para captura en cancha."
+                ]
+            },
+            {
+                title: "Jetour Colombia", tags: "Automotriz / Catálogo digital", img: "p13.jpg", url: "https://agenciajetour.com", live: true,
+                year: "2026", role: "Diseño y desarrollo", stack: "Catálogo · Comparador · Test drive",
+                desc: "Catálogo digital de la línea SUV de Jetour para Colombia, pensado para convertir visitas en test drives.",
+                impact: [
+                    "Comparador de modelos y fichas técnicas con jerarquía clara de decisión.",
+                    "Agendamiento de test drive directo por WhatsApp.",
+                    "Estética premium alineada a la marca global."
+                ]
+            },
+            {
+                title: "Elecciones CO 2026", tags: "Cívico / Análisis con IA", img: "p15.jpg", url: "https://eva2080ai.github.io/elecciones-co-2026/", live: true,
+                year: "2026", role: "Concepto, diseño y desarrollo", stack: "Análisis cuantitativo · IA · Noticias en vivo",
+                desc: "Sitio informativo imparcial sobre las presidenciales de Colombia 2026: análisis a fondo de los planes de gobierno sin sesgos editoriales.",
+                impact: [
+                    "Análisis cuantitativo de propuestas con nivel de confianza explícito (75%, 50+ fuentes).",
+                    "Calculadora de afinidad entre el votante y los candidatos.",
+                    "Pulso de noticias minuto a minuto."
+                ]
+            },
+            {
+                title: "Framework Bill Search", tags: "B2B / FinTech", img: "p9.jpg",
+                year: "2024", role: "Product Designer", stack: "Figma · Design System",
+                desc: "Framework de búsqueda y conciliación de facturas para operación B2B: menos pasos, menos errores de digitación, auditoría clara.",
+                impact: ["Caso completo disponible en Behance."]
+            },
+            {
+                title: "Green City APP", tags: "UX Research / Eco", img: "p1.jpg",
+                year: "2023", role: "UX Research + UI", stack: "Research · Prototipado",
+                desc: "Concepto de app de movilidad sostenible: investigación de usuarios, arquitectura de información y prototipo validado.",
+                impact: ["Caso completo disponible en Behance."]
+            },
+            {
+                title: "Éxito.com Optimization", tags: "Growth / Retail", img: "p3.jpg",
+                year: "2024", role: "Growth UX", stack: "A/B Testing · Analítica",
+                desc: "Optimización de conversión para el e-commerce retail más grande de Colombia: fricciones del checkout y jerarquía de la ficha de producto.",
+                impact: ["Caso completo disponible en Behance."]
+            },
+            {
+                title: "Budweiser Prediction", tags: "Gamificación / Deportes", img: "p5.jpg",
+                year: "2021", role: "UX/UI Lead (AB InBev)", stack: "Gamificación · Loyalty",
+                desc: "Juego de predicciones deportivas para Budweiser: engagement de marca en torneos con mecánica de puntos y premios.",
+                impact: ["Caso completo disponible en Behance."]
+            },
+            {
+                title: "Retorna Crypto", tags: "Confianza / Remesas", img: "p7.jpg",
+                year: "2024", role: "Product Designer", stack: "FinTech · KYB",
+                desc: "Refinamiento de UX para remesas con cripto: construir confianza en cada paso del envío de dinero entre países.",
+                impact: ["Caso completo disponible en Behance."]
+            },
+            {
+                title: "Mercado Libre Dark", tags: "Estética / Pagos", img: "p4.jpg",
+                year: "2023", role: "Concepto visual", stack: "UI · Dark mode",
+                desc: "Ejercicio de concepto: el flujo de pago de Mercado Libre repensado en modo oscuro sin perder accesibilidad.",
+                impact: ["Caso completo disponible en Behance."]
+            }
         ],
         en: [
-            { title: "Faro Emergency — Red Cross", tags: "Humanitarian Tech / AI", img: "p10.jpg", url: "https://faroemergency.org", live: true },
-            { title: "Red Cross Santander Portal", tags: "ERP / Online Donations", img: "p11.jpg", url: "https://cruzrojasantander.org", live: true },
-            { title: "AI Workflow Simulator", tags: "Agents / 120 pilots across 43 areas", img: "p14.jpg", url: "https://eva2080ai.github.io/simulador-flujos-ia/", live: true },
-            { title: "Sportech — Football GPS", tags: "Sports SaaS / E-commerce", img: "p12.jpg", url: "https://sportech-app.com", live: true },
-            { title: "Jetour Colombia", tags: "Automotive / Digital catalog", img: "p13.jpg", url: "https://agenciajetour.com", live: true },
-            { title: "Elections CO 2026", tags: "Civic / AI-powered analysis", img: "p15.jpg", url: "https://eva2080ai.github.io/elecciones-co-2026/", live: true },
-            { title: "Framework Bill Search", tags: "B2B / FinTech", img: "p9.jpg" },
-            { title: "Green City APP", tags: "UX Research / Eco", img: "p1.jpg" },
-            { title: "Éxito.com Optimization", tags: "Growth / Retail", img: "p3.jpg" },
-            { title: "Budweiser Prediction", tags: "Gamification / Sports", img: "p5.jpg" },
-            { title: "Retorna Crypto", tags: "Trust / UX Refinement", img: "p7.jpg" },
-            { title: "Mercado Libre Dark", tags: "Aesthetics / Payment", img: "p4.jpg" }
+            {
+                title: "Faro Emergency — Red Cross", tags: "Humanitarian Tech / AI", img: "p10.jpg", url: "https://faroemergency.org", live: true,
+                year: "2026", role: "End-to-end design, architecture and development", stack: "Next.js · React · PostgreSQL · Offline-first",
+                desc: "The platform the Colombian Red Cross uses to coordinate emergency response, built to work in the field with no signal.",
+                impact: [
+                    "Used in the 2026 Chocó–Valle del Cauca earthquake response, running across two branches at once.",
+                    "Complete humanitarian logistics: collection points, dispatches and digitally signed deliveries with full traceability.",
+                    "Situation room with TV mode, an approval engine for official figures and a community feedback channel."
+                ]
+            },
+            {
+                title: "Red Cross Santander Portal", tags: "ERP / Online Donations", img: "p11.jpg", url: "https://cruzrojasantander.org", live: true,
+                year: "2026", role: "Full design and development", stack: "Next.js · ePayco · AI on live data",
+                desc: "The branch's public site: 22 pages connected in real time to the Faro Management ERP.",
+                impact: [
+                    "Online donations and a Humanitarian Store with payment gateway (cards, PSE, Nequi) and automatic accounting.",
+                    "Training institute enrollment, volunteering, vaccination and citizen requests, all self-service.",
+                    "Embedded AI assistant answering citizens with live system data."
+                ]
+            },
+            {
+                title: "AI Workflow Simulator", tags: "Agents / Test bench", img: "p14.jpg", url: "https://eva2080ai.github.io/simulador-flujos-ia/", live: true,
+                year: "2026", role: "Concept, design and development", stack: "Node canvas · Simulation · .md/PDF export",
+                desc: "An AI agent test bench: assemble a process with blocks, simulate runs on real batches and measure how much to automate with confidence.",
+                impact: [
+                    "120 ready-made pilots across 43 areas, 25 industries and 113 roles.",
+                    "Compliance, glossary and infrastructure blueprint per process.",
+                    "Exports the runbook to Markdown and PDF for production."
+                ]
+            },
+            {
+                title: "Sportech — Football GPS", tags: "Sports SaaS / E-commerce", img: "p12.jpg", url: "https://sportech-app.com", live: true,
+                year: "2026", role: "End-to-end product", stack: "Web + Team Hub + mobile app",
+                desc: "A football GPS ecosystem: commercial site with store, a team hub to download and analyze recordings, and a mobile tracking app.",
+                impact: [
+                    "Whole-team dashboard: per-player metrics, match by match.",
+                    "Team Hub in production (v2.6) for GPS recording analysis.",
+                    "iOS/Android mobile app (Onyx Track) for on-pitch capture."
+                ]
+            },
+            {
+                title: "Jetour Colombia", tags: "Automotive / Digital catalog", img: "p13.jpg", url: "https://agenciajetour.com", live: true,
+                year: "2026", role: "Design and development", stack: "Catalog · Comparator · Test drive",
+                desc: "Jetour's SUV digital catalog for Colombia, built to turn visits into test drives.",
+                impact: [
+                    "Model comparator and spec sheets with a clear decision hierarchy.",
+                    "Test drive booking straight through WhatsApp.",
+                    "Premium aesthetics aligned with the global brand."
+                ]
+            },
+            {
+                title: "Elections CO 2026", tags: "Civic / AI-powered analysis", img: "p15.jpg", url: "https://eva2080ai.github.io/elecciones-co-2026/", live: true,
+                year: "2026", role: "Concept, design and development", stack: "Quantitative analysis · AI · Live news",
+                desc: "An impartial information site on Colombia's 2026 presidential election: in-depth analysis of government plans with no editorial bias.",
+                impact: [
+                    "Quantitative analysis of proposals with explicit confidence levels (75%, 50+ sources).",
+                    "Affinity calculator between voters and candidates.",
+                    "Minute-by-minute news pulse."
+                ]
+            },
+            {
+                title: "Framework Bill Search", tags: "B2B / FinTech", img: "p9.jpg",
+                year: "2024", role: "Product Designer", stack: "Figma · Design System",
+                desc: "An invoice search and reconciliation framework for B2B operations: fewer steps, fewer typing errors, clear auditing.",
+                impact: ["Full case study available on Behance."]
+            },
+            {
+                title: "Green City APP", tags: "UX Research / Eco", img: "p1.jpg",
+                year: "2023", role: "UX Research + UI", stack: "Research · Prototyping",
+                desc: "A sustainable mobility app concept: user research, information architecture and a validated prototype.",
+                impact: ["Full case study available on Behance."]
+            },
+            {
+                title: "Éxito.com Optimization", tags: "Growth / Retail", img: "p3.jpg",
+                year: "2024", role: "Growth UX", stack: "A/B Testing · Analytics",
+                desc: "Conversion optimization for Colombia's largest retail e-commerce: checkout friction and product page hierarchy.",
+                impact: ["Full case study available on Behance."]
+            },
+            {
+                title: "Budweiser Prediction", tags: "Gamification / Sports", img: "p5.jpg",
+                year: "2021", role: "UX/UI Lead (AB InBev)", stack: "Gamification · Loyalty",
+                desc: "A sports prediction game for Budweiser: brand engagement during tournaments with points and prizes.",
+                impact: ["Full case study available on Behance."]
+            },
+            {
+                title: "Retorna Crypto", tags: "Trust / Remittances", img: "p7.jpg",
+                year: "2024", role: "Product Designer", stack: "FinTech · KYB",
+                desc: "UX refinement for crypto remittances: building trust at every step of sending money across borders.",
+                impact: ["Full case study available on Behance."]
+            },
+            {
+                title: "Mercado Libre Dark", tags: "Aesthetics / Payment", img: "p4.jpg",
+                year: "2023", role: "Visual concept", stack: "UI · Dark mode",
+                desc: "A concept exercise: Mercado Libre's payment flow rethought in dark mode without losing accessibility.",
+                impact: ["Full case study available on Behance."]
+            }
         ]
     },
     stack: [
@@ -414,6 +600,20 @@ const DATA = {
             { step: "02", title: "Architecture & Prototyping", desc: "High-fidelity ecosystem creation validated with stakeholders.", icon: "fas fa-drafting-pencil" },
             { step: "03", title: "AI-DLC Automation", icon: "fas fa-bolt", desc: "Design-to-code conversion via intelligent agents and Multi-agents." },
             { step: "04", title: "QA & Continuous Delivery", icon: "fas fa-check-double", desc: "WCAG validation and optimized deployment for maximum performance." }
+        ]
+    },
+    services: {
+        es: [
+            { icon: "fas fa-compass-drafting", title: "Dirección de producto y UX", desc: "De la investigación al design system: estrategia, research, prototipado y accesibilidad WCAG con decisiones medibles." },
+            { icon: "fas fa-robot", title: "Plataformas completas con IA", desc: "Diseño, código y despliegue de ERPs, portales y apps con mi método AI-DLC: de la idea a producción en semanas, no años." },
+            { icon: "fas fa-chalkboard-user", title: "Formación ejecutiva en IA", desc: "Programas a la medida para juntas directivas y equipos corporativos, como los que dicto en la Universidad EAN y para Falabella." },
+            { icon: "fas fa-chart-line", title: "Growth y optimización UX", desc: "Conversión, analítica y experimentación A/B sobre productos vivos: lo que hice para Colsubsidio y Éxito." }
+        ],
+        en: [
+            { icon: "fas fa-compass-drafting", title: "Product & UX direction", desc: "From research to design system: strategy, prototyping and WCAG accessibility with measurable decisions." },
+            { icon: "fas fa-robot", title: "Complete AI-powered platforms", desc: "Design, code and deployment of ERPs, portals and apps with my AI-DLC method: from idea to production in weeks, not years." },
+            { icon: "fas fa-chalkboard-user", title: "Executive AI training", desc: "Tailored programs for boards and corporate teams, like the ones I teach at Universidad EAN and for Falabella." },
+            { icon: "fas fa-chart-line", title: "Growth & UX optimization", desc: "Conversion, analytics and A/B experimentation on live products: what I did for Colsubsidio and Éxito." }
         ]
     },
     stats: {
@@ -681,14 +881,65 @@ const app = {
         if (!container) return;
         const t = DATA.translations[DATA.lang];
         container.innerHTML = DATA.projects[DATA.lang].map((p, i) => `
-            <a href="${p.url || 'https://behance.net/masmela'}" target="_blank" rel="noopener" class="project-card reveal" style="--d:${(i % 3) * 90}ms" aria-label="${p.title}">
+            <button class="project-card reveal" style="--d:${(i % 3) * 90}ms" onclick="app.openCase(${i})" aria-haspopup="dialog" aria-label="${p.title}">
                 <div class="p-img"><img src="${p.img}" alt="${p.title}" loading="lazy"></div>
                 <div class="p-info">
                     <h3>${p.title}</h3>
                     <span class="mono">${p.tags}</span>
-                    <span class="p-cta">${p.live ? t.visit_live : 'Behance ↗'}</span>
+                    <span class="p-cta">${t.read_post} +</span>
                 </div>
-            </a>
+            </button>
+        `).join('');
+        app.observeReveals();
+    },
+    openCase: (idx) => {
+        const p = DATA.projects[DATA.lang][idx];
+        const content = document.getElementById('modal-content');
+        if (!p || !content) return;
+        const t = DATA.translations[DATA.lang];
+        const cta = p.live
+            ? `<a href="${p.url}" target="_blank" rel="noopener" class="btn-brutalist" style="background:var(--highlight-deep); border-color:var(--highlight-deep); color:white;">${t.visit_live}</a>`
+            : `<a href="https://behance.net/masmela" target="_blank" rel="noopener" class="btn-brutalist">${t.btn_behance_case}</a>`;
+        content.innerHTML = `
+            <button class="close-modal" onclick="app.closeModal(event)" aria-label="Cerrar">&times;</button>
+            <span class="mono" style="color:var(--ink-muted); font-size:0.75rem;"><span style="color:var(--highlight)">${p.tags}</span> · ${p.year || ''}</span>
+            <h2 style="font-size:clamp(1.8rem,4vw,2.8rem); line-height:1.1; margin:0.8rem 0 1.2rem;">${p.title}</h2>
+            <div style="border-radius:16px; overflow:hidden; border:var(--border); margin-bottom:1.8rem;">
+                <img src="${p.img}" alt="${p.title}" style="width:100%; display:block;">
+            </div>
+            <p style="font-size:1.15rem; color:var(--ink); line-height:1.65; margin-bottom:1.8rem;">${p.desc || ''}</p>
+            <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1rem; margin-bottom:1.8rem;">
+                <div class="glass" style="padding:1.2rem 1.4rem;">
+                    <span class="mono" style="color:var(--ink-muted); font-size:0.7rem; display:block; margin-bottom:0.4rem;">${t.case_role}</span>
+                    <strong>${p.role || '—'}</strong>
+                </div>
+                <div class="glass" style="padding:1.2rem 1.4rem;">
+                    <span class="mono" style="color:var(--ink-muted); font-size:0.7rem; display:block; margin-bottom:0.4rem;">${t.case_stack}</span>
+                    <strong>${p.stack || '—'}</strong>
+                </div>
+            </div>
+            <h4 class="mono" style="color:var(--ink-muted); margin-bottom:1rem; font-size:0.85rem;">${t.case_impact}</h4>
+            <ul style="list-style:none; margin-bottom:2.2rem;">
+                ${(p.impact || []).map(d => `
+                    <li style="margin-bottom:1rem; display:flex; gap:1rem; align-items:flex-start;">
+                        <i class="fas fa-arrow-right" style="color:var(--highlight); margin-top:6px;" aria-hidden="true"></i>
+                        <span style="color:var(--ink-light); line-height:1.6;">${d}</span>
+                    </li>`).join('')}
+            </ul>
+            ${cta}`;
+        app.showOverlay();
+        content.scrollTop = 0;
+        content.querySelector('.close-modal')?.focus();
+    },
+    renderServices: () => {
+        const container = document.getElementById('services-grid');
+        if (!container) return;
+        container.innerHTML = DATA.services[DATA.lang].map((s, i) => `
+            <div class="process-card glass reveal" style="--d:${i * 100}ms">
+                <i class="${s.icon}" style="font-size:2rem; margin-bottom:1.5rem; color:var(--highlight);" aria-hidden="true"></i>
+                <h3 style="font-size:1.3rem; margin-bottom:1rem;">${s.title}</h3>
+                <p style="color:var(--ink-light); font-size:0.95rem; line-height:1.6;">${s.desc}</p>
+            </div>
         `).join('');
         app.observeReveals();
     },
@@ -844,9 +1095,14 @@ const app = {
         app.renderStats();
         app.renderBlog();
         app.renderBlogTeaser();
+        app.renderServices();
         app.renderThemeBtn();
     }
 };
 
 document.addEventListener('DOMContentLoaded', app.init);
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') app.closeModal(); });
+document.addEventListener('click', (e) => {
+    const sidebar = document.getElementById('main-sidebar');
+    if (sidebar?.classList.contains('active') && e.target.closest('.nav-link')) app.toggleMenu();
+});
