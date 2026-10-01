@@ -306,6 +306,10 @@ const DATA = {
         es: [
             { title: "Faro Emergency — Cruz Roja", tags: "Humanitarian Tech / IA", img: "p10.jpg", url: "https://faroemergency.org", live: true },
             { title: "Portal Cruz Roja Santander", tags: "ERP / Donaciones en línea", img: "p11.jpg", url: "https://cruzrojasantander.org", live: true },
+            { title: "Simulador de Flujos IA", tags: "Agentes / 120 pilotos en 43 áreas", img: "p14.jpg", url: "https://eva2080ai.github.io/simulador-flujos-ia/", live: true },
+            { title: "Sportech — GPS Fútbol", tags: "SaaS Deportivo / E-commerce", img: "p12.jpg", url: "https://sportech-app.com", live: true },
+            { title: "Jetour Colombia", tags: "Automotriz / Catálogo digital", img: "p13.jpg", url: "https://agenciajetour.com", live: true },
+            { title: "Elecciones CO 2026", tags: "Cívico / Análisis con IA", img: "p15.jpg", url: "https://eva2080ai.github.io/elecciones-co-2026/", live: true },
             { title: "Framework Bill Search", tags: "B2B / FinTech", img: "p9.jpg" },
             { title: "Green City APP", tags: "UX Research / Eco", img: "p1.jpg" },
             { title: "Éxito.com Optimization", tags: "Growth / Retail", img: "p3.jpg" },
@@ -316,6 +320,10 @@ const DATA = {
         en: [
             { title: "Faro Emergency — Red Cross", tags: "Humanitarian Tech / AI", img: "p10.jpg", url: "https://faroemergency.org", live: true },
             { title: "Red Cross Santander Portal", tags: "ERP / Online Donations", img: "p11.jpg", url: "https://cruzrojasantander.org", live: true },
+            { title: "AI Workflow Simulator", tags: "Agents / 120 pilots across 43 areas", img: "p14.jpg", url: "https://eva2080ai.github.io/simulador-flujos-ia/", live: true },
+            { title: "Sportech — Football GPS", tags: "Sports SaaS / E-commerce", img: "p12.jpg", url: "https://sportech-app.com", live: true },
+            { title: "Jetour Colombia", tags: "Automotive / Digital catalog", img: "p13.jpg", url: "https://agenciajetour.com", live: true },
+            { title: "Elections CO 2026", tags: "Civic / AI-powered analysis", img: "p15.jpg", url: "https://eva2080ai.github.io/elecciones-co-2026/", live: true },
             { title: "Framework Bill Search", tags: "B2B / FinTech", img: "p9.jpg" },
             { title: "Green City APP", tags: "UX Research / Eco", img: "p1.jpg" },
             { title: "Éxito.com Optimization", tags: "Growth / Retail", img: "p3.jpg" },
