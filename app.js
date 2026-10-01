@@ -60,8 +60,8 @@ const DATA = {
     },
     personas: {
         recruiter: {
-            es: "Product Design Director & Software Strategist con +10 años liderando ecosistemas digitales masivos en AB InBev y Dexio. Experto en PO/PM, escalando productos mediante arquitecturas de IA Agéntica, Multi-agentes y Cloud con un enfoque radical en ROI.",
-            en: "Product Design Director & Software Strategist with 10+ years leading massive digital ecosystems at AB InBev and Dexio. Expert in PO/PM, scaling products through Agentic AI, Multi-agent architectures, and Cloud with a radical focus on ROI.",
+            es: "Director UX / AI Engineer con +10 años liderando ecosistemas digitales masivos en AB InBev, Colsubsidio y la Cruz Roja Colombiana. Creador de FARO (ERP y plataforma de gestión de emergencias de la Cruz Roja) e instructor de IA aplicada (Universidad EAN · Universidad Piloto), escalando productos mediante IA Agéntica, Multi-agentes y Cloud con un enfoque radical en ROI.",
+            en: "UX Director / AI Engineer with 10+ years leading massive digital ecosystems at AB InBev, Colsubsidio and the Colombian Red Cross. Creator of FARO (the Red Cross ERP and emergency management platform) and Applied AI instructor (Universidad EAN · Universidad Piloto), scaling products through Agentic AI, Multi-agent architectures, and Cloud with a radical focus on ROI.",
         },
         designer: {
             es: "UX Engineer especializado en escalabilidad y Design Systems robustos (WCAG). Mi metodología AI-DLC fusiona investigación conductual con automatización multi-agente, permitiendo que la intención de diseño sea código real en tiempo récord.",
@@ -75,12 +75,31 @@ const DATA = {
     experience: {
         es: [
             {
-                period: "2026 - Present", role: "Catedrático de Diplomado en IA para Alta Gerencia", company: "Universidad EAN",
+                period: "2026 - Presente", role: "Director UX / AI Engineer — Ecosistema FARO", company: "Cruz Roja Colombiana · Seccional Santander",
+                desc: "Diseño, construcción y despliegue del ecosistema digital completo de la Seccional: ERP, gestión de emergencias, teleasistencia y portal público.",
+                details: [
+                    "Faro Emergency (faroemergency.org): plataforma de coordinación de respuesta a emergencias, implantada en dos seccionales (Santander y Valle del Cauca) y usada en la respuesta al terremoto Chocó–Valle del Cauca de 2026.",
+                    "Faro Management: ERP de 118 módulos en 14 áreas funcionales — logística FEFO, compras con aprobaciones, ingeniería biomédica, talento humano, ISO 9001/14001/45001, SARLAFT e intranet con firma electrónica.",
+                    "Amparo: servicio de teleasistencia para personas mayores con planes de suscripción, pagos recurrentes y UX amigable con la edad.",
+                    "Portal institucional (cruzrojasantander.org): 22 páginas conectadas al ERP — donaciones, Tienda Humanitaria con pasarela de pagos y asistente de IA con datos en vivo del sistema."
+                ]
+            },
+            {
+                period: "2026", role: "Catedrático de Diplomado en IA para Alta Gerencia", company: "Universidad EAN",
                 desc: "Facilitador estratégico para juntas directivas y ejecutivos senior, guiando en la implementación práctica de IA Generativa y workflows autónomos.",
                 details: [
                     "Diseño curricular de alto nivel enfocado en la adopción estratégica de herramientas de IA y Prompt Engineering experto.",
                     "Liderazgo en la transformación de procesos corporativos mediante la integración de ecosistemas de agentes inteligentes.",
                     "Mentoría senior en toma de decisiones basada en datos y optimización de eficiencia operativa a gran escala."
+                ]
+            },
+            {
+                period: "2026", role: "Instructor de IA Aplicada — Programa Falabella", company: "Universidad Piloto de Colombia",
+                desc: "Dos cohortes de IA aplicada a la productividad para equipos corporativos de Falabella: compras, importaciones, logística e impuestos.",
+                details: [
+                    "Prompting estructurado, master prompts y construcción de agentes con Microsoft Copilot.",
+                    "Automatización con Power Automate, bots de ventas y asistentes a medida con Gemini Gems.",
+                    "Metodología práctica: cada participante construyó una solución de IA sobre un dolor real de su propio proceso."
                 ]
             },
             {
@@ -161,12 +180,31 @@ const DATA = {
         ],
         en: [
             {
-                period: "2026 - Present", role: "Generative AI Executive Lecturer", company: "EAN University",
+                period: "2026 - Present", role: "UX Director / AI Engineer — FARO Ecosystem", company: "Colombian Red Cross · Santander Branch",
+                desc: "Design, build and deployment of the branch's complete digital ecosystem: ERP, emergency management, tele-assistance and public portal.",
+                details: [
+                    "Faro Emergency (faroemergency.org): emergency response coordination platform, deployed in two branches (Santander and Valle del Cauca) and used during the 2026 Chocó–Valle del Cauca earthquake response.",
+                    "Faro Management: 118-module ERP across 14 functional areas — FEFO logistics, purchasing with approval workflows, biomedical engineering, HR, ISO 9001/14001/45001, SARLAFT and an intranet with electronic signature.",
+                    "Amparo: tele-assistance service for older adults with subscription plans, recurring billing and age-friendly UX.",
+                    "Institutional portal (cruzrojasantander.org): 22 pages connected to the ERP — donations, Humanitarian Store with payment gateway and an AI assistant answering with live system data."
+                ]
+            },
+            {
+                period: "2026", role: "Generative AI Executive Lecturer", company: "EAN University",
                 desc: "Strategic facilitator for senior executives and board members, guiding the practical implementation of Generative AI and autonomous workflows.",
                 details: [
                     "Curriculum design focused on the strategic adoption of AI tools and executive-level Prompt Engineering.",
                     "Strategic leadership in transforming corporate processes by integrating multi-agent intelligent ecosystems.",
                     "Expert mentorship in data-driven decision making and massive operational efficiency optimization."
+                ]
+            },
+            {
+                period: "2026", role: "Applied AI Instructor — Falabella Program", company: "Universidad Piloto de Colombia",
+                desc: "Two cohorts of applied AI for productivity for Falabella corporate teams: purchasing, imports, logistics and tax.",
+                details: [
+                    "Structured prompting, master prompts and agent building with Microsoft Copilot.",
+                    "Automation with Power Automate, sales bots and custom assistants with Gemini Gems.",
+                    "Hands-on methodology: each participant built an AI solution for a real pain point in their own process."
                 ]
             },
             {
@@ -248,6 +286,8 @@ const DATA = {
     },
     projects: {
         es: [
+            { title: "Faro Emergency — Cruz Roja", tags: "Humanitarian Tech / IA", img: "https://eva2080ai.github.io/Portafoliobotsebastian/p10.jpg" },
+            { title: "Portal Cruz Roja Santander", tags: "ERP / Donaciones en línea", img: "https://eva2080ai.github.io/Portafoliobotsebastian/p11.jpg" },
             { title: "Framework Bill Search", tags: "B2B / FinTech", img: "https://eva2080ai.github.io/Portafoliobotsebastian/p9.jpg" },
             { title: "Green City APP", tags: "UX Research / Eco", img: "https://eva2080ai.github.io/Portafoliobotsebastian/p1.jpg" },
             { title: "Éxito.com Optimization", tags: "Growth / Retail", img: "https://eva2080ai.github.io/Portafoliobotsebastian/p3.jpg" },
@@ -256,6 +296,8 @@ const DATA = {
             { title: "Mercado Libre Dark", tags: "Aesthetics / Payment", img: "https://eva2080ai.github.io/Portafoliobotsebastian/p4.jpg" }
         ],
         en: [
+            { title: "Faro Emergency — Red Cross", tags: "Humanitarian Tech / AI", img: "https://eva2080ai.github.io/Portafoliobotsebastian/p10.jpg" },
+            { title: "Red Cross Santander Portal", tags: "ERP / Online Donations", img: "https://eva2080ai.github.io/Portafoliobotsebastian/p11.jpg" },
             { title: "Framework Bill Search", tags: "B2B / FinTech", img: "https://eva2080ai.github.io/Portafoliobotsebastian/p9.jpg" },
             { title: "Green City APP", tags: "UX Research / Eco", img: "https://eva2080ai.github.io/Portafoliobotsebastian/p1.jpg" },
             { title: "Éxito.com Optimization", tags: "Growth / Retail", img: "https://eva2080ai.github.io/Portafoliobotsebastian/p3.jpg" },
