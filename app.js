@@ -1060,10 +1060,36 @@ const app = {
         }
         document.querySelectorAll('.reveal:not(.in)').forEach(el => app._io.observe(el));
     },
+    initTilt: () => {
+        if (PREFERS_REDUCED || window.matchMedia('(hover: none)').matches) return;
+        const SEL = '.project-card, .stat, .process-card, .blog-card, .dlc-card, .stack-item';
+        const reset = () => {
+            if (app._tiltEl) {
+                app._tiltEl.style.transform = '';
+                app._tiltEl.style.transition = '';
+                app._tiltEl = null;
+            }
+        };
+        document.addEventListener('pointermove', (e) => {
+            const el = e.target.closest(SEL);
+            if (app._tiltEl && app._tiltEl !== el) reset();
+            if (!el) return;
+            const r = el.getBoundingClientRect();
+            const x = (e.clientX - r.left) / r.width - 0.5;
+            const y = (e.clientY - r.top) / r.height - 0.5;
+            el.style.transition = 'transform 0.12s ease-out';
+            el.style.transform = `perspective(900px) rotateX(${(-y * 7).toFixed(2)}deg) rotateY(${(x * 9).toFixed(2)}deg) translateY(-6px) scale(1.015)`;
+            app._tiltEl = el;
+        }, { passive: true });
+        document.addEventListener('pointerout', (e) => {
+            if (app._tiltEl && !app._tiltEl.contains(e.relatedTarget)) reset();
+        });
+    },
     initMotion: () => {
         app.renderKinetic();
         app.observeReveals();
         if (PREFERS_REDUCED) return;
+        app.initTilt();
         const orbs = document.querySelectorAll('[data-speed]');
         if (orbs.length) {
             let ticking = false;

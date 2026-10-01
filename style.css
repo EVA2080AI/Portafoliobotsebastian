@@ -67,6 +67,9 @@ img { max-width: 100%; }
     filter: blur(10px);
     will-change: transform;
 }
+#fx3d { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+#fx3d canvas { display: block; width: 100%; height: 100%; }
+
 .grid-lines {
     position: absolute; inset: 0; pointer-events: none; z-index: 0; opacity: 0.5;
     background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
