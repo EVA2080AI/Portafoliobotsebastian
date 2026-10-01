@@ -26,9 +26,18 @@ const DATA = {
             theme_dark: "Modo Oscuro",
             title_methods: "Design Ops & Estrategia",
             modal_impact: "Impacto y Resultados Clave",
-            nav_contact: "05. Contacto",
+            nav_contact: "06. Contacto",
+            nav_blog: "05. Blog",
             title_process: "Mi Proceso: AI-DLC",
-            process_desc: "De la intención de diseño a producción en 4 etapas optimizadas por IA."
+            process_desc: "De la intención de diseño a producción en 4 etapas optimizadas por IA.",
+            title_blog: "Notas de campo",
+            desc_blog: "Lo que aprendo construyendo software real: IA agéntica, UX bajo presión y producto que sobrevive al mundo físico.",
+            read_post: "Leer nota",
+            back_blog: "← Volver al blog",
+            title_stats: "Resultados en números",
+            min_read: "min de lectura",
+            visit_live: "Ver en producción ↗",
+            latest_posts: "Último del blog"
         },
         en: {
             nav_profile: "01. Profile",
@@ -53,9 +62,18 @@ const DATA = {
             theme_dark: "Dark Mode",
             title_methods: "Design Ops & Strategy",
             modal_impact: "Key Impact & Results",
-            nav_contact: "05. Contact",
+            nav_contact: "06. Contact",
+            nav_blog: "05. Blog",
             title_process: "My Process: AI-DLC",
-            process_desc: "From design intent to production in 4 AI-optimized stages."
+            process_desc: "From design intent to production in 4 AI-optimized stages.",
+            title_blog: "Field notes",
+            desc_blog: "What I learn building real software: agentic AI, UX under pressure, and products that survive the physical world.",
+            read_post: "Read note",
+            back_blog: "← Back to blog",
+            title_stats: "Results in numbers",
+            min_read: "min read",
+            visit_live: "View live ↗",
+            latest_posts: "Latest from the blog"
         }
     },
     personas: {
@@ -286,24 +304,24 @@ const DATA = {
     },
     projects: {
         es: [
-            { title: "Faro Emergency — Cruz Roja", tags: "Humanitarian Tech / IA", img: "https://eva2080ai.github.io/Portafoliobotsebastian/p10.jpg" },
-            { title: "Portal Cruz Roja Santander", tags: "ERP / Donaciones en línea", img: "https://eva2080ai.github.io/Portafoliobotsebastian/p11.jpg" },
-            { title: "Framework Bill Search", tags: "B2B / FinTech", img: "https://eva2080ai.github.io/Portafoliobotsebastian/p9.jpg" },
-            { title: "Green City APP", tags: "UX Research / Eco", img: "https://eva2080ai.github.io/Portafoliobotsebastian/p1.jpg" },
-            { title: "Éxito.com Optimization", tags: "Growth / Retail", img: "https://eva2080ai.github.io/Portafoliobotsebastian/p3.jpg" },
-            { title: "Budweiser Prediction", tags: "Gamification / Sports", img: "https://eva2080ai.github.io/Portafoliobotsebastian/p5.jpg" },
-            { title: "Retorna Crypto", tags: "Trust / UX Refinement", img: "https://eva2080ai.github.io/Portafoliobotsebastian/p7.jpg" },
-            { title: "Mercado Libre Dark", tags: "Aesthetics / Payment", img: "https://eva2080ai.github.io/Portafoliobotsebastian/p4.jpg" }
+            { title: "Faro Emergency — Cruz Roja", tags: "Humanitarian Tech / IA", img: "p10.jpg", url: "https://faroemergency.org", live: true },
+            { title: "Portal Cruz Roja Santander", tags: "ERP / Donaciones en línea", img: "p11.jpg", url: "https://cruzrojasantander.org", live: true },
+            { title: "Framework Bill Search", tags: "B2B / FinTech", img: "p9.jpg" },
+            { title: "Green City APP", tags: "UX Research / Eco", img: "p1.jpg" },
+            { title: "Éxito.com Optimization", tags: "Growth / Retail", img: "p3.jpg" },
+            { title: "Budweiser Prediction", tags: "Gamification / Sports", img: "p5.jpg" },
+            { title: "Retorna Crypto", tags: "Trust / UX Refinement", img: "p7.jpg" },
+            { title: "Mercado Libre Dark", tags: "Aesthetics / Payment", img: "p4.jpg" }
         ],
         en: [
-            { title: "Faro Emergency — Red Cross", tags: "Humanitarian Tech / AI", img: "https://eva2080ai.github.io/Portafoliobotsebastian/p10.jpg" },
-            { title: "Red Cross Santander Portal", tags: "ERP / Online Donations", img: "https://eva2080ai.github.io/Portafoliobotsebastian/p11.jpg" },
-            { title: "Framework Bill Search", tags: "B2B / FinTech", img: "https://eva2080ai.github.io/Portafoliobotsebastian/p9.jpg" },
-            { title: "Green City APP", tags: "UX Research / Eco", img: "https://eva2080ai.github.io/Portafoliobotsebastian/p1.jpg" },
-            { title: "Éxito.com Optimization", tags: "Growth / Retail", img: "https://eva2080ai.github.io/Portafoliobotsebastian/p3.jpg" },
-            { title: "Budweiser Prediction", tags: "Gamification / Sports", img: "https://eva2080ai.github.io/Portafoliobotsebastian/p5.jpg" },
-            { title: "Retorna Crypto", tags: "Trust / UX Refinement", img: "https://eva2080ai.github.io/Portafoliobotsebastian/p7.jpg" },
-            { title: "Mercado Libre Dark", tags: "Aesthetics / Payment", img: "https://eva2080ai.github.io/Portafoliobotsebastian/p4.jpg" }
+            { title: "Faro Emergency — Red Cross", tags: "Humanitarian Tech / AI", img: "p10.jpg", url: "https://faroemergency.org", live: true },
+            { title: "Red Cross Santander Portal", tags: "ERP / Online Donations", img: "p11.jpg", url: "https://cruzrojasantander.org", live: true },
+            { title: "Framework Bill Search", tags: "B2B / FinTech", img: "p9.jpg" },
+            { title: "Green City APP", tags: "UX Research / Eco", img: "p1.jpg" },
+            { title: "Éxito.com Optimization", tags: "Growth / Retail", img: "p3.jpg" },
+            { title: "Budweiser Prediction", tags: "Gamification / Sports", img: "p5.jpg" },
+            { title: "Retorna Crypto", tags: "Trust / UX Refinement", img: "p7.jpg" },
+            { title: "Mercado Libre Dark", tags: "Aesthetics / Payment", img: "p4.jpg" }
         ]
     },
     stack: [
@@ -389,33 +407,154 @@ const DATA = {
             { step: "03", title: "AI-DLC Automation", icon: "fas fa-bolt", desc: "Design-to-code conversion via intelligent agents and Multi-agents." },
             { step: "04", title: "QA & Continuous Delivery", icon: "fas fa-check-double", desc: "WCAG validation and optimized deployment for maximum performance." }
         ]
+    },
+    stats: {
+        es: [
+            { n: 10, suffix: "+", label: "años de experiencia" },
+            { n: 118, suffix: "", label: "módulos ERP en producción" },
+            { n: 18, suffix: "+", label: "marcas globales (AB InBev)" },
+            { n: 16, suffix: "K", label: "usuarios · framework SIXPACK" }
+        ],
+        en: [
+            { n: 10, suffix: "+", label: "years of experience" },
+            { n: 118, suffix: "", label: "ERP modules in production" },
+            { n: 18, suffix: "+", label: "global brands (AB InBev)" },
+            { n: 16, suffix: "K", label: "users · SIXPACK framework" }
+        ]
+    },
+    blog: {
+        es: [
+            {
+                slug: "faro-offline-first",
+                date: "2026-10-01", read: 6, tag: "Humanitarian Tech",
+                title: "Construyendo FARO: software que funciona cuando no hay señal",
+                excerpt: "En una emergencia real no hay 4G, no hay tiempo y no hay segunda oportunidad. Lo que aprendí diseñando la plataforma de emergencias de la Cruz Roja.",
+                body: `
+                    <p>Cuando la Cruz Roja Colombiana me pidió una plataforma para administrar emergencias, la primera decisión de diseño no fue un color ni un componente: fue aceptar que <strong>el usuario estará en un albergue sin señal, con guantes, bajo lluvia y con estrés</strong>. Todo lo demás se deriva de ahí.</p>
+                    <blockquote>El requisito más importante de UX no estaba en ningún brief: era que la aplicación no podía depender de la red.</blockquote>
+                    <h2>Offline no es un modo: es la arquitectura</h2>
+                    <p>En Faro Emergency las operaciones de terreno —donaciones, entregas, afectaciones, verificación de albergues— se encolan localmente y sincronizan cuando vuelve la señal. Eso cambia todo: el cliente genera los identificadores antes de encolar, el inventario nunca guarda saldos sino movimientos append-only, y anular algo significa crear un contra-movimiento, nunca borrar. La trazabilidad es un requisito humanitario: cada frazada donada tiene que poder rastrearse hasta su entrega con firma digital.</p>
+                    <h2>UX bajo estrés</h2>
+                    <p>Diseñar para una sala de crisis es diseñar para la atención fragmentada: acciones frecuentes en máximo 3 toques, botones de 48 píxeles como mínimo, undo de 10 segundos en los registros y el estado de sincronización siempre visible. Los siete estados de cada pantalla (cargando, vacío, error, offline, pendiente, conflicto, solo lectura) se diseñan primero, porque en una emergencia los estados "raros" son los normales.</p>
+                    <h2>La prueba de fuego</h2>
+                    <p>La plataforma se usó en la respuesta al terremoto de Chocó–Valle del Cauca de 2026, operando en dos seccionales a la vez. La lección más grande no fue técnica: fue que <strong>la confianza del voluntariado se gana con software que nunca le hace perder un registro</strong>.</p>`
+            },
+            {
+                slug: "metodo-ai-dlc",
+                date: "2026-09-15", read: 5, tag: "AI Engineering",
+                title: "AI-DLC: de la intención de diseño al código en producción",
+                excerpt: "Mi metodología para que un equipo pequeño entregue como uno grande: diseño como fuente de verdad y agentes de IA como fuerza de construcción.",
+                body: `
+                    <p>Durante años el hand-off fue la herida del diseño digital: el prototipo decía una cosa y producción entregaba otra. Mi respuesta es <strong>AI-DLC (AI Development Life Cycle)</strong>: tratar la intención de diseño como especificación ejecutable y usar agentes de IA para construirla, con el diseñador como director técnico del proceso.</p>
+                    <h2>Las cuatro etapas</h2>
+                    <p><strong>1. Investigación estratégica:</strong> datos reales y pain points antes que pantallas; el ROI se define aquí. <strong>2. Arquitectura y prototipado:</strong> flujos, design tokens y reglas de negocio escritas de forma que una máquina no las pueda malinterpretar. <strong>3. Construcción con agentes:</strong> unidades de código generadas, revisadas y depuradas en ciclos cortos con múltiples agentes. <strong>4. QA y entrega continua:</strong> accesibilidad WCAG, pruebas y despliegue; nada se da por hecho sin verificarlo en el navegador real.</p>
+                    <h2>Lo que cambia en la práctica</h2>
+                    <p>Con AI-DLC construí el ecosistema FARO —un ERP de 118 módulos, una plataforma de emergencias, un servicio de teleasistencia y un portal público— en meses, no años. El secreto no es que la IA escriba rápido: es que <strong>la calidad del sistema depende de la calidad de las decisiones de diseño que se le entregan</strong>. El criterio sigue siendo humano; la velocidad es de los agentes.</p>
+                    <blockquote>La IA no reemplaza al diseñador. Convierte sus decisiones en el cuello de botella más valioso del proceso.</blockquote>`
+            },
+            {
+                slug: "ia-para-alta-direccion",
+                date: "2026-08-20", read: 4, tag: "Docencia",
+                title: "Enseñando IA a la alta dirección: lo que de verdad funciona",
+                excerpt: "Dos universidades, cientos de ejecutivos y una conclusión: la adopción de IA no falla por la herramienta, falla por el problema mal elegido.",
+                body: `
+                    <p>Este año dicté el diplomado de IA para alta dirección en la Universidad EAN y el programa corporativo de Falabella con la Universidad Piloto. Perfiles distintos —juntas directivas por un lado; compras, logística e impuestos por el otro— y el mismo patrón: <strong>la brecha no es tecnológica, es de formulación del problema</strong>.</p>
+                    <h2>La regla del dolor real</h2>
+                    <p>El formato que mejor funciona es simple: cada participante identifica un dolor concreto de su propio proceso y construye una solución con IA durante el curso. Nada de demos genéricas. Cuando alguien de impuestos automatiza la clasificación que le robaba sus viernes, la adopción deja de ser un mandato corporativo y se vuelve interés propio.</p>
+                    <h2>Prompting como diseño</h2>
+                    <p>Enseño prompting con la misma estructura con la que diseño software: rol, contexto, instrucción y formato de salida. Un master prompt bien construido es una especificación; un prompt vago es un ticket mal escrito. Los ejecutivos lo entienden de inmediato porque llevan años sufriendo tickets mal escritos.</p>
+                    <p>La conclusión que repito en cada cierre: <strong>la ventaja competitiva no está en tener IA, sino en la calidad de las preguntas que la organización le sabe hacer</strong>.</p>`
+            }
+        ],
+        en: [
+            {
+                slug: "faro-offline-first",
+                date: "2026-10-01", read: 6, tag: "Humanitarian Tech",
+                title: "Building FARO: software that works when there is no signal",
+                excerpt: "In a real emergency there is no 4G, no time and no second chance. What I learned designing the Red Cross emergency platform.",
+                body: `
+                    <p>When the Colombian Red Cross asked me for an emergency management platform, the first design decision wasn't a color or a component: it was accepting that <strong>the user will be in a shelter with no signal, wearing gloves, in the rain, under stress</strong>. Everything else follows from that.</p>
+                    <blockquote>The most important UX requirement wasn't in any brief: the app could not depend on the network.</blockquote>
+                    <h2>Offline is not a mode: it's the architecture</h2>
+                    <p>In Faro Emergency, field operations — donations, deliveries, damage reports, shelter verification — are queued locally and sync when the signal returns. That changes everything: the client generates identifiers before queueing, inventory never stores balances but append-only movements, and voiding something means creating a counter-movement, never deleting. Traceability is a humanitarian requirement: every donated blanket must be traceable to its digitally signed delivery.</p>
+                    <h2>UX under stress</h2>
+                    <p>Designing for a crisis room means designing for fragmented attention: frequent actions in 3 taps or fewer, buttons at least 48 pixels, a 10-second undo on records, and sync status always visible. The seven states of every screen (loading, empty, error, offline, pending, conflict, read-only) get designed first, because in an emergency the "edge" states are the normal ones.</p>
+                    <h2>Trial by fire</h2>
+                    <p>The platform was used in the 2026 Chocó–Valle del Cauca earthquake response, operating across two branches at once. The biggest lesson wasn't technical: <strong>volunteers' trust is earned with software that never loses a single record</strong>.</p>`
+            },
+            {
+                slug: "metodo-ai-dlc",
+                date: "2026-09-15", read: 5, tag: "AI Engineering",
+                title: "AI-DLC: from design intent to production code",
+                excerpt: "My methodology for small teams that deliver like big ones: design as the source of truth and AI agents as the construction force.",
+                body: `
+                    <p>For years, hand-off was digital design's open wound: the prototype said one thing and production shipped another. My answer is <strong>AI-DLC (AI Development Life Cycle)</strong>: treating design intent as an executable specification and using AI agents to build it, with the designer as technical director of the process.</p>
+                    <h2>The four stages</h2>
+                    <p><strong>1. Strategic research:</strong> real data and pain points before screens; ROI is defined here. <strong>2. Architecture & prototyping:</strong> flows, design tokens and business rules written so a machine cannot misread them. <strong>3. Agent construction:</strong> code units generated, reviewed and debugged in short cycles with multiple agents. <strong>4. QA & continuous delivery:</strong> WCAG accessibility, tests and deployment; nothing counts as done until verified in a real browser.</p>
+                    <h2>What changes in practice</h2>
+                    <p>With AI-DLC I built the FARO ecosystem — a 118-module ERP, an emergency platform, a tele-assistance service and a public portal — in months, not years. The secret isn't that AI writes fast: it's that <strong>system quality depends on the quality of the design decisions you hand it</strong>. Judgment stays human; speed belongs to the agents.</p>
+                    <blockquote>AI doesn't replace the designer. It turns their decisions into the most valuable bottleneck in the process.</blockquote>`
+            },
+            {
+                slug: "ia-para-alta-direccion",
+                date: "2026-08-20", read: 4, tag: "Teaching",
+                title: "Teaching AI to senior leadership: what actually works",
+                excerpt: "Two universities, hundreds of executives and one conclusion: AI adoption doesn't fail because of the tool — it fails because of the wrong problem.",
+                body: `
+                    <p>This year I taught the executive AI program at Universidad EAN and the Falabella corporate program with Universidad Piloto. Different profiles — boards on one side; purchasing, logistics and tax teams on the other — and the same pattern: <strong>the gap isn't technological, it's problem formulation</strong>.</p>
+                    <h2>The real-pain rule</h2>
+                    <p>The format that works best is simple: every participant identifies a concrete pain in their own process and builds an AI solution for it during the course. No generic demos. When someone in tax automates the classification that used to eat their Fridays, adoption stops being a corporate mandate and becomes self-interest.</p>
+                    <h2>Prompting as design</h2>
+                    <p>I teach prompting with the same structure I use to design software: role, context, instruction and output format. A well-built master prompt is a specification; a vague prompt is a badly written ticket. Executives get it immediately — they've suffered badly written tickets for years.</p>
+                    <p>The conclusion I repeat at every closing session: <strong>the competitive advantage is not having AI, but the quality of the questions your organization knows how to ask it</strong>.</p>`
+            }
+        ]
     }
 };
+
+const PREFERS_REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 const app = {
     init: () => {
         app.loadTheme();
+        app.loadLang();
         app.renderAll();
+        app.initMotion();
+        app.openFromHash();
     },
+
+    /* ---------- preferences ---------- */
     toggleMenu: () => {
         const sidebar = document.getElementById('main-sidebar');
         const icon = document.getElementById('menu-icon');
         if (sidebar && icon) {
-            sidebar.classList.toggle('active');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-times');
+            const open = sidebar.classList.toggle('active');
+            icon.classList.toggle('fa-bars', !open);
+            icon.classList.toggle('fa-times', open);
+            document.querySelector('.hamburger')?.setAttribute('aria-expanded', open);
         }
     },
     toggleTheme: () => {
         DATA.theme = DATA.theme === 'dark' ? 'light' : 'dark';
         document.documentElement.setAttribute('data-theme', DATA.theme);
-        localStorage.setItem('portfolio-theme', DATA.theme);
+        try { localStorage.setItem('portfolio-theme', DATA.theme); } catch (e) {}
         app.renderThemeBtn();
     },
     loadTheme: () => {
-        const saved = localStorage.getItem('portfolio-theme') || 'light';
+        let saved = 'light';
+        try { saved = localStorage.getItem('portfolio-theme') || 'light'; } catch (e) {}
         DATA.theme = saved;
         document.documentElement.setAttribute('data-theme', saved);
+    },
+    loadLang: () => {
+        let saved = 'es';
+        try { saved = localStorage.getItem('portfolio-lang') || 'es'; } catch (e) {}
+        DATA.lang = saved;
+    },
+    setLang: (l) => {
+        DATA.lang = l;
+        try { localStorage.setItem('portfolio-lang', l); } catch (e) {}
+        app.renderAll();
     },
     renderThemeBtn: () => {
         const btn = document.getElementById('theme-toggle-btn');
@@ -425,108 +564,148 @@ const app = {
             btn.innerHTML = `<i class="fas ${icon}"></i> <span>${label}</span>`;
             btn.setAttribute('aria-label', label);
         }
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+        document.getElementById(`btn-${DATA.lang}`)?.classList.add('active');
+        document.documentElement.lang = DATA.lang;
     },
-    setLang: (l) => {
-        DATA.lang = l;
-        document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('font-bold'));
-        const activeBtn = document.getElementById(`btn-${l}`);
-        if (activeBtn) activeBtn.classList.add('font-bold');
-        app.renderAll();
-    },
+
+    /* ---------- hero ---------- */
     setPersona: (p) => {
         DATA.persona = p;
         document.querySelectorAll('.p-btn').forEach(btn => btn.classList.remove('active'));
-        const activeBtn = document.getElementById(`p-${p}`);
-        if (activeBtn) activeBtn.classList.add('active');
+        document.getElementById(`p-${p}`)?.classList.add('active');
         app.renderBio();
     },
     renderBio: () => {
         const el = document.getElementById('hero-bio');
         if (el) el.innerHTML = DATA.personas[DATA.persona][DATA.lang];
     },
+    renderKinetic: () => {
+        document.querySelectorAll('.kinetic').forEach(line => {
+            if (line.dataset.done) return;
+            line.dataset.done = '1';
+            const delay = parseInt(line.dataset.delay || 0, 10);
+            line.innerHTML = `<span style="--kd:${delay}ms">${line.innerHTML}</span>`;
+        });
+    },
+
+    /* ---------- stats ---------- */
+    renderStats: () => {
+        const container = document.getElementById('stats-grid');
+        if (!container) return;
+        container.innerHTML = DATA.stats[DATA.lang].map((s, i) => `
+            <div class="stat glass reveal" style="--d:${i * 90}ms">
+                <b><span class="counter" data-n="${s.n}">0</span><em>${s.suffix}</em></b>
+                <span>${s.label}</span>
+            </div>
+        `).join('');
+        app.observeReveals();
+    },
+    animateCounter: (el) => {
+        if (el.dataset.done) return;
+        el.dataset.done = '1';
+        const target = parseInt(el.dataset.n, 10);
+        if (PREFERS_REDUCED) { el.textContent = target; return; }
+        const t0 = performance.now(), dur = 1400;
+        const tick = (t) => {
+            const p = Math.min((t - t0) / dur, 1);
+            el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+            if (p < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+    },
+
+    /* ---------- experience ---------- */
     renderExperience: () => {
         const container = document.getElementById('exp-list');
         if (!container) return;
         container.innerHTML = DATA.experience[DATA.lang].map((job, idx) => `
-            <div class="job-row" onclick="app.openModal(${idx})" tabindex="0" aria-label="Ver detalles de ${job.role} en ${job.company}" onkeypress="if(event.key==='Enter')app.openModal(${idx})">
-                <span class="mono" style="color:var(--ink-muted);">${job.period}</span>
+            <button class="job-row reveal" style="--d:${Math.min(idx, 5) * 70}ms" onclick="app.openModal(${idx})" aria-haspopup="dialog">
+                <span class="mono" style="color:var(--ink-muted); padding-top:0.4rem;">${job.period}</span>
                 <div>
                     <h3>${job.role}</h3>
-                    <span style="font-weight:700; color:var(--highlight); font-family:'Space Mono';">${job.company}</span>
-                    <p class="txt-sm" style="color:var(--ink-light); margin-top:0.5rem">${job.desc || ''}</p>
+                    <span class="company">${job.company}</span>
+                    <p class="desc">${job.desc || ''}</p>
                 </div>
-                <i class="fas fa-plus arrow-icon"></i>
-            </div>
+                <i class="fas fa-plus arrow-icon" aria-hidden="true"></i>
+            </button>
         `).join('');
+        app.observeReveals();
     },
     openModal: (idx) => {
         const job = DATA.experience[DATA.lang][idx];
         const content = document.getElementById('modal-content');
         if (!content) return;
         content.innerHTML = `
-            <div class="close-modal" onclick="app.closeModal(event)" aria-label="Cerrar modal" tabindex="0">&times;</div>
-            <span class="mono" style="background:var(--highlight); color:white; padding:4px 14px; border-radius:50px;">${job.period}</span>
-            <h2 style="font-size:3rem; margin-top:1.5rem; letter-spacing:-0.05em; line-height:1.1;">${job.role}</h2>
-            <h3 style="color:var(--highlight); font-size:1.5rem; margin-bottom:1.5rem;">${job.company}</h3>
-            
-            <p style="font-size:1.3rem; color:var(--ink); margin-bottom:2.5rem; line-height:1.6; border-left:4px solid var(--highlight); padding-left:1.5rem; font-style:italic;">
-                ${job.desc || ''}
-            </p>
-
-            <h4 class="mono" style="color:var(--ink-muted); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:1.5rem; font-size:0.9rem;">
-                ${DATA.translations[DATA.lang].modal_impact}
-            </h4>
-
+            <button class="close-modal" onclick="app.closeModal(event)" aria-label="Cerrar">&times;</button>
+            <span class="mono" style="background:var(--highlight-deep); color:white; padding:4px 14px; border-radius:50px;">${job.period}</span>
+            <h2 style="font-size:clamp(1.8rem,4vw,3rem); margin-top:1.5rem; line-height:1.1;">${job.role}</h2>
+            <h3 style="color:var(--highlight); font-size:clamp(1.1rem,2.5vw,1.5rem); margin-bottom:1.5rem;">${job.company}</h3>
+            <p style="font-size:1.2rem; color:var(--ink); margin-bottom:2.5rem; line-height:1.6; border-left:4px solid var(--highlight); padding-left:1.5rem; font-style:italic;">${job.desc || ''}</p>
+            <h4 class="mono" style="color:var(--ink-muted); margin-bottom:1.5rem; font-size:0.9rem;">${DATA.translations[DATA.lang].modal_impact}</h4>
             <ul style="list-style:none;">
                 ${job.details.map(d => `
-                    <li style="margin-bottom:1.5rem; display:flex; gap:1.2rem; align-items:flex-start;">
-                        <i class="fas fa-arrow-right" style="color:var(--highlight); margin-top:6px;"></i>
-                        <span style="font-size:1.15rem; color:var(--ink-light); line-height:1.5;">${d}</span>
-                    </li>
-                `).join('')}
-            </ul>
-        `;
-        document.getElementById('modal-overlay').classList.add('open');
+                    <li style="margin-bottom:1.4rem; display:flex; gap:1.2rem; align-items:flex-start;">
+                        <i class="fas fa-arrow-right" style="color:var(--highlight); margin-top:6px;" aria-hidden="true"></i>
+                        <span style="font-size:1.08rem; color:var(--ink-light); line-height:1.6;">${d}</span>
+                    </li>`).join('')}
+            </ul>`;
+        app.showOverlay();
+        content.querySelector('.close-modal')?.focus();
+    },
+    showOverlay: () => {
+        document.getElementById('modal-overlay')?.classList.add('open');
         document.body.style.overflow = 'hidden';
     },
     closeModal: (e) => {
         const overlay = document.getElementById('modal-overlay');
-        if (overlay && (e.target.id === 'modal-overlay' || e.target.classList.contains('close-modal'))) {
+        if (!overlay) return;
+        if (!e || e.target.id === 'modal-overlay' || e.target.classList.contains('close-modal')) {
             overlay.classList.remove('open');
             document.body.style.overflow = 'auto';
+            if (location.hash.startsWith('#post-')) history.replaceState(null, '', location.pathname);
         }
     },
+
+    /* ---------- projects ---------- */
     renderProjects: () => {
         const container = document.getElementById('projects-grid');
         if (!container) return;
-        container.innerHTML = DATA.projects[DATA.lang].map(p => `
-            <a href="https://behance.net/masmela" target="_blank" class="project-card" aria-label="Ver proyecto ${p.title}">
+        const t = DATA.translations[DATA.lang];
+        container.innerHTML = DATA.projects[DATA.lang].map((p, i) => `
+            <a href="${p.url || 'https://behance.net/masmela'}" target="_blank" rel="noopener" class="project-card reveal" style="--d:${(i % 3) * 90}ms" aria-label="${p.title}">
                 <div class="p-img"><img src="${p.img}" alt="${p.title}" loading="lazy"></div>
                 <div class="p-info">
                     <h3>${p.title}</h3>
                     <span class="mono">${p.tags}</span>
+                    <span class="p-cta">${p.live ? t.visit_live : 'Behance ↗'}</span>
                 </div>
             </a>
         `).join('');
+        app.observeReveals();
     },
+
+    /* ---------- education / stack / method ---------- */
     renderEducation: () => {
         const container = document.getElementById('edu-list');
         if (!container) return;
-        container.innerHTML = DATA.education[DATA.lang].map(edu => `
-            <div style="border-left:4px solid var(--highlight); padding-left:1.5rem; margin-bottom:2.5rem;">
-                <h4 style="font-size:1.5rem;">${edu.title}</h4>
-                <p class="mono" style="color:var(--ink-light); margin-top:0.5rem">${edu.school}</p>
+        container.innerHTML = DATA.education[DATA.lang].map((edu, i) => `
+            <div class="edu-item reveal" style="--d:${i * 80}ms">
+                <h4>${edu.title}</h4>
+                <p>${edu.school}</p>
             </div>
         `).join('');
+        app.observeReveals();
     },
     renderStack: () => {
         const container = document.getElementById('stack-list') || document.querySelector('.stack-grid');
         if (!container) return;
-        container.innerHTML = DATA.stack.map(s => `
-            <div class="stack-item glass">
+        container.innerHTML = DATA.stack.map((s, i) => `
+            <div class="stack-item glass reveal" style="--d:${(i % 5) * 60}ms">
                 <i class="${s.icon}" aria-hidden="true"></i> <span>${s.name}</span>
             </div>
         `).join('');
+        app.observeReveals();
     },
     renderDesignOps: () => {
         const dor = document.getElementById('dor-list');
@@ -536,24 +715,111 @@ const app = {
         if (dod) dod.innerHTML = DATA.designOps.dod[DATA.lang].map(li => `<li>${li}</li>`).join('');
         if (methods) {
             methods.innerHTML = DATA.designOps.methodology[DATA.lang].map(m => `
-                <div class="stack-item glass">
-                    <i class="${m.icon}" aria-hidden="true"></i> <span>${m.name}</span>
-                </div>
+                <div class="stack-item glass"><i class="${m.icon}" aria-hidden="true"></i> <span>${m.name}</span></div>
             `).join('');
         }
     },
     renderProcess: () => {
         const container = document.getElementById('process-grid');
         if (!container) return;
-        container.innerHTML = DATA.process[DATA.lang].map(step => `
-            <div class="process-card glass">
+        container.innerHTML = DATA.process[DATA.lang].map((step, i) => `
+            <div class="process-card glass reveal" style="--d:${i * 100}ms">
                 <div class="mono" style="color:var(--highlight); font-size:0.8rem; margin-bottom:1rem;">[ STEP ${step.step} ]</div>
-                <i class="${step.icon}" style="font-size:2rem; margin-bottom:1.5rem; color:var(--ink);"></i>
+                <i class="${step.icon}" style="font-size:2rem; margin-bottom:1.5rem; color:var(--ink);" aria-hidden="true"></i>
                 <h3 style="font-size:1.4rem; margin-bottom:1rem;">${step.title}</h3>
                 <p style="color:var(--ink-light); font-size:0.95rem; line-height:1.5;">${step.desc}</p>
             </div>
         `).join('');
+        app.observeReveals();
     },
+
+    /* ---------- blog ---------- */
+    fmtDate: (iso) => {
+        const d = new Date(iso + 'T12:00:00');
+        return d.toLocaleDateString(DATA.lang === 'es' ? 'es-CO' : 'en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+    },
+    renderBlog: () => {
+        const container = document.getElementById('blog-grid');
+        if (!container) return;
+        const t = DATA.translations[DATA.lang];
+        container.innerHTML = DATA.blog[DATA.lang].map((post, i) => `
+            <button class="blog-card reveal" style="--d:${i * 90}ms" onclick="app.openPost('${post.slug}')" aria-haspopup="dialog">
+                <span class="meta"><b>${post.tag}</b><span>${app.fmtDate(post.date)}</span><span>${post.read} ${t.min_read}</span></span>
+                <h3>${post.title}</h3>
+                <p>${post.excerpt}</p>
+            </button>
+        `).join('');
+        app.observeReveals();
+    },
+    renderBlogTeaser: () => {
+        const container = document.getElementById('blog-teaser');
+        if (!container) return;
+        const t = DATA.translations[DATA.lang];
+        const post = DATA.blog[DATA.lang][0];
+        container.innerHTML = `
+            <span class="eyebrow">${t.latest_posts}</span>
+            <h2 class="txt-title" style="margin-top:1rem; max-width:22ch;">${post.title}</h2>
+            <p class="txt-lead" style="margin-top:1rem;">${post.excerpt}</p>
+            <a href="blog.html" class="btn-brutalist" style="margin-top:2rem;">${t.nav_blog.replace(/^\d+\.\s*/, '')} →</a>`;
+    },
+    openPost: (slug) => {
+        const post = DATA.blog[DATA.lang].find(p => p.slug === slug);
+        const content = document.getElementById('modal-content');
+        if (!post || !content) return;
+        const t = DATA.translations[DATA.lang];
+        content.innerHTML = `
+            <button class="close-modal" onclick="app.closeModal(event)" aria-label="Cerrar">&times;</button>
+            <span class="meta mono" style="color:var(--ink-muted); font-size:0.75rem; display:block; margin-bottom:1rem;">
+                <span style="color:var(--highlight)">${post.tag}</span> · ${app.fmtDate(post.date)} · ${post.read} ${t.min_read}
+            </span>
+            <h2 style="font-size:clamp(1.8rem,4vw,2.8rem); line-height:1.1; margin-bottom:1.6rem;">${post.title}</h2>
+            <div class="article-body">${post.body}</div>
+            <div style="margin-top:3rem; padding-top:1.5rem; border-top:var(--border);">
+                <span class="mono" style="color:var(--ink-muted); font-size:0.75rem;">Juan Sebastián Másmela · Director UX / AI Engineer</span>
+            </div>`;
+        app.showOverlay();
+        history.replaceState(null, '', `#post-${slug}`);
+        content.scrollTop = 0;
+        content.querySelector('.close-modal')?.focus();
+    },
+    openFromHash: () => {
+        if (location.hash.startsWith('#post-')) app.openPost(location.hash.slice(6));
+    },
+
+    /* ---------- motion engine ---------- */
+    observeReveals: () => {
+        if (!app._io) {
+            app._io = new IntersectionObserver((entries) => {
+                entries.forEach(en => {
+                    if (en.isIntersecting) {
+                        en.target.classList.add('in');
+                        en.target.querySelectorAll('.counter').forEach(app.animateCounter);
+                        app._io.unobserve(en.target);
+                    }
+                });
+            }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        }
+        document.querySelectorAll('.reveal:not(.in)').forEach(el => app._io.observe(el));
+    },
+    initMotion: () => {
+        app.renderKinetic();
+        app.observeReveals();
+        if (PREFERS_REDUCED) return;
+        const orbs = document.querySelectorAll('[data-speed]');
+        if (orbs.length) {
+            let ticking = false;
+            window.addEventListener('scroll', () => {
+                if (ticking) return;
+                ticking = true;
+                requestAnimationFrame(() => {
+                    const y = window.scrollY;
+                    orbs.forEach(o => { o.style.transform = `translateY(${y * parseFloat(o.dataset.speed)}px)`; });
+                    ticking = false;
+                });
+            }, { passive: true });
+        }
+    },
+
     renderAll: () => {
         const trans = DATA.translations[DATA.lang];
         document.querySelectorAll('[data-key]').forEach(el => {
@@ -567,11 +833,12 @@ const app = {
         app.renderStack();
         app.renderDesignOps();
         app.renderProcess();
+        app.renderStats();
+        app.renderBlog();
+        app.renderBlogTeaser();
         app.renderThemeBtn();
     }
 };
 
 document.addEventListener('DOMContentLoaded', app.init);
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') app.closeModal();
-});
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') app.closeModal(); });

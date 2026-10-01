@@ -4,34 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyectos | Juan Sebastián Másmela</title>
-    <meta name="description" content="Proyectos destacados de Juan Sebastián Másmela. Innovación en UX y Producto.">
+    <meta name="description" content="Proyectos de Juan Sebastián Másmela: Faro Emergency y el portal de la Cruz Roja Santander en producción, más trabajo para AB InBev, Retorna y Éxito.">
+    <link rel="canonical" href="https://eva2080ai.github.io/Portafoliobotsebastian/projects.html">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230A0A0A'/%3E%3Ctext x='32' y='44' font-family='Arial Black,sans-serif' font-size='34' font-weight='900' fill='%233385FF' text-anchor='middle'%3EM.%3C/text%3E%3C/svg%3E">
+    <script>try{document.documentElement.setAttribute('data-theme',localStorage.getItem('portfolio-theme')||'light')}catch(e){}</script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<div id="modal-overlay" class="modal-overlay" onclick="app.closeModal(event)" role="dialog" aria-modal="true">
+    <div class="modal-content" id="modal-content"></div>
+</div>
+
 <div class="mobile-bar">
     <a href="index.html" style="font-size:1.2rem; font-weight:900; color:var(--ink);">MÁSMELA.</a>
-    <div class="hamburger" onclick="app.toggleMenu()" style="color:var(--ink);"><i class="fas fa-bars" id="menu-icon"></i></div>
+    <button class="hamburger" onclick="app.toggleMenu()" aria-label="Menú" aria-expanded="false"><i class="fas fa-bars" id="menu-icon"></i></button>
 </div>
 
 <div class="layout">
     <aside class="sidebar" id="main-sidebar">
         <div>
-            <div class="sidebar-logo-area" style="margin-bottom: 3rem;">
+            <div class="sidebar-logo-area" style="margin-bottom: 2.5rem;">
                 <div style="display:flex; align-items:center; gap:1rem; margin-bottom:1rem;">
-                    <img src="foto.jpg" alt="Profile" style="width:45px; height:45px; border-radius:50%; object-fit:cover; border:2px solid var(--highlight);">
-                    <a href="index.html" style="font-size:1.3rem; font-weight:900; color:var(--ink); display:block; line-height:1.1;">JUAN SEBASTIÁN<br>MÁSMELA.</a>
+                    <img src="foto.jpg" alt="Juan Sebastián Másmela" style="width:45px; height:45px; border-radius:50%; object-fit:cover; border:2px solid var(--highlight);">
+                    <a href="index.html" style="font-size:1.25rem; font-weight:900; display:block; line-height:1.1;">JUAN SEBASTIÁN<br>MÁSMELA.</a>
                 </div>
-                <span class="mono" style="color:var(--highlight); display:block; font-size:0.75rem;">Director UX / AI Engineer · Creador de FARO</span>
+                <span class="mono" style="color:var(--highlight); display:block; font-size:0.72rem;">Director UX / AI Engineer · Creador de FARO</span>
             </div>
             <nav class="nav-menu" aria-label="Navegación principal">
                 <a href="index.html" class="nav-link" data-key="nav_profile">01. Perfil</a>
                 <a href="methodology.html" class="nav-link" data-key="nav_method">02. Método AI-DLC</a>
                 <a href="experience.html" class="nav-link" data-key="nav_exp">03. Trayectoria</a>
                 <a href="projects.html" class="nav-link active" data-key="nav_work">04. Proyectos</a>
-                <a href="index.html#contact" class="nav-link" data-key="nav_contact">05. Contacto</a>
+                <a href="blog.html" class="nav-link" data-key="nav_blog">05. Blog</a>
+                <a href="index.html#contact" class="nav-link" data-key="nav_contact">06. Contacto</a>
             </nav>
         </div>
 
@@ -39,33 +47,43 @@
             <button id="theme-toggle-btn" class="theme-toggle" onclick="app.toggleTheme()" aria-label="Cambiar tema">
                 <i class="fas fa-sun"></i> <span>Modo Claro</span>
             </button>
-            <div class="mono" style="font-size:0.75rem; margin-top:2rem;">
-                <div style="margin-bottom: 1rem; border-top: 1px solid var(--border); padding-top: 1.5rem;">
-                    <a href="javascript:void(0)" onclick="app.setLang('es')" id="btn-es" class="lang-btn font-bold">ES</a> 
-                    <span style="color:var(--ink-muted)">|</span> 
-                    <a href="javascript:void(0)" onclick="app.setLang('en')" id="btn-en" class="lang-btn">EN</a>
+            <div class="sidebar-contact mono" style="font-size:0.75rem; margin-top:1.5rem;">
+                <div class="lang-switch">
+                    <button onclick="app.setLang('es')" id="btn-es" class="lang-btn active">ES</button>
+                    <button onclick="app.setLang('en')" id="btn-en" class="lang-btn">EN</button>
                 </div>
-                <a href="mailto:sebastian689@gmail.com" style="text-decoration:underline; color:var(--ink-light);">sebastian689@gmail.com</a>
-                <div style="margin-top: 1rem; font-size: 0.75rem; color: var(--ink-muted);">
-                    <i class="fas fa-phone"></i> +57 319 411 6820<br>
-                    <a href="https://drive.google.com/file/d/1Q8ClWUE0khV4QvuISBX8_byuvyQdqs0I/view" target="_blank" style="text-decoration:underline; color:var(--ink-muted);">Portfolio PDF ↗</a>
-                </div>
+                <a href="mailto:sebastian689@gmail.com">sebastian689@gmail.com</a><br>
+                <a href="tel:+573194116820">+57 319 411 6820</a>
             </div>
         </div>
     </aside>
 
     <main>
         <section id="projects">
-            <span class="mono" style="color:var(--highlight)">[ SHOWCASE ]</span>
-            <h1 class="txt-huge" style="margin-top:1rem;" data-key="title_proj">Proyectos</h1>
-            <p class="txt-lead" data-key="desc_proj" style="margin-bottom:5rem;"></p>
-            
-            <div id="projects-grid" class="grid-projects"></div>
-
-            <div style="margin-top: 6rem; text-align: center;">
-                <a href="https://behance.net/masmela" target="_blank" class="btn-brutalist" style="background:var(--highlight); color:white;" data-key="btn_more">Ver Behance ↗</a>
+            <div class="orb" data-speed="-0.08" style="width:420px; height:420px; top:-100px; left:30%;" aria-hidden="true"></div>
+            <div style="position:relative; z-index:1;">
+                <span class="eyebrow">Showcase</span>
+                <h1 class="txt-huge" style="margin-top:1rem;" data-key="title_proj">Proyectos</h1>
+                <p class="txt-lead" data-key="desc_proj" style="margin-bottom:4rem;"></p>
+                <div id="projects-grid" class="grid-projects"></div>
+                <div class="reveal" style="margin-top: 5rem; text-align: center;">
+                    <a href="https://behance.net/masmela" target="_blank" rel="noopener" class="btn-brutalist" style="background:var(--highlight-deep); border-color:var(--highlight-deep); color:white;" data-key="btn_more">Ver Behance ↗</a>
+                </div>
             </div>
         </section>
+
+        <footer class="footer-cta">
+            <div style="max-width: 800px;">
+                <h2 data-key="footer_chat" class="reveal">¿Escalamos?</h2>
+                <div class="reveal" style="--d:120ms;">
+                    <a href="mailto:sebastian689@gmail.com" class="mail">sebastian689@gmail.com</a>
+                </div>
+                <div class="footer-note">
+                    <span>© 2026 Juan Sebastián Másmela</span>
+                    <span>Bogotá, Colombia</span>
+                </div>
+            </div>
+        </footer>
     </main>
 </div>
 
