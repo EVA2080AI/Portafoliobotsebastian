@@ -134,13 +134,13 @@ const DATA = {
             },
             {
                 period: "2026", role: "Docente — IA para la Gerencia", company: "Pontificia Universidad Javeriana · Especializaciones en Administración",
-                desc: "Diseño y dictado de un curso de 18 horas en cuatro sesiones para 26 estudiantes de cinco especializaciones de la Facultad de Ciencias Económicas y Administrativas: IA para investigar, analizar datos y decidir.",
+                desc: "Diseño y dictado de un curso de 18 horas en cuatro sesiones para 26 participantes de cuatro especializaciones de la Facultad de Ciencias Económicas y Administrativas: IA para investigar, analizar datos y decidir.",
                 details: [
                     "Módulo 1 · Trabajar con IA como profesional de negocios: cómo darle a los modelos contexto, instrucciones, criterios y entregables, aplicado a una tarea real de cada participante.",
                     "Módulo 2 · Investigación y estrategia: caso propio de 13 páginas (Raíces Andinas Snacks, empresa ficticia que evalúa entrar a México) resuelto por mesas de especialización.",
                     "Módulo 3 · Datos y decisión: una base de datos por especialización para producir indicadores, visualizaciones y una recomendación con sus supuestos.",
                     "Módulo 4 · Decisión ejecutiva: recomendación de una página para la junta, riesgos, sesgos y juicio humano; cada participante construyó, probó y entregó su propio agente de IA con su ficha técnica.",
-                    "Talleres por mesas —Finanzas, Marketing, Talento Humano, Innovación y Negocios Internacionales— y materiales propios: guías de taller, guía del facilitador y biblioteca de 42 prompts por módulo y especialización."
+                    "Talleres por mesas —Gerencia Financiera, Marketing Estratégico, Gerencia Estratégica de la Innovación y Gerencia del Talento Humano— y materiales propios: guías de taller, guía del facilitador y biblioteca de 42 prompts por módulo y especialización."
                 ]
             },
             {
@@ -262,13 +262,13 @@ const DATA = {
             },
             {
                 period: "2026", role: "Lecturer — AI for Management", company: "Pontificia Universidad Javeriana · Graduate Specializations in Management",
-                desc: "Designed and taught an 18-hour, four-session course for 26 students from five graduate specializations at the School of Economics and Business: AI to research, analyze data and decide.",
+                desc: "Designed and taught an 18-hour, four-session course for 26 participants from four graduate specializations at the School of Economics and Business: AI to research, analyze data and decide.",
                 details: [
                     "Module 1 · Working with AI as a business professional: giving models context, instructions, criteria and deliverables, applied to each participant's real task.",
                     "Module 2 · Research and strategy: an original 13-page case (Raíces Andinas Snacks, a fictitious company assessing entry into Mexico) solved by specialization tables.",
                     "Module 3 · Data and decisions: one dataset per specialization to produce indicators, visualizations and a recommendation with its assumptions.",
                     "Module 4 · Executive decisions: a one-page board recommendation, risks, bias and human judgment; every participant built, tested and delivered their own AI agent with its one-page spec.",
-                    "Workshops by tables —Finance, Marketing, Talent Management, Innovation and International Business— and original materials: workshop guides, facilitator guide and a 42-prompt library by module and specialization."
+                    "Workshops by tables —Financial Management, Strategic Marketing, Strategic Innovation Management and Talent Management— and original materials: workshop guides, facilitator guide and a 42-prompt library by module and specialization."
                 ]
             },
             {
