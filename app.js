@@ -96,8 +96,8 @@ const DATA = {
     },
     personas: {
         recruiter: {
-            es: "Director UX / AI Engineer con +10 años liderando ecosistemas digitales masivos en AB InBev, Colsubsidio y la Cruz Roja Colombiana. Creador de FARO (ERP y plataforma de gestión de emergencias de la Cruz Roja) e instructor de IA aplicada (Universidad EAN · Universidad Piloto), escalando productos mediante IA Agéntica, Multi-agentes y Cloud con un enfoque radical en ROI.",
-            en: "UX Director / AI Engineer with 10+ years leading massive digital ecosystems at AB InBev, Colsubsidio and the Colombian Red Cross. Creator of FARO (the Red Cross ERP and emergency management platform) and Applied AI instructor (Universidad EAN · Universidad Piloto), scaling products through Agentic AI, Multi-agent architectures, and Cloud with a radical focus on ROI.",
+            es: "Director UX / AI Engineer con +10 años liderando ecosistemas digitales masivos en AB InBev, Colsubsidio y la Cruz Roja Colombiana. Creador de FARO (ERP y plataforma de gestión de emergencias de la Cruz Roja) e instructor de IA aplicada (Universidad EAN · Pontificia Universidad Javeriana · Universidad Piloto), escalando productos mediante IA Agéntica, Multi-agentes y Cloud con un enfoque radical en ROI.",
+            en: "UX Director / AI Engineer with 10+ years leading massive digital ecosystems at AB InBev, Colsubsidio and the Colombian Red Cross. Creator of FARO (the Red Cross ERP and emergency management platform) and Applied AI instructor (Universidad EAN · Pontificia Universidad Javeriana · Universidad Piloto), scaling products through Agentic AI, Multi-agent architectures, and Cloud with a radical focus on ROI.",
         },
         designer: {
             es: "UX Engineer especializado en escalabilidad y Design Systems robustos (WCAG). Mi metodología AI-DLC fusiona investigación conductual con automatización multi-agente, permitiendo que la intención de diseño sea código real en tiempo récord.",
@@ -118,6 +118,29 @@ const DATA = {
                     "Faro Management: ERP de 118 módulos en 14 áreas funcionales — logística FEFO, compras con aprobaciones, ingeniería biomédica, talento humano, ISO 9001/14001/45001, SARLAFT e intranet con firma electrónica.",
                     "Amparo: servicio de teleasistencia para personas mayores con planes de suscripción, pagos recurrentes y UX amigable con la edad.",
                     "Portal institucional (cruzrojasantander.org): 22 páginas conectadas al ERP — donaciones, Tienda Humanitaria con pasarela de pagos y asistente de IA con datos en vivo del sistema."
+                ]
+            },
+            {
+                period: "2026", role: "Docente — IA Especializada: Jurídica, Auditoría y Control", company: "Universidad EAN · Educación Continua para Colpensiones",
+                desc: "Diseño y dictado de un programa de 10 horas en cinco sesiones para Colpensiones: IA aplicada al trabajo jurídico, la auditoría y el control interno en una entidad pública. Cada sesión combina explicación, demostración en vivo y taller por equipos con datos ficticios.",
+                details: [
+                    "Sesión 1 · Fundamentos y control interno: cómo produce sus respuestas un modelo de lenguaje, por qué puede inventar con seguridad y en qué tareas aporta; taller «Banderas rojas» que compara la detección de anomalías con y sin IA.",
+                    "Sesión 2 · Análisis normativo y jurisprudencial: trabajo sobre fuentes oficiales (SUIN-Juriscol, Función Pública y relatorías de las altas cortes), fichas y líneas jurisprudenciales, y un semáforo para verificar cada cita antes de usarla.",
+                    "Sesión 3 · Redacción jurídica asistida: anatomía del prompt jurídico, flujo de seis pasos que empieza por anonimizar y plantillas reutilizables para derechos de petición, conceptos, actos administrativos y escritos judiciales.",
+                    "Sesión 4 · Auditoría y validación: seis errores típicos de la IA, cinco preguntas de validación, revisión proporcional al riesgo y taller «Audite a la IA» para encontrar errores sembrados en un borrador.",
+                    "Sesión 5 · Ética y riesgos legales: marco colombiano (Ley 1581 de 2012, Ley 1712 de 2014, Circular 002 de 2024 de la SIC, Sentencia T-323 de 2024 y CONPES 4144), semáforo de datos que no se comparten y taller integrador en el que cada equipo construye su protocolo de uso responsable.",
+                    "Materiales propios para cada sesión: presentación, toolkit, hojas de trabajo (tabla de hallazgos, semáforo de citas, bitácora de validación) y biblioteca de prompts jurídicos."
+                ]
+            },
+            {
+                period: "2026", role: "Docente — IA para la Gerencia", company: "Pontificia Universidad Javeriana · Especializaciones en Administración",
+                desc: "Diseño y dictado de un curso de 18 horas en cuatro sesiones para 26 estudiantes de cinco especializaciones de la Facultad de Ciencias Económicas y Administrativas: IA para investigar, analizar datos y decidir.",
+                details: [
+                    "Módulo 1 · Trabajar con IA como profesional de negocios: cómo darle a los modelos contexto, instrucciones, criterios y entregables, aplicado a una tarea real de cada participante.",
+                    "Módulo 2 · Investigación y estrategia: caso propio de 13 páginas (Raíces Andinas Snacks, empresa ficticia que evalúa entrar a México) resuelto por mesas de especialización.",
+                    "Módulo 3 · Datos y decisión: una base de datos por especialización para producir indicadores, visualizaciones y una recomendación con sus supuestos.",
+                    "Módulo 4 · Decisión ejecutiva: recomendación de una página para la junta, riesgos, sesgos y juicio humano; cada participante construyó, probó y entregó su propio agente de IA con su ficha técnica.",
+                    "Talleres por mesas —Finanzas, Marketing, Talento Humano, Innovación y Negocios Internacionales— y materiales propios: guías de taller, guía del facilitador y biblioteca de 42 prompts por módulo y especialización."
                 ]
             },
             {
@@ -223,6 +246,29 @@ const DATA = {
                     "Faro Management: 118-module ERP across 14 functional areas — FEFO logistics, purchasing with approval workflows, biomedical engineering, HR, ISO 9001/14001/45001, SARLAFT and an intranet with electronic signature.",
                     "Amparo: tele-assistance service for older adults with subscription plans, recurring billing and age-friendly UX.",
                     "Institutional portal (cruzrojasantander.org): 22 pages connected to the ERP — donations, Humanitarian Store with payment gateway and an AI assistant answering with live system data."
+                ]
+            },
+            {
+                period: "2026", role: "Lecturer — Specialized AI: Legal, Audit and Control", company: "EAN University · Continuing Education for Colpensiones",
+                desc: "Designed and taught a 10-hour, five-session program for Colpensiones: AI applied to legal work, auditing and internal control in a public institution. Each session combines a short lecture, a live demo and a team workshop with fictitious data.",
+                details: [
+                    "Session 1 · Fundamentals and internal control: how a language model produces its answers, why it can confidently make things up and where it adds value; «Red flags» workshop comparing anomaly detection with and without AI.",
+                    "Session 2 · Regulatory and case-law analysis: working from official sources (SUIN-Juriscol, the Civil Service Department and the high courts' case-law offices), case briefs and case-law lines, and a traffic-light check for every citation before it is used.",
+                    "Session 3 · AI-assisted legal drafting: anatomy of a legal prompt, a six-step workflow that starts with anonymization, and reusable templates for citizen petitions, legal opinions, administrative decisions and court filings.",
+                    "Session 4 · Auditing and validation: six typical AI errors, five validation questions, risk-proportional review and an «Audit the AI» workshop to find errors planted in a draft.",
+                    "Session 5 · Ethics and legal risk: the Colombian framework (Law 1581 of 2012, Law 1712 of 2014, SIC External Circular 002 of 2024, Ruling T-323 of 2024 and CONPES 4144), a data traffic light for what must never be shared, and a capstone where each team builds its responsible-use protocol.",
+                    "Original materials for every session: slides, toolkit, worksheets (findings table, citation traffic light, validation log) and a legal prompt library."
+                ]
+            },
+            {
+                period: "2026", role: "Lecturer — AI for Management", company: "Pontificia Universidad Javeriana · Graduate Specializations in Management",
+                desc: "Designed and taught an 18-hour, four-session course for 26 students from five graduate specializations at the School of Economics and Business: AI to research, analyze data and decide.",
+                details: [
+                    "Module 1 · Working with AI as a business professional: giving models context, instructions, criteria and deliverables, applied to each participant's real task.",
+                    "Module 2 · Research and strategy: an original 13-page case (Raíces Andinas Snacks, a fictitious company assessing entry into Mexico) solved by specialization tables.",
+                    "Module 3 · Data and decisions: one dataset per specialization to produce indicators, visualizations and a recommendation with its assumptions.",
+                    "Module 4 · Executive decisions: a one-page board recommendation, risks, bias and human judgment; every participant built, tested and delivered their own AI agent with its one-page spec.",
+                    "Workshops by tables —Finance, Marketing, Talent Management, Innovation and International Business— and original materials: workshop guides, facilitator guide and a 42-prompt library by module and specialization."
                 ]
             },
             {
